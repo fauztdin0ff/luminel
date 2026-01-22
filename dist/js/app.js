@@ -555,23 +555,28 @@ function initHeroSlider() {
 /*==========================================================================
 Observer Animation and preloader
 ============================================================================*/
-window.addEventListener('load', () => {
-   const loader = document.querySelector('.page-loader');
+window.addEventListener("load", () => {
+   const loader = document.querySelector(".preloader");
+   const logoGold = document.querySelector(".preloader__logo-gold");
 
-   if (loader) {
-      loader.classList.add('hide');
+   if (loader && logoGold) {
 
-      const DURATION = 100;
+      logoGold.style.transition = "max-width 0.5s linear";
+      logoGold.style.animation = "none";
+      logoGold.style.maxWidth = "100%";
+
       setTimeout(() => {
          loader.remove();
          initObserver();
          initHeroSlider();
-      }, DURATION);
+      }, 500);
    } else {
       initObserver();
       initHeroSlider();
    }
 });
+
+
 
 function initObserver() {
    const elements = document.querySelectorAll('.element-animation');
