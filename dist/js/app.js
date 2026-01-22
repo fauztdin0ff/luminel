@@ -304,7 +304,7 @@ window.addEventListener('load', () => {
    if (loader) {
       loader.classList.add('hide');
 
-      const DURATION = 400;
+      const DURATION = 100;
       setTimeout(() => {
          loader.remove();
          initObserver();

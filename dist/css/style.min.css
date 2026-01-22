@@ -1522,6 +1522,10 @@ Hero
   height: 100%;
   object-fit: cover;
 }
+.hero__slide video {
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
 .hero__slide img {
   transition: all 2s linear;
   transform: scale(1);
