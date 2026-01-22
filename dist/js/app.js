@@ -576,14 +576,12 @@ window.addEventListener("load", () => {
    }
 });
 
-
-
 function initObserver() {
    const elements = document.querySelectorAll('.element-animation');
    if (!elements.length) return;
 
    const observer = new IntersectionObserver(onEntry, {
-      threshold: 0.4
+      threshold: 0.2
    });
 
    elements.forEach(el => observer.observe(el));
@@ -598,6 +596,196 @@ function onEntry(entries) {
 }
 
 /*==========================================================================
+Home catalog slider
+============================================================================*/
+let catSwiper = null;
+const MOBILE_BREAKPOINT = 767;
+
+function initCatSlider() {
+   const catSlider = document.querySelector('.categories__slider');
+   if (!catSlider) return;
+
+   if (window.innerWidth <= MOBILE_BREAKPOINT && !catSwiper) {
+      catSwiper = new Swiper(catSlider, {
+         slidesPerView: 'auto',
+         loop: true,
+         speed: 1000,
+         spaceBetween: 8,
+         pagination: {
+            el: '.categories__pagination',
+            clickable: true,
+         },
+         navigation: {
+            prevEl: '.categories__slider-prev',
+            nextEl: '.categories__slider-next',
+         }
+      });
+   }
+
+   if (window.innerWidth > MOBILE_BREAKPOINT && catSwiper) {
+      catSwiper.destroy(true, true);
+      catSwiper = null;
+   }
+}
+
+window.addEventListener('resize', initCatSlider);
+
+/*==========================================================================
+Video
+============================================================================*/
+function initScrollVideo(options) {
+   const {
+      canvasSelector,
+      containerSelector,
+      frameCountAttr = "data-count",
+      framesPathAttr = "data-frames",
+      width = 1366,
+      height = 768,
+   } = options;
+
+   const canvases = document.querySelectorAll(canvasSelector);
+
+   if (!canvases.length) return;
+
+   canvases.forEach((canvas) => {
+      const container = canvas.closest(containerSelector);
+      if (!container) return;
+
+      const frameCount = Number(canvas.getAttribute(frameCountAttr));
+      const framesPath = canvas.getAttribute(framesPathAttr);
+
+      if (!frameCount || !framesPath) return;
+
+      const ctx = canvas.getContext("2d");
+      if (!ctx) return;
+
+      canvas.width = width;
+      canvas.height = height;
+
+      const images = [];
+      const state = { frame: 0 };
+
+      // preload
+      for (let i = 1; i <= frameCount; i++) {
+         const img = new Image();
+         img.src = `${framesPath}/frame_${String(i).padStart(4, "0")}.jpg`;
+         images.push(img);
+      }
+
+      function render() {
+         const img = images[state.frame];
+         if (!img || !img.complete) return;
+         ctx.clearRect(0, 0, canvas.width, canvas.height);
+         ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+      }
+
+      if (images[0]) images[0].onload = render;
+
+      const scrollStart = container.offsetTop;
+      const scrollEnd = scrollStart + container.offsetHeight;
+
+      window.addEventListener("scroll", () => {
+         const scrollY = window.scrollY;
+
+         if (scrollY < scrollStart) return;
+         if (scrollY > scrollEnd) return;
+
+         const progress = (scrollY - scrollStart) / (scrollEnd - scrollStart);
+         const frameIndex = Math.min(
+            frameCount - 1,
+            Math.floor(progress * frameCount)
+         );
+
+         state.frame = frameIndex;
+         render();
+      });
+   });
+}
+
+initScrollVideo({
+   canvasSelector: ".video-canvas",
+   containerSelector: ".video-wrapper"
+});
+
+/*==========================================================================
+Products slider
+============================================================================*/
+function initProductsCarousel() {
+   const sliders = document.querySelectorAll('.carousel');
+
+   if (!sliders.length) return;
+
+   sliders.forEach((carousel) => {
+      const sliderEl = carousel.querySelector('.carousel__slider');
+      const paginationEl = carousel.querySelector('.carousel__slider-pagination');
+      const prevEl = carousel.querySelector('.carousel__slider-prev');
+      const nextEl = carousel.querySelector('.carousel__slider-next');
+
+      if (!sliderEl) return;
+
+      new Swiper(sliderEl, {
+         slidesPerView: 4,
+         loop: false,
+         spaceBetween: 8,
+         pagination: {
+            el: paginationEl,
+            clickable: true,
+         },
+         speed: 800,
+         navigation: {
+            prevEl,
+            nextEl,
+         },
+         breakpoints: {
+            320: {
+               slidesPerView: 1,
+            },
+            600: {
+               slidesPerView: 2,
+            },
+            900: {
+               slidesPerView: 3,
+            },
+            1200: {
+               slidesPerView: 4,
+            }
+         }
+      });
+   });
+}
+
+/*==========================================================================
+Product preview slider
+============================================================================*/
+function initProductPreviewSliders() {
+   const productSliders = document.querySelectorAll('.product-preview__slider');
+
+   if (!productSliders.length) return;
+
+   productSliders.forEach((sliderEl) => {
+
+      if (sliderEl.dataset.swiperInited) return;
+
+      const productCard = sliderEl.closest('.product-preview');
+      const paginationEl = productCard.querySelector('.product-preview__pagination');
+
+      new Swiper(sliderEl, {
+         slidesPerView: 1,
+         loop: true,
+         speed: 800,
+         spaceBetween: 8,
+         pagination: {
+            el: paginationEl,
+            clickable: true,
+         },
+         nested: true,
+      });
+
+      sliderEl.dataset.swiperInited = "true";
+   });
+}
+
+/*==========================================================================
 init
 ============================================================================*/
 document.addEventListener('DOMContentLoaded', () => {
@@ -606,6 +794,9 @@ document.addEventListener('DOMContentLoaded', () => {
    initHeaderSearch();
    initHeaderContacts();
    initHeaderLogoVisible();
+   initCatSlider();
+   initProductsCarousel();
+   initProductPreviewSliders();
 });
 
 })();
