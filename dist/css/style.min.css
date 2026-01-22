@@ -1353,7 +1353,7 @@ Hero
   margin-bottom: 2.5rem;
 }
 .hero__logo.element-animation {
-  transition: all 2.8s var(--cubic-bezier);
+  transition: all 2.8s var(--cubic-bezier) 0.6s;
   transform: translateY(20px);
   opacity: 0;
 }
@@ -1413,7 +1413,7 @@ Hero
   animation: glow 10s infinite;
 }
 .hero__slogan.element-animation {
-  transition: all 2.8s var(--cubic-bezier) 0.4s;
+  transition: all 2.8s var(--cubic-bezier) 1s;
   transform: translateY(20px);
   opacity: 0;
 }
