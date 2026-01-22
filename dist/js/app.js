@@ -295,44 +295,6 @@ _modules_functions_js__WEBPACK_IMPORTED_MODULE_0__.burgerMenu();
 _modules_functions_js__WEBPACK_IMPORTED_MODULE_0__.popups();
 _modules_functions_js__WEBPACK_IMPORTED_MODULE_0__.phoneMask();
 
-/*==========================================================================
-Observer Animation
-============================================================================*/
-window.addEventListener('load', () => {
-   const loader = document.querySelector('.page-loader');
-
-   if (loader) {
-      loader.classList.add('hide');
-
-      const DURATION = 100;
-      setTimeout(() => {
-         loader.remove();
-         initObserver();
-      }, DURATION);
-   } else {
-      initObserver();
-   }
-});
-
-function initObserver() {
-   const elements = document.querySelectorAll('.element-animation');
-   if (!elements.length) return;
-
-   const observer = new IntersectionObserver(onEntry, {
-      threshold: 0.4
-   });
-
-   elements.forEach(el => observer.observe(el));
-}
-
-function onEntry(entries) {
-   entries.forEach(entry => {
-      if (entry.isIntersecting) {
-         entry.target.classList.add('element-show');
-      }
-   });
-}
-
 
 /*==========================================================================
 Header catalog
@@ -591,6 +553,46 @@ function initHeroSlider() {
 
 
 /*==========================================================================
+Observer Animation and preloader
+============================================================================*/
+window.addEventListener('load', () => {
+   const loader = document.querySelector('.page-loader');
+
+   if (loader) {
+      loader.classList.add('hide');
+
+      const DURATION = 100;
+      setTimeout(() => {
+         loader.remove();
+         initObserver();
+         initHeroSlider();
+      }, DURATION);
+   } else {
+      initObserver();
+      initHeroSlider();
+   }
+});
+
+function initObserver() {
+   const elements = document.querySelectorAll('.element-animation');
+   if (!elements.length) return;
+
+   const observer = new IntersectionObserver(onEntry, {
+      threshold: 0.4
+   });
+
+   elements.forEach(el => observer.observe(el));
+}
+
+function onEntry(entries) {
+   entries.forEach(entry => {
+      if (entry.isIntersecting) {
+         entry.target.classList.add('element-show');
+      }
+   });
+}
+
+/*==========================================================================
 init
 ============================================================================*/
 document.addEventListener('DOMContentLoaded', () => {
@@ -599,7 +601,6 @@ document.addEventListener('DOMContentLoaded', () => {
    initHeaderSearch();
    initHeaderContacts();
    initHeaderLogoVisible();
-   initHeroSlider();
 });
 
 })();
