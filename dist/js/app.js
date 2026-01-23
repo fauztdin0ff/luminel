@@ -641,10 +641,10 @@ function initScrollVideo(options) {
       framesPathAttr = "data-frames",
       width = 1366,
       height = 768,
+      startOffset = 0.9, // 10% снизу
    } = options;
 
    const canvases = document.querySelectorAll(canvasSelector);
-
    if (!canvases.length) return;
 
    canvases.forEach((canvas) => {
@@ -653,7 +653,6 @@ function initScrollVideo(options) {
 
       const frameCount = Number(canvas.getAttribute(frameCountAttr));
       const framesPath = canvas.getAttribute(framesPathAttr);
-
       if (!frameCount || !framesPath) return;
 
       const ctx = canvas.getContext("2d");
@@ -665,12 +664,13 @@ function initScrollVideo(options) {
       const images = [];
       const state = { frame: 0 };
 
-      // preload
       for (let i = 1; i <= frameCount; i++) {
          const img = new Image();
          img.src = `${framesPath}/frame_${String(i).padStart(4, "0")}.jpg`;
          images.push(img);
       }
+
+      if (images[0]) images[0].onload = render;
 
       function render() {
          const img = images[state.frame];
@@ -679,33 +679,35 @@ function initScrollVideo(options) {
          ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
       }
 
-      if (images[0]) images[0].onload = render;
+      function onScroll() {
+         const rect = container.getBoundingClientRect();
+         const vh = window.innerHeight;
 
-      const scrollStart = container.offsetTop;
-      const scrollEnd = scrollStart + container.offsetHeight;
+         const scrollStart = rect.top - vh * startOffset;
+         const scrollEnd = scrollStart + container.offsetHeight;
 
-      window.addEventListener("scroll", () => {
-         const scrollY = window.scrollY;
+         if (scrollStart > 0 || scrollEnd < 0) return;
 
-         if (scrollY < scrollStart) return;
-         if (scrollY > scrollEnd) return;
-
-         const progress = (scrollY - scrollStart) / (scrollEnd - scrollStart);
-         const frameIndex = Math.min(
-            frameCount - 1,
-            Math.floor(progress * frameCount)
+         const progress = Math.min(
+            1,
+            Math.max(0, -scrollStart / (scrollEnd - scrollStart))
          );
 
-         state.frame = frameIndex;
+         state.frame = Math.floor(progress * (frameCount - 1));
          render();
-      });
+      }
+
+      window.addEventListener("scroll", onScroll);
+      onScroll();
    });
 }
 
 initScrollVideo({
    canvasSelector: ".video-canvas",
-   containerSelector: ".video-wrapper"
+   containerSelector: ".video-wrapper",
+   startOffset: 0.9
 });
+
 
 /*==========================================================================
 Products slider
@@ -773,7 +775,7 @@ function initProductPreviewSliders() {
          slidesPerView: 1,
          loop: true,
          speed: 800,
-         spaceBetween: 8,
+         spaceBetween: 20,
          pagination: {
             el: paginationEl,
             clickable: true,
@@ -783,6 +785,186 @@ function initProductPreviewSliders() {
 
       sliderEl.dataset.swiperInited = "true";
    });
+}
+
+/*==========================================================================
+Review hide text
+============================================================================*/
+function initReviewsLogic() {
+   const reviews = document.querySelectorAll('.reviews__slide');
+
+   reviews.forEach(review => {
+      const textWrapper = review.querySelector('.reviews__text-wrapper');
+      const toggleBtn = review.querySelector('.reviews__text-toggle');
+
+      if (!textWrapper || !toggleBtn || toggleBtn.dataset.inited) return;
+
+      const MAX_HEIGHT = 120;
+      const fullHeight = textWrapper.scrollHeight;
+
+      if (fullHeight > MAX_HEIGHT) {
+         textWrapper.style.setProperty('--max-height', MAX_HEIGHT + 'px');
+         textWrapper.style.setProperty('--full-height', fullHeight + 'px');
+
+         textWrapper.classList.add('is-collapsed');
+         toggleBtn.style.display = 'block';
+
+         toggleBtn.addEventListener('click', () => {
+            const isOpen = textWrapper.classList.toggle('is-open');
+
+            toggleBtn.textContent = isOpen
+               ? 'Скрыть'
+               : 'Читать полностью';
+         });
+
+         toggleBtn.dataset.inited = 'true';
+      } else {
+         toggleBtn.style.display = 'none';
+      }
+   });
+}
+
+
+/*==========================================================================
+Reviews slider
+============================================================================*/
+let reviewsSwiper = null;
+const reviewsMQ = window.matchMedia('(min-width: 600px)');
+
+function initReviewsSlider() {
+   const reviewsSlider = document.querySelector('.reviews__slider');
+   if (!reviewsSlider || reviewsSwiper) return;
+
+   reviewsSwiper = new Swiper(reviewsSlider, {
+      slidesPerView: 4,
+      loop: false,
+      spaceBetween: 20,
+      autoHeight: false,
+
+      pagination: {
+         el: '.reviews__pagination',
+         clickable: true,
+      },
+
+      navigation: {
+         prevEl: '.reviews__slider-prev',
+         nextEl: '.reviews__slider-next',
+      },
+
+      breakpoints: {
+         600: { slidesPerView: 2 },
+         900: { slidesPerView: 3 },
+         1200: { slidesPerView: 4 },
+      },
+
+      on: {
+         init() {
+            initReviewsLogic();
+         },
+         slideChange() {
+            initReviewsLogic();
+         }
+      }
+   });
+}
+
+function destroyReviewsSlider() {
+   if (!reviewsSwiper) return;
+
+   reviewsSwiper.destroy(true, true);
+   reviewsSwiper = null;
+}
+
+function handleReviewsSlider(e) {
+   if (e.matches) {
+      initReviewsSlider();
+   } else {
+      destroyReviewsSlider();
+      initReviewsLogic();
+   }
+}
+
+
+/*==========================================================================
+faq
+============================================================================*/
+function initFaqAccordion() {
+   const faqItems = document.querySelectorAll('.faq__item');
+   if (!faqItems.length) return;
+
+   faqItems.forEach(item => {
+      const question = item.querySelector('.faq__question');
+      const answer = item.querySelector('.faq__answer');
+
+      if (!question || !answer || item.dataset.inited) return;
+
+      question.addEventListener('click', () => {
+         const isActive = item.classList.contains('active');
+
+         faqItems.forEach(el => {
+            const elAnswer = el.querySelector('.faq__answer');
+            if (!elAnswer) return;
+
+            el.classList.remove('active');
+            elAnswer.style.maxHeight = null;
+         });
+
+         if (!isActive) {
+            item.classList.add('active');
+            answer.style.maxHeight = answer.scrollHeight + 'px';
+         }
+      });
+
+      item.dataset.inited = 'true';
+   });
+}
+
+
+/*==========================================================================
+Map
+============================================================================*/
+function loadYandexMap() {
+   if (window.ymaps) return;
+
+   var script = document.createElement("script");
+   script.src = "https://api-maps.yandex.ru/2.1/?lang=ru_RU";
+   script.onload = initMap;
+   document.body.appendChild(script);
+}
+
+function initMap() {
+   ymaps.ready(function () {
+      var mapCenter = [55.634034, 37.440236];
+      var myMap = new ymaps.Map('map', {
+         center: mapCenter,
+         zoom: 15,
+      });
+
+      var myPlacemark = new ymaps.Placemark(mapCenter, {
+         hintContent: '"Люменэль"',
+         balloonContent: 'Киевское шоссе, 22-й километр, 4, стр. 1, корп. А, район Солнцево, г. Москва'
+      });
+
+      myMap.behaviors.disable('scrollZoom');
+      myMap.controls.remove('searchControl');
+      myMap.controls.remove('fullscreenControl');
+      myMap.controls.remove('rulerControl');
+      myMap.geoObjects.add(myPlacemark);
+   });
+}
+
+const mapBlock = document.querySelector("#map");
+
+if (mapBlock) {
+   const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+         if (entry.isIntersecting) {
+            loadYandexMap();
+            obs.disconnect();
+         }
+      });
+   });
+   observer.observe(mapBlock);
 }
 
 /*==========================================================================
@@ -797,6 +979,10 @@ document.addEventListener('DOMContentLoaded', () => {
    initCatSlider();
    initProductsCarousel();
    initProductPreviewSliders();
+   initReviewsLogic();
+   handleReviewsSlider(reviewsMQ);
+   reviewsMQ.addEventListener('change', handleReviewsSlider);
+   initFaqAccordion();
 });
 
 })();
