@@ -295,6 +295,20 @@ _modules_functions_js__WEBPACK_IMPORTED_MODULE_0__.burgerMenu();
 _modules_functions_js__WEBPACK_IMPORTED_MODULE_0__.popups();
 _modules_functions_js__WEBPACK_IMPORTED_MODULE_0__.phoneMask();
 
+/*==========================================================================
+Lenis
+============================================================================*/
+const lenis = new Lenis({
+   lerp: 0.05,
+   wheelMultiplier: 0.8,
+});
+
+function raf(time) {
+   lenis.raf(time);
+   requestAnimationFrame(raf);
+}
+
+requestAnimationFrame(raf);
 
 /*==========================================================================
 Header catalog
