@@ -666,7 +666,7 @@ function initScrollVideo(options) {
 
       for (let i = 1; i <= frameCount; i++) {
          const img = new Image();
-         img.src = `${framesPath}/frame_${String(i).padStart(4, "0")}.jpg`;
+         img.src = `${framesPath}/frame_${String(i).padStart(4, "0")}.webp`;
          images.push(img);
       }
 
