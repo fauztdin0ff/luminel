@@ -655,7 +655,8 @@ function initScrollVideo(options) {
       framesPathAttr = "data-frames",
       width = 1366,
       height = 768,
-      startOffset = 0.9, // 10% снизу
+      startOffset = 0.9,
+      transitionDuration = 200
    } = options;
 
    const canvases = document.querySelectorAll(canvasSelector);
@@ -676,21 +677,50 @@ function initScrollVideo(options) {
       canvas.height = height;
 
       const images = [];
-      const state = { frame: 0 };
-
       for (let i = 1; i <= frameCount; i++) {
          const img = new Image();
          img.src = `${framesPath}/frame_${String(i).padStart(4, "0")}.webp`;
          images.push(img);
       }
 
-      if (images[0]) images[0].onload = render;
+      let targetFrame = 0;
+      let currentFrame = 0;
+      let startTime = null;
+      let isAnimating = false;
 
-      function render() {
-         const img = images[state.frame];
-         if (!img || !img.complete) return;
-         ctx.clearRect(0, 0, canvas.width, canvas.height);
-         ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+      function drawBlend(from, to, alpha) {
+         const imgFrom = images[from];
+         const imgTo = images[to];
+
+         if (!imgFrom || !imgFrom.complete) return;
+         if (!imgTo || !imgTo.complete) return;
+
+         ctx.clearRect(0, 0, width, height);
+
+         ctx.globalAlpha = 1;
+         ctx.drawImage(imgFrom, 0, 0, width, height);
+
+         ctx.globalAlpha = alpha;
+         ctx.drawImage(imgTo, 0, 0, width, height);
+
+         ctx.globalAlpha = 1;
+      }
+
+      function animate(time) {
+         if (!startTime) startTime = time;
+
+         const elapsed = time - startTime;
+         const alpha = Math.min(1, elapsed / transitionDuration);
+
+         drawBlend(currentFrame, targetFrame, alpha);
+
+         if (alpha < 1) {
+            requestAnimationFrame(animate);
+         } else {
+            currentFrame = targetFrame;
+            startTime = null;
+            isAnimating = false;
+         }
       }
 
       function onScroll() {
@@ -707,9 +737,21 @@ function initScrollVideo(options) {
             Math.max(0, -scrollStart / (scrollEnd - scrollStart))
          );
 
-         state.frame = Math.floor(progress * (frameCount - 1));
-         render();
+         const newFrame = Math.floor(progress * (frameCount - 1));
+
+         if (newFrame !== targetFrame) {
+            targetFrame = newFrame;
+
+            if (!isAnimating) {
+               isAnimating = true;
+               requestAnimationFrame(animate);
+            }
+         }
       }
+
+      images[0].onload = () => {
+         ctx.drawImage(images[0], 0, 0, width, height);
+      };
 
       window.addEventListener("scroll", onScroll);
       onScroll();
@@ -719,9 +761,9 @@ function initScrollVideo(options) {
 initScrollVideo({
    canvasSelector: ".video-canvas",
    containerSelector: ".video-wrapper",
-   startOffset: 0.9
+   startOffset: 0.9,
+   transitionDuration: 150
 });
-
 
 /*==========================================================================
 Products slider
