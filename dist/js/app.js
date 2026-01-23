@@ -896,7 +896,7 @@ function initReviewsSlider() {
       loop: false,
       spaceBetween: 20,
       autoHeight: false,
-
+      speed: 800,
       pagination: {
          el: '.reviews__pagination',
          clickable: true,
