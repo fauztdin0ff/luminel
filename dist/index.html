@@ -445,7 +445,8 @@
 
          <section class="advantages video-wrapper">
             <div class="advantages__body">
-               <canvas class="video-canvas" data-frames="img/frames1" data-count="30"></canvas>
+               <video class="video-source" src="files/video_canvas_2.mp4" muted playsinline preload="auto"></video>
+               <canvas class="video-canvas"></canvas>
             </div>
             <div class="advantages__wrapper container">
                <div class="advantages__cards">
@@ -906,6 +907,19 @@
                   <div class="carousel__slider-pagination slider-pagination"></div>
                </div>
             </div>
+            <svg width="1324" height="2518" viewBox="0 0 1324 2518" class="decore-line-1 element-animation" fill="none"
+               xmlns="http://www.w3.org/2000/svg">
+               <path
+                  d="M0.435303 -140.587C113.62 59.7769 272.371 132.8 670.792 207.764C1153.97 298.675 813.598 763.351 874.435 1019.98C972.935 1435.48 1325.26 1498.3 1485.08 1758.67C1644.89 2019.05 1698.9 1748.82 1748.07 2376.43"
+                  stroke="#DCCCBB" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" pathLength="1" />
+            </svg>
+
+            <svg width="1187" height="1978" viewBox="0 0 1187 1978" class="decore-line-2 element-animation" fill="none"
+               xmlns="http://www.w3.org/2000/svg">
+               <path
+                  d="M0.314941 -409.02C80.0159 -344.375 28.5862 69.6178 458.815 229.98C1039.47 446.41 408.815 773.979 806.815 1079.48C1024.12 1246.28 1428.24 1123.58 1659.31 1295.98C2139.23 1654.03 2210.26 1549.23 2200.31 1564.98"
+                  stroke="#DCCCBB" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" pathLength="1" />
+            </svg>
          </section>
 
          <section class="reviews">
@@ -1308,8 +1322,8 @@
             </div>
          </section>
 
-         <section class="contacts video-wrapper" id="contacts">
-            <div class="contacts__body container">
+         <section class="contacts" id="contacts">
+            <div class="contacts__body container video-wrapper">
                <h2 class="contacts__title section-title">Контакты</h2>
                <div class="contacts__links">
                   <a href="tel:+79164064467" class="contacts__link">+7 (916) 406-44-67</a>
@@ -1382,7 +1396,9 @@
                   <div id="map"></div>
                </div>
                <div class="contacts__image">
-                  <canvas class="video-canvas" data-frames="img/frames2" data-count="35"></canvas>
+                  <video class="video-source" src="files/video_canvas.mp4" muted playsinline preload="auto"></video>
+                  <canvas class="video-canvas"></canvas>
+
                   <span></span>
                </div>
             </div>
@@ -1554,6 +1570,12 @@
    </svg><svg fill="none" viewBox="0 0 12 12" id="icon-chevrone-double" xmlns="http://www.w3.org/2000/svg">
       <path d="m10.707 10.707-5-5.005 5-4.995M5.707 10.707l-5-5.005 5-4.995" stroke="currentColor"
          stroke-miterlimit="10" stroke-linecap="square" />
+   </svg><svg fill="none" viewBox="0 0 7 12" id="icon-chevron-left" xmlns="http://www.w3.org/2000/svg">
+      <path d="M5.70715 10.707L0.707153 5.70152L5.70715 0.707031" stroke="currentColor" stroke-miterlimit="10"
+         stroke-linecap="square" />
+   </svg><svg fill="none" viewBox="0 0 7 12" id="icon-chevron-right" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0.707152 0.707032L5.70715 5.71254L0.707153 10.707" stroke="currentColor" stroke-miterlimit="10"
+         stroke-linecap="square" />
    </svg><svg fill="none" viewBox="0 0 18 18" id="icon-close" xmlns="http://www.w3.org/2000/svg">
       <path
          d="M16.729.14a.818.818 0 0 1 1.133 1.134l-.105.127-7.598 7.596 7.598 7.598.105.127a.817.817 0 0 1-1.133 1.133l-.128-.105-7.598-7.597-7.597 7.597A.817.817 0 1 1 .25 16.595l7.597-7.598L.25 1.402l-.107-.128A.817.817 0 0 1 1.278.139l.128.107L9.003 7.84 16.6.246l.128-.107Z"

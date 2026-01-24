@@ -324,13 +324,13 @@ function initCatalogToggle() {
    const openCatalog = () => {
       button.classList.add(ACTIVE_CLASS);
       catalog.classList.add(ACTIVE_CLASS);
-      document.body.style.overflow = 'hidden';
+      lenis.stop();
    };
 
    const closeCatalog = () => {
       button.classList.remove(ACTIVE_CLASS);
       catalog.classList.remove(ACTIVE_CLASS);
-      document.body.style.overflow = '';
+      lenis.start();
    };
 
    const toggleCatalog = () => {
@@ -345,6 +345,12 @@ function initCatalogToggle() {
 
    catalog.addEventListener('click', (e) => {
       e.stopPropagation();
+   });
+
+   document.addEventListener('click', () => {
+      if (catalog.classList.contains(ACTIVE_CLASS)) {
+         closeCatalog();
+      }
    });
 }
 
@@ -647,7 +653,7 @@ window.addEventListener('resize', initCatSlider);
 /*==========================================================================
 Video
 ============================================================================*/
-function initScrollVideo(options) {
+/* function initScrollVideo(options) {
    const {
       canvasSelector,
       containerSelector,
@@ -656,7 +662,7 @@ function initScrollVideo(options) {
       width = 1366,
       height = 768,
       startOffset = 0.9,
-      transitionDuration = 200
+      preload = 10
    } = options;
 
    const canvases = document.querySelectorAll(canvasSelector);
@@ -671,56 +677,46 @@ function initScrollVideo(options) {
       if (!frameCount || !framesPath) return;
 
       const ctx = canvas.getContext("2d");
-      if (!ctx) return;
-
       canvas.width = width;
       canvas.height = height;
 
-      const images = [];
-      for (let i = 1; i <= frameCount; i++) {
+      const images = new Array(frameCount);
+      let state = { frame: 0 };
+      let pendingRender = false;
+      let isVisible = false;
+
+      // preload first few frames
+      const preloadFrame = (i) => {
+         if (i < 0 || i >= frameCount) return;
+         if (images[i]) return;
+
          const img = new Image();
-         img.src = `${framesPath}/frame_${String(i).padStart(4, "0")}.webp`;
-         images.push(img);
+         img.src = `${framesPath}/frame_${String(i + 1).padStart(4, "0")}.webp`;
+         images[i] = img;
+      };
+
+      for (let i = 0; i < Math.min(preload, frameCount); i++) {
+         preloadFrame(i);
       }
 
-      let targetFrame = 0;
-      let currentFrame = 0;
-      let startTime = null;
-      let isAnimating = false;
+      function render() {
+         pendingRender = false;
 
-      function drawBlend(from, to, alpha) {
-         const imgFrom = images[from];
-         const imgTo = images[to];
+         const img = images[state.frame];
+         if (!img || !img.complete) return;
 
-         if (!imgFrom || !imgFrom.complete) return;
-         if (!imgTo || !imgTo.complete) return;
+         ctx.clearRect(0, 0, canvas.width, canvas.height);
+         ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
 
-         ctx.clearRect(0, 0, width, height);
-
-         ctx.globalAlpha = 1;
-         ctx.drawImage(imgFrom, 0, 0, width, height);
-
-         ctx.globalAlpha = alpha;
-         ctx.drawImage(imgTo, 0, 0, width, height);
-
-         ctx.globalAlpha = 1;
+         preloadFrame(state.frame + 1);
+         preloadFrame(state.frame + 2);
+         preloadFrame(state.frame + 3);
       }
 
-      function animate(time) {
-         if (!startTime) startTime = time;
-
-         const elapsed = time - startTime;
-         const alpha = Math.min(1, elapsed / transitionDuration);
-
-         drawBlend(currentFrame, targetFrame, alpha);
-
-         if (alpha < 1) {
-            requestAnimationFrame(animate);
-         } else {
-            currentFrame = targetFrame;
-            startTime = null;
-            isAnimating = false;
-         }
+      function requestRender() {
+         if (pendingRender || !isVisible) return;
+         pendingRender = true;
+         requestAnimationFrame(render);
       }
 
       function onScroll() {
@@ -737,23 +733,18 @@ function initScrollVideo(options) {
             Math.max(0, -scrollStart / (scrollEnd - scrollStart))
          );
 
-         const newFrame = Math.floor(progress * (frameCount - 1));
-
-         if (newFrame !== targetFrame) {
-            targetFrame = newFrame;
-
-            if (!isAnimating) {
-               isAnimating = true;
-               requestAnimationFrame(animate);
-            }
-         }
+         state.frame = Math.floor(progress * (frameCount - 1));
+         requestRender();
       }
 
-      images[0].onload = () => {
-         ctx.drawImage(images[0], 0, 0, width, height);
-      };
+      const observer = new IntersectionObserver((entries) => {
+         isVisible = entries.some(e => e.isIntersecting);
+         if (isVisible) onScroll();
+      }, { threshold: 0.1 });
 
-      window.addEventListener("scroll", onScroll);
+      observer.observe(container);
+
+      window.addEventListener("scroll", onScroll, { passive: true });
       onScroll();
    });
 }
@@ -762,8 +753,98 @@ initScrollVideo({
    canvasSelector: ".video-canvas",
    containerSelector: ".video-wrapper",
    startOffset: 0.9,
-   transitionDuration: 150
+}); */
+
+function initScrollVideo(options) {
+   const {
+      canvasSelector,
+      containerSelector,
+      width = 1366,
+      height = 768,
+      startOffset = 0.9,
+   } = options;
+
+   const canvases = document.querySelectorAll(canvasSelector);
+   if (!canvases.length) return;
+
+   canvases.forEach((canvas) => {
+      const container = canvas.closest(containerSelector);
+      if (!container) return;
+
+      const video = container.querySelector(".video-source");
+      if (!video) return;
+
+      const ctx = canvas.getContext("2d");
+      canvas.width = width;
+      canvas.height = height;
+
+      let isReady = false;
+      let pending = false;
+
+      video.preload = "auto";
+
+      video.addEventListener("loadedmetadata", async () => {
+         isReady = true;
+         canvas.width = video.videoWidth;
+         canvas.height = video.videoHeight;
+
+         // запускаем видео (важно для autoplay)
+         try {
+            await video.play();
+         } catch (err) {
+            console.warn("Autoplay blocked:", err);
+         }
+
+         // отрисовать первый кадр
+         video.currentTime = 0;
+      });
+
+      function drawFrame() {
+         pending = false;
+         ctx.clearRect(0, 0, canvas.width, canvas.height);
+         ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+      }
+
+      video.addEventListener("seeked", drawFrame);
+
+      function onScroll() {
+         if (!isReady) return;
+
+         const rect = container.getBoundingClientRect();
+         const vh = window.innerHeight;
+
+         const scrollStart = rect.top - vh * startOffset;
+         const scrollEnd = scrollStart + container.offsetHeight;
+
+         if (scrollStart > 0 || scrollEnd < 0) return;
+
+         const progress = Math.min(1, Math.max(0, -scrollStart / (scrollEnd - scrollStart)));
+         const targetTime = progress * video.duration;
+
+         if (!pending) {
+            pending = true;
+            requestAnimationFrame(() => {
+               video.currentTime = targetTime;
+            });
+         }
+      }
+
+      const observer = new IntersectionObserver((entries) => {
+         const isVisible = entries.some(e => e.isIntersecting);
+         if (isVisible) onScroll();
+      }, { threshold: 0.1 });
+
+      observer.observe(container);
+      window.addEventListener("scroll", onScroll, { passive: true });
+   });
+}
+
+initScrollVideo({
+   canvasSelector: ".video-canvas",
+   containerSelector: ".video-wrapper",
+   startOffset: 0.9,
 });
+
 
 /*==========================================================================
 Products slider
@@ -1024,6 +1105,280 @@ if (mapBlock) {
 }
 
 /*==========================================================================
+Sorting 
+============================================================================*/
+
+/*==========================================================================
+Sorting dropdown
+============================================================================*/
+function initSortingDropdowns() {
+   const sortings = document.querySelectorAll('.sorting');
+
+   if (!sortings.length) return;
+
+   sortings.forEach(sorting => {
+      const button = sorting.querySelector('.sorting__button');
+      const menu = sorting.querySelector('.sorting__menu');
+
+      if (!button || !menu) return;
+
+      button.addEventListener('click', e => {
+         e.stopPropagation();
+
+         const isOpen = button.classList.contains('active');
+
+         closeAllSortings();
+
+         if (!isOpen) {
+            button.classList.add('active');
+            menu.classList.add('show');
+         }
+      });
+   });
+
+   document.addEventListener('click', () => {
+      closeAllSortings();
+   });
+
+   function closeAllSortings() {
+      sortings.forEach(sorting => {
+         sorting.querySelector('.sorting__button')?.classList.remove('active');
+         sorting.querySelector('.sorting__menu')?.classList.remove('show');
+      });
+   }
+}
+
+/*==========================================================================
+Cats slider
+============================================================================*/
+function initCategoriesSlider() {
+   const categoriesSlider = document.querySelector(".catalog__categories-slider");
+
+   if (!categoriesSlider) return null;
+
+   const categoriesSwiper = new Swiper(categoriesSlider, {
+      slidesPerView: 'auto',
+      loop: false,
+      freeMode: true,
+      spaceBetween: 10,
+      scrollbar: {
+         el: '.catalog__categories-scrollbar',
+         draggable: true,
+         hide: false,
+      },
+   });
+
+   return categoriesSwiper;
+}
+
+/*==========================================================================
+Filter toggle
+============================================================================*/
+function initCatalogFilterToggle() {
+   const toggle = document.querySelector('.catalog__filter-toggle');
+   const filters = document.querySelector('.filters');
+   const closeBtn = document.querySelector('.filters__close');
+   const body = document.body;
+
+   if (!toggle || !filters) return;
+
+   const openFilters = () => {
+      filters.classList.add('opened');
+      body.classList.add('no-scroll');
+      lenis.stop();
+   };
+
+   const closeFilters = () => {
+      filters.classList.remove('opened');
+      body.classList.remove('no-scroll');
+      lenis.start();
+   };
+
+   const isOpen = () => filters.classList.contains('opened');
+
+   toggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      isOpen() ? closeFilters() : openFilters();
+   });
+
+   if (closeBtn) {
+      closeBtn.addEventListener('click', (e) => {
+         e.stopPropagation();
+         closeFilters();
+      });
+   }
+
+   filters.addEventListener('click', (e) => {
+      e.stopPropagation();
+   });
+
+   document.addEventListener('click', () => {
+      if (isOpen()) closeFilters();
+   });
+}
+
+
+
+
+/*==========================================================================
+FIlter accordions
+============================================================================*/
+function initFilterAccordions() {
+   const accordions = document.querySelectorAll('.filter__accordion');
+   if (!accordions.length) return;
+
+   const isMobile = window.matchMedia('(max-width: 1200px)').matches;
+
+   accordions.forEach((accordion, index) => {
+      const head = accordion.querySelector('.filter__accordion-name');
+      const body = accordion.querySelector('.filter__accordion-body');
+
+      if (!head || !body) return;
+
+      const openAccordion = () => {
+         accordion.classList.add('is-open');
+         body.style.maxHeight = `${body.scrollHeight}px`;
+      };
+
+      const closeAccordion = () => {
+         accordion.classList.remove('is-open');
+         body.style.maxHeight = '0px';
+      };
+
+      if (isMobile) {
+         closeAccordion();
+      } else {
+         index < 2 ? openAccordion() : closeAccordion();
+      }
+
+      head.addEventListener('click', () => {
+         accordion.classList.contains('is-open')
+            ? closeAccordion()
+            : openAccordion();
+      });
+   });
+}
+
+/*==========================================================================
+More labels
+============================================================================*/
+function initFilterAccordionMore() {
+   const accordions = document.querySelectorAll('.filter__accordion');
+   if (!accordions.length) return;
+
+   accordions.forEach(accordion => {
+      const itemsWrapper = accordion.querySelector('.filter__accordion-items');
+      if (!itemsWrapper) return;
+
+      const items = itemsWrapper.querySelectorAll('.filter__accordion-item');
+      if (items.length <= 5) return;
+
+      const moreBtn = accordion.querySelector('.filter__accordion-more');
+      if (!moreBtn) return;
+
+      const hiddenCount = items.length - 5;
+
+      items.forEach((item, index) => {
+         if (index >= 5) {
+            item.style.display = 'none';
+         }
+      });
+
+      moreBtn.style.display = 'flex';
+      moreBtn.textContent = `Показать ещё ${hiddenCount}`;
+
+      moreBtn.addEventListener('click', () => {
+         items.forEach(item => {
+            item.style.display = '';
+         });
+
+         moreBtn.style.display = 'none';
+
+         const body = accordion.querySelector('.filter__accordion-body');
+         if (accordion.classList.contains('is-open') && body) {
+            body.style.maxHeight = `${body.scrollHeight}px`;
+         }
+      });
+   });
+}
+
+/*==========================================================================
+Price inputs
+============================================================================*/
+function initPriceFilter() {
+   const priceBlocks = document.querySelectorAll('.filters__price');
+   if (!priceBlocks.length) return;
+
+   priceBlocks.forEach(block => {
+      const minInput = block.querySelector('[name="min-price"]');
+      const maxInput = block.querySelector('[name="max-price"]');
+
+      if (!minInput || !maxInput) return;
+
+      const minLimit = Number(block.dataset.minPrice);
+      const maxLimit = Number(block.dataset.maxPrice);
+
+      if (Number.isNaN(minLimit) || Number.isNaN(maxLimit)) return;
+
+      minInput.min = minLimit;
+      minInput.max = maxLimit;
+
+      maxInput.min = minLimit;
+      maxInput.max = maxLimit;
+
+      const clamp = (value, min, max) =>
+         Math.min(Math.max(value, min), max);
+
+      const normalizeMin = () => {
+         if (minInput.value === '') return;
+
+         let minVal = Number(minInput.value);
+         if (Number.isNaN(minVal)) {
+            minInput.value = '';
+            return;
+         }
+
+         minVal = clamp(minVal, minLimit, maxLimit);
+
+         if (maxInput.value !== '' && minVal > Number(maxInput.value)) {
+            minVal = Number(maxInput.value);
+         }
+
+         minInput.value = minVal;
+      };
+
+      const normalizeMax = () => {
+         if (maxInput.value === '') return;
+
+         let maxVal = Number(maxInput.value);
+         if (Number.isNaN(maxVal)) {
+            maxInput.value = '';
+            return;
+         }
+
+         maxVal = clamp(maxVal, minLimit, maxLimit);
+
+         if (minInput.value !== '' && maxVal < Number(minInput.value)) {
+            maxVal = Number(minInput.value);
+         }
+
+         maxInput.value = maxVal;
+      };
+
+      minInput.addEventListener('blur', normalizeMin);
+      maxInput.addEventListener('blur', normalizeMax);
+
+      minInput.addEventListener('keydown', e => {
+         if (e.key === 'Enter') normalizeMin();
+      });
+
+      maxInput.addEventListener('keydown', e => {
+         if (e.key === 'Enter') normalizeMax();
+      });
+   });
+}
+
+/*==========================================================================
 init
 ============================================================================*/
 document.addEventListener('DOMContentLoaded', () => {
@@ -1039,6 +1394,12 @@ document.addEventListener('DOMContentLoaded', () => {
    handleReviewsSlider(reviewsMQ);
    reviewsMQ.addEventListener('change', handleReviewsSlider);
    initFaqAccordion();
+   initSortingDropdowns();
+   initCategoriesSlider();
+   initCatalogFilterToggle();
+   initFilterAccordions();
+   initFilterAccordionMore();
+   initPriceFilter();
 });
 
 })();
