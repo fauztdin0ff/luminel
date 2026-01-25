@@ -6,14 +6,14 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
    <meta name="format-detection" content="telephone=no">
    <!-- Favicon -->
-   <link rel="icon" type="image/png" sizes="16x16" href="img/fav/favicon-16x16.png">
+   <!-- <link rel="icon" type="image/png" sizes="16x16" href="img/fav/favicon-16x16.png">
    <link rel="icon" type="image/png" sizes="32x32" href="img/fav/favicon-32x32.png">
    <link rel="icon" type="image/png" sizes="192x192" href="img/fav/android-chrome-192x192.png">
    <link rel="icon" type="image/png" sizes="512x512" href="img/fav/android-chrome-512x512.png">
    <link rel="apple-touch-icon" sizes="180x180" href="img/fav/apple-touch-icon.png">
-   <link rel="icon" type="image/x-icon" href="img/fav/favicon.ico">
-   <!--<meta name="msapplication-TileColor" content="#000000">
-   <meta name="theme-color" content="#000000">-->
+   <link rel="icon" type="image/x-icon" href="img/fav/favicon.ico"> -->
+   <meta name="msapplication-TileColor" content="#1c1c1c">
+   <meta name="theme-color" content="#1c1c1c">
    <!-- Meta Description -->
    <meta name="description" content="">
    <meta property="og:title" content="">
@@ -110,7 +110,7 @@
 
    </div>
 
-   <nav class="header__catalog">
+   <nav class="header__catalog" data-lenis-prevent>
       <div class="container">
          <div class="header__catalog-wrapper">
             <ul class="header__catalog-list">
@@ -277,426 +277,434 @@
                   </button>
                </div>
                <div class="filters__body">
-                  <div class="filter__links">
-                     <a href="" class="filter__link">
-                        Подвесные люстры
-                        <span class="filter__link-qnt">47</span>
-                     </a>
-                     <a href="" class="filter__link">
-                        Дизайнерские люстры
-                        <span class="filter__link-qnt">1109</span>
-                     </a>
-                     <a href="" class="filter__link">
-                        Большие люстры
-                        <span class="filter__link-qnt">23</span>
-                     </a>
-                     <a href="" class="filter__link">
-                        Люстры в современном стиле
-                        <span class="filter__link-qnt">15</span>
-                     </a>
-                  </div>
-                  <div class="filter__thumblers">
-                     <div class="filter__thumbler">
-                        <div class="filter__thumbler-name">СКИДКИ</div>
-                        <label class="filter__thumbler-slider">
-                           <input type="checkbox" name="discount" checked>
-                           <span class="filter__thumbler-circle"></span>
-                        </label>
+                  <form class="filters__form">
+                     <div class="filter__links">
+                        <a href="" class="filter__link">
+                           Подвесные люстры
+                           <span class="filter__link-qnt">47</span>
+                        </a>
+                        <a href="" class="filter__link">
+                           Дизайнерские люстры
+                           <span class="filter__link-qnt">1109</span>
+                        </a>
+                        <a href="" class="filter__link">
+                           Большие люстры
+                           <span class="filter__link-qnt">23</span>
+                        </a>
+                        <a href="" class="filter__link">
+                           Люстры в современном стиле
+                           <span class="filter__link-qnt">15</span>
+                        </a>
                      </div>
-                  </div>
-                  <div class="filter__accordions">
-
-                     <!-- Интерьер -->
-                     <div class="filter__accordion">
-                        <div class="filter__accordion-head">
-                           <div class="filter__accordion-name">Интерьер
-                              <svg>
-                                 <use xlink:href="#icon-chevron"></use>
-                              </svg>
-                           </div>
-                        </div>
-                        <div class="filter__accordion-body">
-                           <div class="filter__accordion-items">
-
-                              <label class="filter__accordion-item">
-                                 <input type="checkbox" name="interior[]" value="living-room">
-                                 <span class="filter__accordion-box"></span>
-                                 <span class="filter__accordion-text">Гостиная <span>3</span></span>
-                              </label>
-
-                              <label class="filter__accordion-item">
-                                 <input type="checkbox" name="interior[]" value="bedroom">
-                                 <span class="filter__accordion-box"></span>
-                                 <span class="filter__accordion-text">Спальня <span>238</span></span>
-                              </label>
-
-                              <label class="filter__accordion-item">
-                                 <input type="checkbox" name="interior[]" value="kitchen">
-                                 <span class="filter__accordion-box"></span>
-                                 <span class="filter__accordion-text">Кухня <span>2</span></span>
-                              </label>
-
-                              <label class="filter__accordion-item">
-                                 <input type="checkbox" name="interior[]" value="office">
-                                 <span class="filter__accordion-box"></span>
-                                 <span class="filter__accordion-text">Кабинет <span>4</span></span>
-                              </label>
-
-                              <label class="filter__accordion-item">
-                                 <input type="checkbox" name="interior[]" value="kids">
-                                 <span class="filter__accordion-box"></span>
-                                 <span class="filter__accordion-text">Детская <span>542</span></span>
-                              </label>
-
-                              <label class="filter__accordion-item">
-                                 <input type="checkbox" name="interior[]" value="hallway">
-                                 <span class="filter__accordion-box"></span>
-                                 <span class="filter__accordion-text">Прихожая <span>17</span></span>
-                              </label>
-
-                              <label class="filter__accordion-item">
-                                 <input type="checkbox" name="interior[]" value="bathroom">
-                                 <span class="filter__accordion-box"></span>
-                                 <span class="filter__accordion-text">Ванная <span>25</span></span>
-                              </label>
-
-                           </div>
-                           <button type="button" class="filter__accordion-more">Показать ещё</button>
-
+                     <div class="filter__thumblers">
+                        <div class="filter__thumbler">
+                           <div class="filter__thumbler-name">СКИДКИ</div>
+                           <label class="filter__thumbler-slider">
+                              <input type="checkbox" name="discount">
+                              <span class="filter__thumbler-circle"></span>
+                           </label>
                         </div>
                      </div>
+                     <div class="filter__accordions">
 
-                     <!-- Цена -->
-                     <div class="filter__accordion">
-                        <div class="filter__accordion-head">
-                           <div class="filter__accordion-name">Цена
-                              <svg>
-                                 <use xlink:href="#icon-chevron"></use>
-                              </svg>
-                           </div>
-                        </div>
-                        <div class="filter__accordion-body">
-                           <div class="filters__price" data-min-price="0" data-max-price="25000000">
-                              <div class="filters__price-area">
-                                 <span class="filters__price-label">от</span>
-                                 <input type="number" name="min-price" class="filters__price-input">
-                              </div>
-                              <div class="filters__price-area">
-                                 <span class="filters__price-label">до</span>
-                                 <input type="number" name="max-price" class="filters__price-input">
+                        <!-- Интерьер -->
+                        <div class="filter__accordion">
+                           <div class="filter__accordion-head">
+                              <div class="filter__accordion-name">Интерьер
+                                 <svg>
+                                    <use xlink:href="#icon-chevron"></use>
+                                 </svg>
                               </div>
                            </div>
+                           <div class="filter__accordion-body">
+                              <div class="filter__accordion-items">
+
+                                 <label class="filter__accordion-item">
+                                    <input type="checkbox" name="interior[]" value="living-room">
+                                    <span class="filter__accordion-box"></span>
+                                    <span class="filter__accordion-text">Гостиная <span>3</span></span>
+                                 </label>
+
+                                 <label class="filter__accordion-item">
+                                    <input type="checkbox" name="interior[]" value="bedroom">
+                                    <span class="filter__accordion-box"></span>
+                                    <span class="filter__accordion-text">Спальня <span>238</span></span>
+                                 </label>
+
+                                 <label class="filter__accordion-item">
+                                    <input type="checkbox" name="interior[]" value="kitchen">
+                                    <span class="filter__accordion-box"></span>
+                                    <span class="filter__accordion-text">Кухня <span>2</span></span>
+                                 </label>
+
+                                 <label class="filter__accordion-item">
+                                    <input type="checkbox" name="interior[]" value="office">
+                                    <span class="filter__accordion-box"></span>
+                                    <span class="filter__accordion-text">Кабинет <span>4</span></span>
+                                 </label>
+
+                                 <label class="filter__accordion-item">
+                                    <input type="checkbox" name="interior[]" value="kids">
+                                    <span class="filter__accordion-box"></span>
+                                    <span class="filter__accordion-text">Детская <span>542</span></span>
+                                 </label>
+
+                                 <label class="filter__accordion-item">
+                                    <input type="checkbox" name="interior[]" value="hallway">
+                                    <span class="filter__accordion-box"></span>
+                                    <span class="filter__accordion-text">Прихожая <span>17</span></span>
+                                 </label>
+
+                                 <label class="filter__accordion-item">
+                                    <input type="checkbox" name="interior[]" value="bathroom">
+                                    <span class="filter__accordion-box"></span>
+                                    <span class="filter__accordion-text">Ванная <span>25</span></span>
+                                 </label>
+
+                              </div>
+                              <button type="button" class="filter__accordion-more">Показать ещё</button>
+
+                           </div>
                         </div>
+
+                        <!-- Цена -->
+                        <div class="filter__accordion">
+                           <div class="filter__accordion-head">
+                              <div class="filter__accordion-name">Цена
+                                 <svg>
+                                    <use xlink:href="#icon-chevron"></use>
+                                 </svg>
+                              </div>
+                           </div>
+                           <div class="filter__accordion-body">
+                              <div class="filters__price" data-min-price="0" data-max-price="25000000">
+                                 <div class="filters__price-area">
+                                    <span class="filters__price-label">от</span>
+                                    <input type="text" name="min-price" inputmode="numeric" class="filters__price-input"
+                                       value="0">
+                                 </div>
+                                 <div class="filters__price-area">
+                                    <span class="filters__price-label">до</span>
+                                    <input type="text" name="max-price" inputmode="numeric" class="filters__price-input"
+                                       value="25 000 000">
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+
+                        <!-- Стиль -->
+                        <div class="filter__accordion">
+                           <div class="filter__accordion-head">
+                              <div class="filter__accordion-name">Стиль
+                                 <svg>
+                                    <use xlink:href="#icon-chevron"></use>
+                                 </svg>
+                              </div>
+                           </div>
+                           <div class="filter__accordion-body">
+                              <div class="filter__accordion-items">
+
+                                 <label class="filter__accordion-item">
+                                    <input type="checkbox" name="style[]" value="modern">
+                                    <span class="filter__accordion-box"></span>
+                                    <span class="filter__accordion-text">Современный <span>128</span></span>
+                                 </label>
+
+                                 <label class="filter__accordion-item">
+                                    <input type="checkbox" name="style[]" value="classic">
+                                    <span class="filter__accordion-box"></span>
+                                    <span class="filter__accordion-text">Классика <span>94</span></span>
+                                 </label>
+
+                                 <label class="filter__accordion-item">
+                                    <input type="checkbox" name="style[]" value="loft">
+                                    <span class="filter__accordion-box"></span>
+                                    <span class="filter__accordion-text">Лофт <span>76</span></span>
+                                 </label>
+
+                                 <label class="filter__accordion-item">
+                                    <input type="checkbox" name="style[]" value="minimalism">
+                                    <span class="filter__accordion-box"></span>
+                                    <span class="filter__accordion-text">Минимализм <span>52</span></span>
+                                 </label>
+
+                                 <label class="filter__accordion-item">
+                                    <input type="checkbox" name="style[]" value="neoclassic">
+                                    <span class="filter__accordion-box"></span>
+                                    <span class="filter__accordion-text">Неоклассика <span>41</span></span>
+                                 </label>
+
+                                 <label class="filter__accordion-item">
+                                    <input type="checkbox" name="style[]" value="hi-tech">
+                                    <span class="filter__accordion-box"></span>
+                                    <span class="filter__accordion-text">Хай-тек <span>33</span></span>
+                                 </label>
+
+                                 <label class="filter__accordion-item">
+                                    <input type="checkbox" name="style[]" value="art-deco">
+                                    <span class="filter__accordion-box"></span>
+                                    <span class="filter__accordion-text">Ар-деко <span>19</span></span>
+                                 </label>
+
+                              </div>
+                              <button type="button" class="filter__accordion-more">Показать ещё</button>
+
+                           </div>
+                        </div>
+
+                        <!-- Цвет плафона -->
+                        <div class="filter__accordion">
+                           <div class="filter__accordion-head">
+                              <div class="filter__accordion-name">Цвет плафона
+                                 <svg>
+                                    <use xlink:href="#icon-chevron"></use>
+                                 </svg>
+                              </div>
+                           </div>
+                           <div class="filter__accordion-body">
+                              <div class="filter__accordion-items">
+
+                                 <label class="filter__accordion-item">
+                                    <input type="checkbox" name="shade_color[]" value="white">
+                                    <span class="filter__accordion-box"></span>
+                                    <span class="filter__accordion-text">Белый <span>214</span></span>
+                                 </label>
+
+                                 <label class="filter__accordion-item">
+                                    <input type="checkbox" name="shade_color[]" value="black">
+                                    <span class="filter__accordion-box"></span>
+                                    <span class="filter__accordion-text">Чёрный <span>167</span></span>
+                                 </label>
+
+                                 <label class="filter__accordion-item">
+                                    <input type="checkbox" name="shade_color[]" value="transparent">
+                                    <span class="filter__accordion-box"></span>
+                                    <span class="filter__accordion-text">Прозрачный <span>143</span></span>
+                                 </label>
+
+                                 <label class="filter__accordion-item">
+                                    <input type="checkbox" name="shade_color[]" value="gold">
+                                    <span class="filter__accordion-box"></span>
+                                    <span class="filter__accordion-text">Золото <span>89</span></span>
+                                 </label>
+
+                                 <label class="filter__accordion-item">
+                                    <input type="checkbox" name="shade_color[]" value="smoky">
+                                    <span class="filter__accordion-box"></span>
+                                    <span class="filter__accordion-text">Дымчатый <span>54</span></span>
+                                 </label>
+
+                                 <label class="filter__accordion-item">
+                                    <input type="checkbox" name="shade_color[]" value="beige">
+                                    <span class="filter__accordion-box"></span>
+                                    <span class="filter__accordion-text">Бежевый <span>38</span></span>
+                                 </label>
+
+                              </div>
+                              <button type="button" class="filter__accordion-more">Показать ещё</button>
+
+                           </div>
+                        </div>
+
+                        <!-- Тип цоколя -->
+                        <div class="filter__accordion">
+                           <div class="filter__accordion-head">
+                              <div class="filter__accordion-name">Тип цоколя
+                                 <svg>
+                                    <use xlink:href="#icon-chevron"></use>
+                                 </svg>
+                              </div>
+                           </div>
+                           <div class="filter__accordion-body">
+                              <div class="filter__accordion-items">
+
+                                 <label class="filter__accordion-item">
+                                    <input type="checkbox" name="socket[]" value="e27">
+                                    <span class="filter__accordion-box"></span>
+                                    <span class="filter__accordion-text">E27 <span>312</span></span>
+                                 </label>
+
+                                 <label class="filter__accordion-item">
+                                    <input type="checkbox" name="socket[]" value="e14">
+                                    <span class="filter__accordion-box"></span>
+                                    <span class="filter__accordion-text">E14 <span>267</span></span>
+                                 </label>
+
+                                 <label class="filter__accordion-item">
+                                    <input type="checkbox" name="socket[]" value="g9">
+                                    <span class="filter__accordion-box"></span>
+                                    <span class="filter__accordion-text">G9 <span>121</span></span>
+                                 </label>
+
+                                 <label class="filter__accordion-item">
+                                    <input type="checkbox" name="socket[]" value="gu10">
+                                    <span class="filter__accordion-box"></span>
+                                    <span class="filter__accordion-text">GU10 <span>84</span></span>
+                                 </label>
+
+                                 <label class="filter__accordion-item">
+                                    <input type="checkbox" name="socket[]" value="led">
+                                    <span class="filter__accordion-box"></span>
+                                    <span class="filter__accordion-text">LED (встроенный) <span>56</span></span>
+                                 </label>
+
+                              </div>
+                              <button type="button" class="filter__accordion-more">Показать ещё</button>
+
+                           </div>
+                        </div>
+
+                        <!-- Количество лампочек -->
+                        <div class="filter__accordion">
+                           <div class="filter__accordion-head">
+                              <div class="filter__accordion-name">Количество лампочек
+                                 <svg>
+                                    <use xlink:href="#icon-chevron"></use>
+                                 </svg>
+                              </div>
+                           </div>
+                           <div class="filter__accordion-body">
+                              <div class="filter__accordion-items">
+
+                                 <label class="filter__accordion-item">
+                                    <input type="checkbox" name="bulbs_count[]" value="1">
+                                    <span class="filter__accordion-box"></span>
+                                    <span class="filter__accordion-text">1 <span>186</span></span>
+                                 </label>
+
+                                 <label class="filter__accordion-item">
+                                    <input type="checkbox" name="bulbs_count[]" value="2">
+                                    <span class="filter__accordion-box"></span>
+                                    <span class="filter__accordion-text">2 <span>142</span></span>
+                                 </label>
+
+                                 <label class="filter__accordion-item">
+                                    <input type="checkbox" name="bulbs_count[]" value="3">
+                                    <span class="filter__accordion-box"></span>
+                                    <span class="filter__accordion-text">3 <span>97</span></span>
+                                 </label>
+
+                                 <label class="filter__accordion-item">
+                                    <input type="checkbox" name="bulbs_count[]" value="4">
+                                    <span class="filter__accordion-box"></span>
+                                    <span class="filter__accordion-text">4 <span>64</span></span>
+                                 </label>
+
+                                 <label class="filter__accordion-item">
+                                    <input type="checkbox" name="bulbs_count[]" value="5-plus">
+                                    <span class="filter__accordion-box"></span>
+                                    <span class="filter__accordion-text">5 и более <span>38</span></span>
+                                 </label>
+
+                              </div>
+                              <button type="button" class="filter__accordion-more">Показать ещё</button>
+
+                           </div>
+                        </div>
+
+                        <!-- Площадь освещения, м2 -->
+                        <div class="filter__accordion">
+                           <div class="filter__accordion-head">
+                              <div class="filter__accordion-name">Площадь освещения, м²
+                                 <svg>
+                                    <use xlink:href="#icon-chevron"></use>
+                                 </svg>
+                              </div>
+                           </div>
+                           <div class="filter__accordion-body">
+                              <div class="filter__accordion-items">
+
+                                 <label class="filter__accordion-item">
+                                    <input type="checkbox" name="lighting_area[]" value="up-to-10">
+                                    <span class="filter__accordion-box"></span>
+                                    <span class="filter__accordion-text">до 10 м² <span>74</span></span>
+                                 </label>
+
+                                 <label class="filter__accordion-item">
+                                    <input type="checkbox" name="lighting_area[]" value="10-15">
+                                    <span class="filter__accordion-box"></span>
+                                    <span class="filter__accordion-text">10–15 м² <span>112</span></span>
+                                 </label>
+
+                                 <label class="filter__accordion-item">
+                                    <input type="checkbox" name="lighting_area[]" value="15-20">
+                                    <span class="filter__accordion-box"></span>
+                                    <span class="filter__accordion-text">15–20 м² <span>136</span></span>
+                                 </label>
+
+                                 <label class="filter__accordion-item">
+                                    <input type="checkbox" name="lighting_area[]" value="20-plus">
+                                    <span class="filter__accordion-box"></span>
+                                    <span class="filter__accordion-text">более 20 м² <span>91</span></span>
+                                 </label>
+
+                              </div>
+                              <button type="button" class="filter__accordion-more">Показать ещё</button>
+
+                           </div>
+                        </div>
+
+                        <!-- Пылевлагозащиты, IP -->
+                        <div class="filter__accordion">
+                           <div class="filter__accordion-head">
+                              <div class="filter__accordion-name">Пылевлагозащита, IP
+                                 <svg>
+                                    <use xlink:href="#icon-chevron"></use>
+                                 </svg>
+                              </div>
+                           </div>
+                           <div class="filter__accordion-body">
+                              <div class="filter__accordion-items">
+
+                                 <label class="filter__accordion-item">
+                                    <input type="checkbox" name="ip_rating[]" value="ip20">
+                                    <span class="filter__accordion-box"></span>
+                                    <span class="filter__accordion-text">IP20 <span>342</span></span>
+                                 </label>
+
+                                 <label class="filter__accordion-item">
+                                    <input type="checkbox" name="ip_rating[]" value="ip21">
+                                    <span class="filter__accordion-box"></span>
+                                    <span class="filter__accordion-text">IP21 <span>94</span></span>
+                                 </label>
+
+                                 <label class="filter__accordion-item">
+                                    <input type="checkbox" name="ip_rating[]" value="ip44">
+                                    <span class="filter__accordion-box"></span>
+                                    <span class="filter__accordion-text">IP44 <span>67</span></span>
+                                 </label>
+
+                                 <label class="filter__accordion-item">
+                                    <input type="checkbox" name="ip_rating[]" value="ip54">
+                                    <span class="filter__accordion-box"></span>
+                                    <span class="filter__accordion-text">IP54 <span>29</span></span>
+                                 </label>
+
+                                 <label class="filter__accordion-item">
+                                    <input type="checkbox" name="ip_rating[]" value="ip65">
+                                    <span class="filter__accordion-box"></span>
+                                    <span class="filter__accordion-text">IP65 <span>18</span></span>
+                                 </label>
+
+                              </div>
+                              <button type="button" class="filter__accordion-more">Показать ещё</button>
+                           </div>
+                        </div>
+
+
                      </div>
-
-                     <!-- Стиль -->
-                     <div class="filter__accordion">
-                        <div class="filter__accordion-head">
-                           <div class="filter__accordion-name">Стиль
-                              <svg>
-                                 <use xlink:href="#icon-chevron"></use>
-                              </svg>
-                           </div>
-                        </div>
-                        <div class="filter__accordion-body">
-                           <div class="filter__accordion-items">
-
-                              <label class="filter__accordion-item">
-                                 <input type="checkbox" name="style[]" value="modern">
-                                 <span class="filter__accordion-box"></span>
-                                 <span class="filter__accordion-text">Современный <span>128</span></span>
-                              </label>
-
-                              <label class="filter__accordion-item">
-                                 <input type="checkbox" name="style[]" value="classic">
-                                 <span class="filter__accordion-box"></span>
-                                 <span class="filter__accordion-text">Классика <span>94</span></span>
-                              </label>
-
-                              <label class="filter__accordion-item">
-                                 <input type="checkbox" name="style[]" value="loft">
-                                 <span class="filter__accordion-box"></span>
-                                 <span class="filter__accordion-text">Лофт <span>76</span></span>
-                              </label>
-
-                              <label class="filter__accordion-item">
-                                 <input type="checkbox" name="style[]" value="minimalism">
-                                 <span class="filter__accordion-box"></span>
-                                 <span class="filter__accordion-text">Минимализм <span>52</span></span>
-                              </label>
-
-                              <label class="filter__accordion-item">
-                                 <input type="checkbox" name="style[]" value="neoclassic">
-                                 <span class="filter__accordion-box"></span>
-                                 <span class="filter__accordion-text">Неоклассика <span>41</span></span>
-                              </label>
-
-                              <label class="filter__accordion-item">
-                                 <input type="checkbox" name="style[]" value="hi-tech">
-                                 <span class="filter__accordion-box"></span>
-                                 <span class="filter__accordion-text">Хай-тек <span>33</span></span>
-                              </label>
-
-                              <label class="filter__accordion-item">
-                                 <input type="checkbox" name="style[]" value="art-deco">
-                                 <span class="filter__accordion-box"></span>
-                                 <span class="filter__accordion-text">Ар-деко <span>19</span></span>
-                              </label>
-
-                           </div>
-                           <button type="button" class="filter__accordion-more">Показать ещё</button>
-
-                        </div>
+                     <div class="filter__actions">
+                        <button type="submit" class="btn filter__submit">Показать 238 товаров</button>
+                        <button type="reset" class="btn filter__reset">Очистить всё</button>
                      </div>
-
-                     <!-- Цвет плафона -->
-                     <div class="filter__accordion">
-                        <div class="filter__accordion-head">
-                           <div class="filter__accordion-name">Цвет плафона
-                              <svg>
-                                 <use xlink:href="#icon-chevron"></use>
-                              </svg>
-                           </div>
-                        </div>
-                        <div class="filter__accordion-body">
-                           <div class="filter__accordion-items">
-
-                              <label class="filter__accordion-item">
-                                 <input type="checkbox" name="shade_color[]" value="white">
-                                 <span class="filter__accordion-box"></span>
-                                 <span class="filter__accordion-text">Белый <span>214</span></span>
-                              </label>
-
-                              <label class="filter__accordion-item">
-                                 <input type="checkbox" name="shade_color[]" value="black">
-                                 <span class="filter__accordion-box"></span>
-                                 <span class="filter__accordion-text">Чёрный <span>167</span></span>
-                              </label>
-
-                              <label class="filter__accordion-item">
-                                 <input type="checkbox" name="shade_color[]" value="transparent">
-                                 <span class="filter__accordion-box"></span>
-                                 <span class="filter__accordion-text">Прозрачный <span>143</span></span>
-                              </label>
-
-                              <label class="filter__accordion-item">
-                                 <input type="checkbox" name="shade_color[]" value="gold">
-                                 <span class="filter__accordion-box"></span>
-                                 <span class="filter__accordion-text">Золото <span>89</span></span>
-                              </label>
-
-                              <label class="filter__accordion-item">
-                                 <input type="checkbox" name="shade_color[]" value="smoky">
-                                 <span class="filter__accordion-box"></span>
-                                 <span class="filter__accordion-text">Дымчатый <span>54</span></span>
-                              </label>
-
-                              <label class="filter__accordion-item">
-                                 <input type="checkbox" name="shade_color[]" value="beige">
-                                 <span class="filter__accordion-box"></span>
-                                 <span class="filter__accordion-text">Бежевый <span>38</span></span>
-                              </label>
-
-                           </div>
-                           <button type="button" class="filter__accordion-more">Показать ещё</button>
-
-                        </div>
-                     </div>
-
-                     <!-- Тип цоколя -->
-                     <div class="filter__accordion">
-                        <div class="filter__accordion-head">
-                           <div class="filter__accordion-name">Тип цоколя
-                              <svg>
-                                 <use xlink:href="#icon-chevron"></use>
-                              </svg>
-                           </div>
-                        </div>
-                        <div class="filter__accordion-body">
-                           <div class="filter__accordion-items">
-
-                              <label class="filter__accordion-item">
-                                 <input type="checkbox" name="socket[]" value="e27">
-                                 <span class="filter__accordion-box"></span>
-                                 <span class="filter__accordion-text">E27 <span>312</span></span>
-                              </label>
-
-                              <label class="filter__accordion-item">
-                                 <input type="checkbox" name="socket[]" value="e14">
-                                 <span class="filter__accordion-box"></span>
-                                 <span class="filter__accordion-text">E14 <span>267</span></span>
-                              </label>
-
-                              <label class="filter__accordion-item">
-                                 <input type="checkbox" name="socket[]" value="g9">
-                                 <span class="filter__accordion-box"></span>
-                                 <span class="filter__accordion-text">G9 <span>121</span></span>
-                              </label>
-
-                              <label class="filter__accordion-item">
-                                 <input type="checkbox" name="socket[]" value="gu10">
-                                 <span class="filter__accordion-box"></span>
-                                 <span class="filter__accordion-text">GU10 <span>84</span></span>
-                              </label>
-
-                              <label class="filter__accordion-item">
-                                 <input type="checkbox" name="socket[]" value="led">
-                                 <span class="filter__accordion-box"></span>
-                                 <span class="filter__accordion-text">LED (встроенный) <span>56</span></span>
-                              </label>
-
-                           </div>
-                           <button type="button" class="filter__accordion-more">Показать ещё</button>
-
-                        </div>
-                     </div>
-
-                     <!-- Количество лампочек -->
-                     <div class="filter__accordion">
-                        <div class="filter__accordion-head">
-                           <div class="filter__accordion-name">Количество лампочек
-                              <svg>
-                                 <use xlink:href="#icon-chevron"></use>
-                              </svg>
-                           </div>
-                        </div>
-                        <div class="filter__accordion-body">
-                           <div class="filter__accordion-items">
-
-                              <label class="filter__accordion-item">
-                                 <input type="checkbox" name="bulbs_count[]" value="1">
-                                 <span class="filter__accordion-box"></span>
-                                 <span class="filter__accordion-text">1 <span>186</span></span>
-                              </label>
-
-                              <label class="filter__accordion-item">
-                                 <input type="checkbox" name="bulbs_count[]" value="2">
-                                 <span class="filter__accordion-box"></span>
-                                 <span class="filter__accordion-text">2 <span>142</span></span>
-                              </label>
-
-                              <label class="filter__accordion-item">
-                                 <input type="checkbox" name="bulbs_count[]" value="3">
-                                 <span class="filter__accordion-box"></span>
-                                 <span class="filter__accordion-text">3 <span>97</span></span>
-                              </label>
-
-                              <label class="filter__accordion-item">
-                                 <input type="checkbox" name="bulbs_count[]" value="4">
-                                 <span class="filter__accordion-box"></span>
-                                 <span class="filter__accordion-text">4 <span>64</span></span>
-                              </label>
-
-                              <label class="filter__accordion-item">
-                                 <input type="checkbox" name="bulbs_count[]" value="5-plus">
-                                 <span class="filter__accordion-box"></span>
-                                 <span class="filter__accordion-text">5 и более <span>38</span></span>
-                              </label>
-
-                           </div>
-                           <button type="button" class="filter__accordion-more">Показать ещё</button>
-
-                        </div>
-                     </div>
-
-                     <!-- Площадь освещения, м2 -->
-                     <div class="filter__accordion">
-                        <div class="filter__accordion-head">
-                           <div class="filter__accordion-name">Площадь освещения, м²
-                              <svg>
-                                 <use xlink:href="#icon-chevron"></use>
-                              </svg>
-                           </div>
-                        </div>
-                        <div class="filter__accordion-body">
-                           <div class="filter__accordion-items">
-
-                              <label class="filter__accordion-item">
-                                 <input type="checkbox" name="lighting_area[]" value="up-to-10">
-                                 <span class="filter__accordion-box"></span>
-                                 <span class="filter__accordion-text">до 10 м² <span>74</span></span>
-                              </label>
-
-                              <label class="filter__accordion-item">
-                                 <input type="checkbox" name="lighting_area[]" value="10-15">
-                                 <span class="filter__accordion-box"></span>
-                                 <span class="filter__accordion-text">10–15 м² <span>112</span></span>
-                              </label>
-
-                              <label class="filter__accordion-item">
-                                 <input type="checkbox" name="lighting_area[]" value="15-20">
-                                 <span class="filter__accordion-box"></span>
-                                 <span class="filter__accordion-text">15–20 м² <span>136</span></span>
-                              </label>
-
-                              <label class="filter__accordion-item">
-                                 <input type="checkbox" name="lighting_area[]" value="20-plus">
-                                 <span class="filter__accordion-box"></span>
-                                 <span class="filter__accordion-text">более 20 м² <span>91</span></span>
-                              </label>
-
-                           </div>
-                           <button type="button" class="filter__accordion-more">Показать ещё</button>
-
-                        </div>
-                     </div>
-
-                     <!-- Пылевлагозащиты, IP -->
-                     <div class="filter__accordion">
-                        <div class="filter__accordion-head">
-                           <div class="filter__accordion-name">Пылевлагозащита, IP
-                              <svg>
-                                 <use xlink:href="#icon-chevron"></use>
-                              </svg>
-                           </div>
-                        </div>
-                        <div class="filter__accordion-body">
-                           <div class="filter__accordion-items">
-
-                              <label class="filter__accordion-item">
-                                 <input type="checkbox" name="ip_rating[]" value="ip20">
-                                 <span class="filter__accordion-box"></span>
-                                 <span class="filter__accordion-text">IP20 <span>342</span></span>
-                              </label>
-
-                              <label class="filter__accordion-item">
-                                 <input type="checkbox" name="ip_rating[]" value="ip21">
-                                 <span class="filter__accordion-box"></span>
-                                 <span class="filter__accordion-text">IP21 <span>94</span></span>
-                              </label>
-
-                              <label class="filter__accordion-item">
-                                 <input type="checkbox" name="ip_rating[]" value="ip44">
-                                 <span class="filter__accordion-box"></span>
-                                 <span class="filter__accordion-text">IP44 <span>67</span></span>
-                              </label>
-
-                              <label class="filter__accordion-item">
-                                 <input type="checkbox" name="ip_rating[]" value="ip54">
-                                 <span class="filter__accordion-box"></span>
-                                 <span class="filter__accordion-text">IP54 <span>29</span></span>
-                              </label>
-
-                              <label class="filter__accordion-item">
-                                 <input type="checkbox" name="ip_rating[]" value="ip65">
-                                 <span class="filter__accordion-box"></span>
-                                 <span class="filter__accordion-text">IP65 <span>18</span></span>
-                              </label>
-
-                           </div>
-                           <button type="button" class="filter__accordion-more">Показать ещё</button>
-                        </div>
-                     </div>
-
-
-                  </div>
+                  </form>
                </div>
             </div>
          </div>
 
          <section class="catalog">
             <div class="catalog__body container">
-               <div class="breadcrumbs">
+               <div class="breformumbs">
                   <a href="index.html" class="breadcrumbs__link">Интернет-магазин Люменэль</a>
                   <span class="breadcrumbs__separator">/</span>
                   <span class="breadcrumbs__current">Люстры</span>
@@ -775,7 +783,7 @@
                         </svg>
                      </button>
                      <div class="product-preview__info">
-                        <a href="" class="product-preview__name">401/6 Nickel</a>
+                        <a href="product.html" class="product-preview__name">401/6 Nickel</a>
                         <div class="product-preview__size">
                            <div class="product-preview__size-row">
                               <span>Размеры (ДхШхВ)</span>
@@ -815,7 +823,8 @@
                         </svg>
                      </button>
                      <div class="product-preview__info">
-                        <a href="" class="product-preview__name">Люстра G-Light 8101/6 Nickel, Gold, продолжение
+                        <a href="product.html" class="product-preview__name">Люстра G-Light 8101/6 Nickel, Gold,
+                           продолжение
                            названия</a>
                         <div class="product-preview__size">
                            <div class="product-preview__size-row">
@@ -860,7 +869,7 @@
                         </svg>
                      </button>
                      <div class="product-preview__info">
-                        <a href="" class="product-preview__name">Люстра G-Light 8101/6 Nickel</a>
+                        <a href="product.html" class="product-preview__name">Люстра G-Light 8101/6 Nickel</a>
                         <div class="product-preview__size">
                            <div class="product-preview__size-row">
                               <span>Размеры (ДхШхВ)</span>
@@ -908,7 +917,7 @@
                         </svg>
                      </button>
                      <div class="product-preview__info">
-                        <a href="" class="product-preview__name">Люстра G-Light 8101/6 Nickel</a>
+                        <a href="product.html" class="product-preview__name">Люстра G-Light 8101/6 Nickel</a>
                         <div class="product-preview__size">
                            <div class="product-preview__size-row">
                               <span>Размеры (ДхШхВ)</span>
@@ -952,7 +961,7 @@
                         </svg>
                      </button>
                      <div class="product-preview__info">
-                        <a href="" class="product-preview__name">401/6 Nickel</a>
+                        <a href="product.html" class="product-preview__name">401/6 Nickel</a>
                         <div class="product-preview__size">
                            <div class="product-preview__size-row">
                               <span>Размеры (ДхШхВ)</span>
@@ -992,7 +1001,8 @@
                         </svg>
                      </button>
                      <div class="product-preview__info">
-                        <a href="" class="product-preview__name">Люстра G-Light 8101/6 Nickel, Gold, продолжение
+                        <a href="product.html" class="product-preview__name">Люстра G-Light 8101/6 Nickel, Gold,
+                           продолжение
                            названия</a>
                         <div class="product-preview__size">
                            <div class="product-preview__size-row">
@@ -1050,7 +1060,7 @@
                         </svg>
                      </button>
                      <div class="product-preview__info">
-                        <a href="" class="product-preview__name">Люстра G-Light 8101/6 Nickel</a>
+                        <a href="product.html" class="product-preview__name">Люстра G-Light 8101/6 Nickel</a>
                         <div class="product-preview__size">
                            <div class="product-preview__size-row">
                               <span>Размеры (ДхШхВ)</span>
@@ -1098,7 +1108,7 @@
                         </svg>
                      </button>
                      <div class="product-preview__info">
-                        <a href="" class="product-preview__name">Люстра G-Light 8101/6 Nickel</a>
+                        <a href="product.html" class="product-preview__name">Люстра G-Light 8101/6 Nickel</a>
                         <div class="product-preview__size">
                            <div class="product-preview__size-row">
                               <span>Размеры (ДхШхВ)</span>
@@ -1143,7 +1153,7 @@
                         </svg>
                      </button>
                      <div class="product-preview__info">
-                        <a href="" class="product-preview__name">Люстра G-Light 8101/6 Nickel</a>
+                        <a href="product.html" class="product-preview__name">Люстра G-Light 8101/6 Nickel</a>
                         <div class="product-preview__size">
                            <div class="product-preview__size-row">
                               <span>Размеры (ДхШхВ)</span>
@@ -1191,7 +1201,7 @@
                         </svg>
                      </button>
                      <div class="product-preview__info">
-                        <a href="" class="product-preview__name">Люстра G-Light 8101/6 Nickel</a>
+                        <a href="product.html" class="product-preview__name">Люстра G-Light 8101/6 Nickel</a>
                         <div class="product-preview__size">
                            <div class="product-preview__size-row">
                               <span>Размеры (ДхШхВ)</span>
@@ -1248,7 +1258,7 @@
                         </svg>
                      </button>
                      <div class="product-preview__info">
-                        <a href="" class="product-preview__name">401/6 Nickel</a>
+                        <a href="product.html" class="product-preview__name">401/6 Nickel</a>
                         <div class="product-preview__size">
                            <div class="product-preview__size-row">
                               <span>Размеры (ДхШхВ)</span>
@@ -1288,7 +1298,8 @@
                         </svg>
                      </button>
                      <div class="product-preview__info">
-                        <a href="" class="product-preview__name">Люстра G-Light 8101/6 Nickel, Gold, продолжение
+                        <a href="product.html" class="product-preview__name">Люстра G-Light 8101/6 Nickel, Gold,
+                           продолжение
                            названия</a>
                         <div class="product-preview__size">
                            <div class="product-preview__size-row">
@@ -1334,7 +1345,7 @@
                         </svg>
                      </button>
                      <div class="product-preview__info">
-                        <a href="" class="product-preview__name">Люстра G-Light 8101/6 Nickel</a>
+                        <a href="product.html" class="product-preview__name">Люстра G-Light 8101/6 Nickel</a>
                         <div class="product-preview__size">
                            <div class="product-preview__size-row">
                               <span>Размеры (ДхШхВ)</span>
@@ -1382,7 +1393,7 @@
                         </svg>
                      </button>
                      <div class="product-preview__info">
-                        <a href="" class="product-preview__name">Люстра G-Light 8101/6 Nickel</a>
+                        <a href="product.html" class="product-preview__name">Люстра G-Light 8101/6 Nickel</a>
                         <div class="product-preview__size">
                            <div class="product-preview__size-row">
                               <span>Размеры (ДхШхВ)</span>
@@ -1427,7 +1438,7 @@
                         </svg>
                      </button>
                      <div class="product-preview__info">
-                        <a href="" class="product-preview__name">Люстра G-Light 8101/6 Nickel</a>
+                        <a href="product.html" class="product-preview__name">Люстра G-Light 8101/6 Nickel</a>
                         <div class="product-preview__size">
                            <div class="product-preview__size-row">
                               <span>Размеры (ДхШхВ)</span>
@@ -1475,7 +1486,7 @@
                         </svg>
                      </button>
                      <div class="product-preview__info">
-                        <a href="" class="product-preview__name">Люстра G-Light 8101/6 Nickel</a>
+                        <a href="product.html" class="product-preview__name">Люстра G-Light 8101/6 Nickel</a>
                         <div class="product-preview__size">
                            <div class="product-preview__size-row">
                               <span>Размеры (ДхШхВ)</span>
@@ -1587,7 +1598,7 @@
                               </svg>
                            </button>
                            <div class="product-preview__info">
-                              <a href="" class="product-preview__name">401/6 Nickel</a>
+                              <a href="product.html" class="product-preview__name">401/6 Nickel</a>
                               <div class="product-preview__size">
                                  <div class="product-preview__size-row">
                                     <span>Размеры (ДхШхВ)</span>
@@ -1627,7 +1638,8 @@
                               </svg>
                            </button>
                            <div class="product-preview__info">
-                              <a href="" class="product-preview__name">Люстра G-Light 8101/6 Nickel, Gold, продолжение
+                              <a href="product.html" class="product-preview__name">Люстра G-Light 8101/6 Nickel, Gold,
+                                 продолжение
                                  названия</a>
                               <div class="product-preview__size">
                                  <div class="product-preview__size-row">
@@ -1672,7 +1684,7 @@
                               </svg>
                            </button>
                            <div class="product-preview__info">
-                              <a href="" class="product-preview__name">Люстра G-Light 8101/6 Nickel</a>
+                              <a href="product.html" class="product-preview__name">Люстра G-Light 8101/6 Nickel</a>
                               <div class="product-preview__size">
                                  <div class="product-preview__size-row">
                                     <span>Размеры (ДхШхВ)</span>
@@ -1720,7 +1732,7 @@
                               </svg>
                            </button>
                            <div class="product-preview__info">
-                              <a href="" class="product-preview__name">Люстра G-Light 8101/6 Nickel</a>
+                              <a href="product.html" class="product-preview__name">Люстра G-Light 8101/6 Nickel</a>
                               <div class="product-preview__size">
                                  <div class="product-preview__size-row">
                                     <span>Размеры (ДхШхВ)</span>
@@ -1764,7 +1776,7 @@
                               </svg>
                            </button>
                            <div class="product-preview__info">
-                              <a href="" class="product-preview__name">401/6 Nickel</a>
+                              <a href="product.html" class="product-preview__name">401/6 Nickel</a>
                               <div class="product-preview__size">
                                  <div class="product-preview__size-row">
                                     <span>Размеры (ДхШхВ)</span>
@@ -1804,7 +1816,8 @@
                               </svg>
                            </button>
                            <div class="product-preview__info">
-                              <a href="" class="product-preview__name">Люстра G-Light 8101/6 Nickel, Gold, продолжение
+                              <a href="product.html" class="product-preview__name">Люстра G-Light 8101/6 Nickel, Gold,
+                                 продолжение
                                  названия</a>
                               <div class="product-preview__size">
                                  <div class="product-preview__size-row">
@@ -1850,7 +1863,7 @@
                               </svg>
                            </button>
                            <div class="product-preview__info">
-                              <a href="" class="product-preview__name">Люстра G-Light 8101/6 Nickel</a>
+                              <a href="product.html" class="product-preview__name">Люстра G-Light 8101/6 Nickel</a>
                               <div class="product-preview__size">
                                  <div class="product-preview__size-row">
                                     <span>Размеры (ДхШхВ)</span>
@@ -1898,7 +1911,7 @@
                               </svg>
                            </button>
                            <div class="product-preview__info">
-                              <a href="" class="product-preview__name">Люстра G-Light 8101/6 Nickel</a>
+                              <a href="product.html" class="product-preview__name">Люстра G-Light 8101/6 Nickel</a>
                               <div class="product-preview__size">
                                  <div class="product-preview__size-row">
                                     <span>Размеры (ДхШхВ)</span>
@@ -2001,7 +2014,8 @@
                   <div id="map"></div>
                </div>
                <div class="contacts__image">
-                  <canvas class="video-canvas" data-frames="img/frames2" data-count="35"></canvas>
+                  <video class="video-source" src="files/video_canvas.mp4" muted playsinline preload="auto"></video>
+                  <canvas class="video-canvas"></canvas>
                   <span></span>
                </div>
             </div>

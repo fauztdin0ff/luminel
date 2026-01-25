@@ -924,103 +924,6 @@ function initProductPreviewSliders() {
    });
 }
 
-/*==========================================================================
-Review hide text
-============================================================================*/
-function initReviewsLogic() {
-   const reviews = document.querySelectorAll('.reviews__slide');
-
-   reviews.forEach(review => {
-      const textWrapper = review.querySelector('.reviews__text-wrapper');
-      const toggleBtn = review.querySelector('.reviews__text-toggle');
-
-      if (!textWrapper || !toggleBtn || toggleBtn.dataset.inited) return;
-
-      const MAX_HEIGHT = 120;
-      const fullHeight = textWrapper.scrollHeight;
-
-      if (fullHeight > MAX_HEIGHT) {
-         textWrapper.style.setProperty('--max-height', MAX_HEIGHT + 'px');
-         textWrapper.style.setProperty('--full-height', fullHeight + 'px');
-
-         textWrapper.classList.add('is-collapsed');
-         toggleBtn.style.display = 'block';
-
-         toggleBtn.addEventListener('click', () => {
-            const isOpen = textWrapper.classList.toggle('is-open');
-
-            toggleBtn.textContent = isOpen
-               ? 'Скрыть'
-               : 'Читать полностью';
-         });
-
-         toggleBtn.dataset.inited = 'true';
-      } else {
-         toggleBtn.style.display = 'none';
-      }
-   });
-}
-
-
-/*==========================================================================
-Reviews slider
-============================================================================*/
-let reviewsSwiper = null;
-const reviewsMQ = window.matchMedia('(min-width: 600px)');
-
-function initReviewsSlider() {
-   const reviewsSlider = document.querySelector('.reviews__slider');
-   if (!reviewsSlider || reviewsSwiper) return;
-
-   reviewsSwiper = new Swiper(reviewsSlider, {
-      slidesPerView: 4,
-      loop: false,
-      spaceBetween: 20,
-      autoHeight: false,
-      speed: 800,
-      pagination: {
-         el: '.reviews__pagination',
-         clickable: true,
-      },
-
-      navigation: {
-         prevEl: '.reviews__slider-prev',
-         nextEl: '.reviews__slider-next',
-      },
-
-      breakpoints: {
-         600: { slidesPerView: 2 },
-         900: { slidesPerView: 3 },
-         1200: { slidesPerView: 4 },
-      },
-
-      on: {
-         init() {
-            initReviewsLogic();
-         },
-         slideChange() {
-            initReviewsLogic();
-         }
-      }
-   });
-}
-
-function destroyReviewsSlider() {
-   if (!reviewsSwiper) return;
-
-   reviewsSwiper.destroy(true, true);
-   reviewsSwiper = null;
-}
-
-function handleReviewsSlider(e) {
-   if (e.matches) {
-      initReviewsSlider();
-   } else {
-      destroyReviewsSlider();
-      initReviewsLogic();
-   }
-}
-
 
 /*==========================================================================
 faq
@@ -1104,9 +1007,6 @@ if (mapBlock) {
    observer.observe(mapBlock);
 }
 
-/*==========================================================================
-Sorting 
-============================================================================*/
 
 /*==========================================================================
 Sorting dropdown
@@ -1318,63 +1218,433 @@ function initPriceFilter() {
       const minLimit = Number(block.dataset.minPrice);
       const maxLimit = Number(block.dataset.maxPrice);
 
-      if (Number.isNaN(minLimit) || Number.isNaN(maxLimit)) return;
+      const clamp = (v, min, max) => Math.min(Math.max(v, min), max);
 
-      minInput.min = minLimit;
-      minInput.max = maxLimit;
-
-      maxInput.min = minLimit;
-      maxInput.max = maxLimit;
-
-      const clamp = (value, min, max) =>
-         Math.min(Math.max(value, min), max);
+      const format = v => new Intl.NumberFormat('ru-RU').format(v);
+      const parse = v => Number(v.replace(/\s+/g, ''));
 
       const normalizeMin = () => {
-         if (minInput.value === '') return;
+         if (!minInput.value) return;
 
-         let minVal = Number(minInput.value);
-         if (Number.isNaN(minVal)) {
-            minInput.value = '';
-            return;
+         let value = parse(minInput.value);
+         if (Number.isNaN(value)) return minInput.value = '';
+
+         value = clamp(value, minLimit, maxLimit);
+
+         if (maxInput.value) {
+            const maxVal = parse(maxInput.value);
+            if (value > maxVal) value = maxVal;
          }
 
-         minVal = clamp(minVal, minLimit, maxLimit);
-
-         if (maxInput.value !== '' && minVal > Number(maxInput.value)) {
-            minVal = Number(maxInput.value);
-         }
-
-         minInput.value = minVal;
+         minInput.value = format(value);
       };
 
       const normalizeMax = () => {
-         if (maxInput.value === '') return;
+         if (!maxInput.value) return;
 
-         let maxVal = Number(maxInput.value);
-         if (Number.isNaN(maxVal)) {
-            maxInput.value = '';
-            return;
+         let value = parse(maxInput.value);
+         if (Number.isNaN(value)) return maxInput.value = '';
+
+         value = clamp(value, minLimit, maxLimit);
+
+         if (minInput.value) {
+            const minVal = parse(minInput.value);
+            if (value < minVal) value = minVal;
          }
 
-         maxVal = clamp(maxVal, minLimit, maxLimit);
-
-         if (minInput.value !== '' && maxVal < Number(minInput.value)) {
-            maxVal = Number(minInput.value);
-         }
-
-         maxInput.value = maxVal;
+         maxInput.value = format(value);
       };
+
+      minInput.addEventListener('input', () => {
+         minInput.value = minInput.value.replace(/[^\d\s]/g, '');
+      });
+
+      maxInput.addEventListener('input', () => {
+         maxInput.value = maxInput.value.replace(/[^\d\s]/g, '');
+      });
 
       minInput.addEventListener('blur', normalizeMin);
       maxInput.addEventListener('blur', normalizeMax);
+   });
+}
 
-      minInput.addEventListener('keydown', e => {
-         if (e.key === 'Enter') normalizeMin();
+const formatNumber = value =>
+   new Intl.NumberFormat('ru-RU').format(value);
+
+const parseNumber = value =>
+   Number(value.replace(/\s+/g, ''));
+
+
+/*==========================================================================
+Product sliders
+============================================================================*/
+function initProductGallerySlider() {
+   const productGallerySliderThumbs = document.querySelector('.product__gallery-slider-thumbs');
+   const productGallerySliderBig = document.querySelector('.product__gallery-slider-big');
+
+   if (!productGallerySliderThumbs || !productGallerySliderBig) return;
+
+   const productSwiperThumbs = new Swiper(productGallerySliderThumbs, {
+      direction: 'vertical',
+      spaceBetween: 10,
+      speed: 800,
+      slidesPerView: 6,
+      breakpoints: {
+         320: {
+            direction: 'horizontal',
+         },
+         1001: {
+            direction: 'vertical',
+         }
+      }
+   });
+
+   const productSwiperBig = new Swiper(productGallerySliderBig, {
+      direction: 'horizontal',
+      spaceBetween: 0,
+      slidesPerView: 1,
+      speed: 800,
+      pagination: {
+         el: '.product__gallery-pagination',
+         clickable: true,
+      },
+      thumbs: {
+         swiper: productSwiperThumbs,
+      }
+   });
+}
+
+
+/*==========================================================================
+Zoom product photo
+============================================================================*/
+function initProductZoom() {
+   const gallery = document.querySelector('.product__gallery-slider-big');
+   if (!gallery) return;
+
+   gallery.addEventListener('mousemove', (e) => {
+      const activeSlide = gallery.querySelector('.swiper-slide-active');
+      if (!activeSlide) return;
+
+      const lens = activeSlide.querySelector('.zoom-lens');
+      const result = activeSlide.querySelector('.zoom-result');
+      const resultImg = result?.querySelector('img');
+
+      if (!lens || !result || !resultImg) return;
+
+      const rect = activeSlide.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      lens.style.display = 'block';
+      result.style.display = 'block';
+
+      let lensX = x - lens.offsetWidth / 2;
+      let lensY = y - lens.offsetHeight / 2;
+
+      lensX = Math.max(0, Math.min(lensX, rect.width - lens.offsetWidth));
+      lensY = Math.max(0, Math.min(lensY, rect.height - lens.offsetHeight));
+
+      lens.style.left = lensX + 'px';
+      lens.style.top = lensY + 'px';
+
+      const scale = 2;
+      let imgX = -lensX * scale;
+      let imgY = -lensY * scale;
+
+      const imgWidth = resultImg.offsetWidth;
+      const imgHeight = resultImg.offsetHeight;
+
+      const maxX = 0;
+      const minX = result.offsetWidth - imgWidth;
+      imgX = Math.max(minX, Math.min(imgX, maxX));
+
+      const maxY = 0;
+      const minY = result.offsetHeight - imgHeight;
+      imgY = Math.max(minY, Math.min(imgY, maxY));
+
+      resultImg.style.left = imgX + 'px';
+      resultImg.style.top = imgY + 'px';
+   });
+
+   gallery.addEventListener('mouseleave', () => {
+      const activeSlide = gallery.querySelector('.swiper-slide-active');
+      if (!activeSlide) return;
+
+      const lens = activeSlide.querySelector('.zoom-lens');
+      const result = activeSlide.querySelector('.zoom-result');
+
+      if (!lens || !result) return;
+
+      lens.style.display = 'none';
+      result.style.display = 'none';
+   });
+}
+
+
+/*==========================================================================
+Review hide text
+============================================================================*/
+function initReviewsLogic() {
+   const reviews = document.querySelectorAll('.reviews__slide');
+
+   reviews.forEach(review => {
+      const textWrapper = review.querySelector('.reviews__text-wrapper');
+      const toggleBtn = review.querySelector('.reviews__text-toggle');
+
+      if (!textWrapper || !toggleBtn) return;
+
+      textWrapper.classList.remove('is-open', 'is-collapsed');
+      textWrapper.style.removeProperty('--max-height');
+      textWrapper.style.removeProperty('--full-height');
+      toggleBtn.style.display = 'none';
+
+      const MAX_HEIGHT = 120;
+      const fullHeight = textWrapper.scrollHeight;
+
+      if (fullHeight > MAX_HEIGHT) {
+         textWrapper.style.setProperty('--max-height', MAX_HEIGHT + 'px');
+         textWrapper.style.setProperty('--full-height', fullHeight + 'px');
+
+         textWrapper.classList.add('is-collapsed');
+         toggleBtn.style.display = 'block';
+
+         toggleBtn.onclick = () => {
+            const isOpen = textWrapper.classList.toggle('is-open');
+            toggleBtn.textContent = isOpen ? 'Скрыть' : 'Читать полностью';
+         };
+      }
+   });
+
+}
+
+
+/*==========================================================================
+Reviews slider
+============================================================================*/
+let reviewsSwiper = null;
+const reviewsMQ = window.matchMedia('(min-width: 600px)');
+
+function initReviewsSlider() {
+   const reviewsSlider = document.querySelector('.reviews__slider');
+
+   if (!reviewsSlider || reviewsSwiper) return;
+
+   reviewsSwiper = new Swiper(reviewsSlider, {
+      slidesPerView: 4,
+      loop: false,
+      spaceBetween: 20,
+      autoHeight: false,
+      speed: 800,
+
+      pagination: {
+         el: '.reviews__pagination',
+         clickable: true,
+      },
+
+      navigation: {
+         prevEl: '.reviews__slider-prev',
+         nextEl: '.reviews__slider-next',
+      },
+
+      breakpoints: {
+         0: { slidesPerView: 1, },
+         600: { slidesPerView: 2 },
+         900: { slidesPerView: 3 },
+         1200: { slidesPerView: 4 },
+      },
+
+      on: {
+         init() {
+            initReviewsLogic();
+         }
+      }
+   });
+}
+
+function destroyReviewsSlider() {
+   if (!reviewsSwiper) return;
+
+   reviewsSwiper.destroy(true, true);
+   reviewsSwiper = null;
+}
+
+function handleReviewsSlider(e) {
+   const reviewsSlider = document.querySelector('.reviews__slider');
+
+   if (!reviewsSlider) return;
+
+   if (reviewsSlider.classList.contains('-mob')) {
+      if (!reviewsSwiper) initReviewsSlider();
+      return;
+   }
+
+   if (e.matches) {
+      initReviewsSlider();
+   } else {
+      destroyReviewsSlider();
+      initReviewsLogic();
+   }
+}
+
+reviewsMQ.addEventListener('change', handleReviewsSlider);
+handleReviewsSlider(reviewsMQ);
+
+
+
+/*==========================================================================
+Product tabs
+============================================================================*/
+document.addEventListener('DOMContentLoaded', function () {
+   const tabs = document.querySelectorAll('.product__tab');
+   const tabTitles = document.querySelectorAll('.product__tab-title');
+   const productContents = document.querySelector('.product__contents');
+
+   if (!tabs.length || !tabTitles.length || !productContents) {
+      return;
+   }
+
+   function moveTabContent() {
+      if (window.innerWidth > 1000) {
+         tabs.forEach(tab => {
+            const tabContent = tab.querySelector('.product__tab-content');
+            if (tabContent) {
+               productContents.appendChild(tabContent);
+            }
+         });
+      } else {
+         tabs.forEach(tab => {
+            const tabContent = productContents.querySelector(`.product__tab-content[data-tab="${tab.dataset.tab}"]`);
+            if (tabContent) {
+               tab.appendChild(tabContent);
+            }
+         });
+      }
+   }
+
+   function setDesktopMinHeight() {
+      if (window.innerWidth <= 1000) {
+         productContents.style.minHeight = '';
+         return;
+      }
+
+      setTimeout(() => {
+         const contents = productContents.querySelectorAll('.product__tab-content');
+         if (!contents.length) return;
+
+         let maxHeight = 0;
+
+         contents.forEach(content => {
+            const wasHidden = !content.classList.contains('active');
+
+            if (wasHidden) {
+               content.style.position = 'absolute';
+               content.style.visibility = 'hidden';
+               content.style.display = 'block';
+            }
+
+            maxHeight = Math.max(maxHeight, content.offsetHeight);
+
+            if (wasHidden) {
+               content.style.position = '';
+               content.style.visibility = '';
+               content.style.display = '';
+            }
+         });
+
+         productContents.style.minHeight = maxHeight + 'px';
+      }, 300);
+   }
+
+   function switchTabDesktop(targetTab) {
+      const activeTab = document.querySelector(`.product__tab[data-tab="${targetTab}"]`);
+      const allContents = document.querySelectorAll('.product__tab-content');
+
+      tabs.forEach(tab => tab.classList.remove('active'));
+      allContents.forEach(content => content.classList.remove('active'));
+
+      if (activeTab) activeTab.classList.add('active');
+
+      const activeContent = productContents.querySelector(`.product__tab-content[data-tab="${targetTab}"]`);
+      if (activeContent) {
+         activeContent.classList.add('active');
+      }
+   }
+
+   function toggleTabMobile(targetTab) {
+      const activeTab = document.querySelector(`.product__tab[data-tab="${targetTab}"]`);
+      const content = activeTab.querySelector(`.product__tab-content[data-tab="${targetTab}"]`);
+
+      if (activeTab.classList.contains('active')) {
+         activeTab.classList.remove('active');
+         content.classList.remove('active');
+      } else {
+         activeTab.classList.add('active');
+         content.classList.add('active');
+      }
+   }
+
+   function handleTabClick(targetTab) {
+      if (window.innerWidth > 1000) {
+         switchTabDesktop(targetTab);
+      } else {
+         toggleTabMobile(targetTab);
+      }
+   }
+
+   tabTitles.forEach((title) => {
+      title.addEventListener('click', function () {
+         const targetTab = title.getAttribute('data-tab');
+         handleTabClick(targetTab);
+      });
+   });
+
+   window.addEventListener('resize', () => {
+      moveTabContent();
+
+      if (window.innerWidth > 1000) {
+         const firstActiveTab = document.querySelector('.product__tab.active');
+         const targetTab = firstActiveTab ? firstActiveTab.dataset.tab : tabs[0].dataset.tab;
+         switchTabDesktop(targetTab);
+      }
+
+      setDesktopMinHeight();
+   });
+
+   moveTabContent();
+   setDesktopMinHeight();
+});
+
+
+/*==========================================================================
+Tips
+============================================================================*/
+function initTips() {
+   const tipsList = document.querySelectorAll('.tips');
+
+   if (!tipsList.length) return;
+
+   tipsList.forEach(tip => {
+      const text = tip.querySelector('.tips__text');
+
+      if (!text) return;
+
+      tip.addEventListener('mouseenter', () => {
+         tip.classList.add('is-open');
       });
 
-      maxInput.addEventListener('keydown', e => {
-         if (e.key === 'Enter') normalizeMax();
+      tip.addEventListener('mouseleave', () => {
+         tip.classList.remove('is-open');
       });
+
+      tip.addEventListener('click', (e) => {
+         e.stopPropagation();
+         tip.classList.toggle('is-open');
+      });
+   });
+
+   document.addEventListener('click', () => {
+      tipsList.forEach(tip => tip.classList.remove('is-open'));
    });
 }
 
@@ -1400,6 +1670,9 @@ document.addEventListener('DOMContentLoaded', () => {
    initFilterAccordions();
    initFilterAccordionMore();
    initPriceFilter();
+   initProductGallerySlider();
+   initProductZoom();
+   initTips();
 });
 
 })();
