@@ -4102,3 +4102,167 @@ Product
     display: flex;
   }
 }
+/*==========================================================================
+Request
+============================================================================*/
+.request__body {
+  padding-bottom: 6.5rem;
+}
+.request__card {
+  padding: 4rem 0;
+  margin-inline: 1rem;
+  border-radius: 3rem;
+  position: relative;
+  background: #fff;
+  overflow: hidden;
+}
+.request__text {
+  position: relative;
+  z-index: 2;
+  max-width: 75%;
+}
+@media (width < 767px) {
+  .request__text {
+    max-width: 100%;
+  }
+}
+.request__offer {
+  padding: 0.3rem 2rem 0.3rem 0.3rem;
+  background: #585858;
+  border-radius: 2.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  color: #fff;
+  font-size: 0.9rem;
+  margin-bottom: 3rem;
+}
+.request__offer-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--color-text);
+}
+.request__offer-icon img {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+.request__title {
+  font-family: Unbounded;
+  font-size: 1.9rem;
+  font-weight: 500;
+  line-height: 140%;
+  margin-bottom: 1.5rem;
+}
+@media (width < 767px) {
+  .request__title {
+    font-size: 1.6rem;
+  }
+}
+.request__descr {
+  max-width: 80%;
+  margin-bottom: 3rem;
+  font-size: 1rem;
+  line-height: 120%;
+}
+.request__form {
+  display: flex;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+@media (width < 1200px) {
+  .request__form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (width < 767px) {
+  .request__form {
+    display: flex;
+    flex-direction: column;
+  }
+}
+.request__form-area {
+  flex: 0 1 16.9rem;
+}
+.request__form-area input {
+  background: #f9f8f5;
+  border: 1px solid #ebe9e2;
+  padding: 1rem;
+  height: 3rem;
+  font-size: 0.8rem;
+  border-radius: 0.6rem;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+.request__form-area input:focus {
+  border-color: var(--color-primary);
+}
+@media (hover: hover) {
+  .request__form-area input:hover {
+    border-color: var(--color-primary);
+  }
+}
+@media (width < 767px) {
+  .request__form-area {
+    flex: 1 1 auto;
+  }
+}
+.request__form-submit .btn {
+  background: var(--color-primary);
+  color: #fff;
+  border-color: var(--color-primary);
+  height: 3rem;
+  padding: 1rem 2.7rem;
+}
+@media (hover: hover) {
+  .request__form-submit .btn:hover {
+    background: var(--color-text);
+  }
+}
+@media (width < 1200px) {
+  .request__form-submit {
+    grid-column: 1/-1;
+    width: 100%;
+  }
+  .request__form-submit .btn {
+    width: 100%;
+  }
+}
+.request__agree {
+  color: #9c9c9c;
+  font-size: 12px;
+}
+.request__agree a {
+  font-weight: 500;
+  text-decoration: underline;
+  transition: all 0.3s ease;
+}
+@media (hover: hover) {
+  .request__agree a:hover {
+    color: var(--color-text);
+  }
+}
+.request__image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: auto;
+  z-index: 1;
+  max-width: 40%;
+}
+.request__image img {
+  height: 100%;
+  width: auto;
+  object-fit: cover;
+  object-position: left;
+}
+@media (width < 767px) {
+  .request__image {
+    display: none;
+  }
+}

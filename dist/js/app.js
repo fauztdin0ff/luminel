@@ -761,7 +761,7 @@ function initScrollVideo(options) {
       containerSelector,
       width = 1366,
       height = 768,
-      startOffset = 0.9,
+      startOffset = 0.8,
    } = options;
 
    const canvases = document.querySelectorAll(canvasSelector);
