@@ -963,7 +963,7 @@ function initFaqAccordion() {
 /*==========================================================================
 Map
 ============================================================================*/
-function loadYandexMap() {
+/* function loadYandexMap() {
    if (window.ymaps) return;
 
    var script = document.createElement("script");
@@ -1006,7 +1006,25 @@ if (mapBlock) {
    });
    observer.observe(mapBlock);
 }
+ */
 
+document.addEventListener('DOMContentLoaded', function () {
+   ymaps.ready(function () {
+      const mapCenter = [55.634034, 37.440236];
+
+      const myMap = new ymaps.Map('map', {
+         center: mapCenter,
+         zoom: 15,
+      });
+
+      const myPlacemark = new ymaps.Placemark(mapCenter, {
+         hintContent: '"Люменэль"',
+         balloonContent: 'Киевское шоссе, 22-й километр, 4, стр. 1, корп. А, район Солнцево, г. Москва'
+      });
+
+      myMap.geoObjects.add(myPlacemark);
+   });
+});
 
 /*==========================================================================
 Sorting dropdown

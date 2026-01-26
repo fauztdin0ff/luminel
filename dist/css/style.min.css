@@ -449,7 +449,7 @@ Product preview
   right: 1.2rem;
   width: 2rem;
   height: 2rem;
-  color: 757575;
+  color: #757575;
   transition: all 0.3s linear;
 }
 .product-preview__wishlist svg {
@@ -462,6 +462,11 @@ Product preview
 @media (hover: hover) {
   .product-preview__wishlist:not(.added):hover {
     color: var(--color-primary);
+  }
+}
+@media (width < 767px) {
+  .product-preview__wishlist {
+    transition: none;
   }
 }
 .product-preview__info {
