@@ -432,6 +432,7 @@ Product preview
   background: #c4c4c4;
   transition: all 0.3s linear;
   margin: 0 !important;
+  border-radius: 0 !important;
 }
 .product-preview__pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
   background: var(--color-text);
@@ -1994,6 +1995,7 @@ Seotext
 @media (width < 767px) {
   .categories__item {
     aspect-ratio: 4/3;
+    transition: none !important;
   }
   .categories__item:last-child {
     aspect-ratio: 4/3;
@@ -2106,6 +2108,7 @@ Advantages
   .advantages__cards {
     grid-template-columns: 1fr;
     padding: 3rem 16px;
+    transform: translateY(-20%);
   }
 }
 .advantages__card {
