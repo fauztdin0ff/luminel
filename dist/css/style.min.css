@@ -451,6 +451,7 @@ Product preview
   height: 2rem;
   color: #757575;
   transition: all 0.3s linear;
+  z-index: 6;
 }
 .product-preview__wishlist svg {
   width: 100%;

@@ -1639,24 +1639,33 @@ Tips
 ============================================================================*/
 function initTips() {
    const tipsList = document.querySelectorAll('.tips');
-
    if (!tipsList.length) return;
+
+   const isTouch = window.matchMedia('(hover: none)').matches;
 
    tipsList.forEach(tip => {
       const text = tip.querySelector('.tips__text');
-
       if (!text) return;
 
-      tip.addEventListener('mouseenter', () => {
-         tip.classList.add('is-open');
-      });
+      if (!isTouch) {
+         // Desktop — hover
+         tip.addEventListener('mouseenter', () => {
+            tip.classList.add('is-open');
+         });
 
-      tip.addEventListener('mouseleave', () => {
-         tip.classList.remove('is-open');
-      });
+         tip.addEventListener('mouseleave', () => {
+            tip.classList.remove('is-open');
+         });
+      }
 
+      // Mobile — click
       tip.addEventListener('click', (e) => {
          e.stopPropagation();
+
+         tipsList.forEach(t => {
+            if (t !== tip) t.classList.remove('is-open');
+         });
+
          tip.classList.toggle('is-open');
       });
    });
@@ -1665,6 +1674,7 @@ function initTips() {
       tipsList.forEach(tip => tip.classList.remove('is-open'));
    });
 }
+
 
 /*==========================================================================
 init
