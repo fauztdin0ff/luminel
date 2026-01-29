@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,7 +24,7 @@
    <!-- Styles -->
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lenis@1.3.17/dist/lenis.min.css">
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
-   <link rel="stylesheet" href="css/style.min.css">
+   <link rel="stylesheet" href="css/style.min.css?v2">
    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
    <title>Главная</title>
 </head>
@@ -31,240 +32,240 @@
 <body>
    <div class="wrapper">
       <header class="header">
-   <div class="header__body container">
+         <div class="header__body container">
 
-      <a href="#contacts" class="header__label" aria-label="Контакты">
-         <svg>
-            <use xlink:href="#icon-location"></use>
-         </svg>
-         Шоурум в Москве
-      </a>
+            <a href="#contacts" class="header__label" aria-label="Контакты">
+               <svg>
+                  <use xlink:href="#icon-location"></use>
+               </svg>
+               Шоурум в Москве
+            </a>
 
-      <div class="header__panel">
-         <a href="index.html" class="header__logo" aria-label="На главную">
-            <img src="img/logo-icon.svg" class="header__logo-icon" width="50" height="33" alt="logo icon">
-            <div class="header__logo-text">
-               <img src="img/logo-text.svg" class="" width="127" height="14.3" alt="logo icon">
+            <div class="header__panel">
+               <a href="index.html" class="header__logo" aria-label="На главную">
+                  <img src="img/logo-icon.svg" class="header__logo-icon" width="50" height="33" alt="logo icon">
+                  <div class="header__logo-text">
+                     <img src="img/logo-text.svg" class="" width="127" height="14.3" alt="logo icon">
 
+                  </div>
+               </a>
+               <button type="button" class="header__toggle" aria-label="Открыть каталог"><span></span></button>
+               <search class="header__search">
+                  <form class="header__search-form">
+                     <input type="search" class="header__search-input" placeholder="Поиск по каталогу">
+                     <button type="submit" class="header__search-button" aria-label="Искать">
+                        <svg>
+                           <use xlink:href="#icon-search"></use>
+                        </svg>
+                     </button>
+                  </form>
+               </search>
+               <div class="header__buttons">
+                  <button type="button" class="header__button -search" aria-label="Открыть поиск">
+                     <svg>
+                        <use xlink:href="#icon-search"></use>
+                     </svg>
+                  </button>
+                  <a href="" class="header__button" aria-label="Избранное">
+                     <svg>
+                        <use xlink:href="#icon-heart"></use>
+                     </svg>
+                  </a>
+                  <a href="" class="header__button" aria-label="Корзина">
+                     <svg>
+                        <use xlink:href="#icon-cart"></use>
+                     </svg>
+                  </a>
+               </div>
             </div>
-         </a>
-         <button type="button" class="header__toggle" aria-label="Открыть каталог"><span></span></button>
-         <search class="header__search">
-            <form class="header__search-form">
-               <input type="search" class="header__search-input" placeholder="Поиск по каталогу">
-               <button type="submit" class="header__search-button" aria-label="Искать">
+
+            <div class="header__contacts">
+               <button type="button" class="header__contacts-toggle" aria-label="Открыть контакты">
                   <svg>
-                     <use xlink:href="#icon-search"></use>
+                     <use xlink:href="#icon-comments"></use>
+                  </svg>
+                  <svg>
+                     <use xlink:href="#icon-close"></use>
                   </svg>
                </button>
-            </form>
-         </search>
-         <div class="header__buttons">
-            <button type="button" class="header__button -search" aria-label="Открыть поиск">
-               <svg>
-                  <use xlink:href="#icon-search"></use>
-               </svg>
-            </button>
-            <a href="" class="header__button" aria-label="Избранное">
-               <svg>
-                  <use xlink:href="#icon-heart"></use>
-               </svg>
-            </a>
-            <a href="" class="header__button" aria-label="Корзина">
-               <svg>
-                  <use xlink:href="#icon-cart"></use>
-               </svg>
-            </a>
-         </div>
-      </div>
-
-      <div class="header__contacts">
-         <button type="button" class="header__contacts-toggle" aria-label="Открыть контакты">
-            <svg>
-               <use xlink:href="#icon-comments"></use>
-            </svg>
-            <svg>
-               <use xlink:href="#icon-close"></use>
-            </svg>
-         </button>
-         <div class="header__contacts-wrapper">
-            <a href="tel:+79164064467" class="header__tel">+7 (916) 406-44-67</a>
-            <div class="header__socials">
-               <a href="" class="header__social -wh" aria-label="whatsapp">
-                  <svg>
-                     <use xlink:href="#icon-whatsapp"></use>
-                  </svg>
-               </a>
-               <a href="" class="header__social -tg" aria-label="telegram">
-                  <svg>
-                     <use xlink:href="#icon-telegram"></use>
-                  </svg>
-               </a>
-               <a href="tel:+79164064467" class="header__social -phone" aria-label="позвонить">
-                  <svg>
-                     <use xlink:href="#icon-tel"></use>
-                  </svg>
-               </a>
+               <div class="header__contacts-wrapper">
+                  <a href="tel:+79164064467" class="header__tel">+7 (916) 406-44-67</a>
+                  <div class="header__socials">
+                     <a href="" class="header__social -wh" aria-label="whatsapp">
+                        <svg>
+                           <use xlink:href="#icon-whatsapp"></use>
+                        </svg>
+                     </a>
+                     <a href="" class="header__social -tg" aria-label="telegram">
+                        <svg>
+                           <use xlink:href="#icon-telegram"></use>
+                        </svg>
+                     </a>
+                     <a href="tel:+79164064467" class="header__social -phone" aria-label="позвонить">
+                        <svg>
+                           <use xlink:href="#icon-tel"></use>
+                        </svg>
+                     </a>
+                  </div>
+               </div>
             </div>
+
          </div>
-      </div>
 
-   </div>
+         <nav class="header__catalog" data-lenis-prevent>
+            <div class="container">
+               <div class="header__catalog-wrapper">
+                  <ul class="header__catalog-list">
+                     <li class="header__catalog-item" data-category-tab="1">
+                        <a href="catalog.html" class="header__catalog-link">
+                           <svg>
+                              <use xlink:href="#chandelier"></use>
+                           </svg>
+                           Люстры
+                        </a>
+                        <button type="button" class="header__catalog-button" aria-label="Открыть подкатегории">
+                           <svg>
+                              <use xlink:href="#icon-chevron"></use>
+                           </svg>
+                        </button>
+                     </li>
+                     <li class="header__catalog-item">
+                        <a href="catalog.html" class="header__catalog-link">
+                           <svg>
+                              <use xlink:href="#wall-lamp"></use>
+                           </svg>
+                           Бра
+                        </a>
+                     </li>
+                     <li class="header__catalog-item">
+                        <a href="catalog.html" class="header__catalog-link">
+                           <svg>
+                              <use xlink:href="#lamp"></use>
+                           </svg>
+                           Торшеры
+                        </a>
+                     </li>
+                     <li class="header__catalog-item">
+                        <a href="catalog.html" class="header__catalog-link">
+                           <svg>
+                              <use xlink:href="#lamp-2"></use>
+                           </svg>
+                           Настольные лампы
+                        </a>
+                     </li>
+                     <li class="header__catalog-item" data-category-tab="2">
+                        <a href="catalog.html" class="header__catalog-link">
+                           <svg>
+                              <use xlink:href="#mirror"></use>
+                           </svg>
+                           Предметы интерьера
+                        </a>
+                        <button type="button" class="header__catalog-button" aria-label="Открыть подкатегории">
+                           <svg>
+                              <use xlink:href="#icon-chevron"></use>
+                           </svg>
+                        </button>
+                     </li>
+                     <li class="header__catalog-item" data-category-tab="3">
+                        <a href="catalog.html" class="header__catalog-link">
+                           <svg>
+                              <use xlink:href="#light-bulb"></use>
+                           </svg>
+                           Расходники
+                        </a>
+                        <button type="button" class="header__catalog-button" aria-label="Открыть подкатегории">
+                           <svg>
+                              <use xlink:href="#icon-chevron"></use>
+                           </svg>
+                        </button>
+                     </li>
+                     <li class="header__catalog-item">
+                        <a href="catalog.html" class="header__catalog-link">
+                           <svg>
+                              <use xlink:href="#chandelier-2"></use>
+                           </svg>
+                           Изделия на заказ
+                        </a>
+                     </li>
 
-   <nav class="header__catalog" data-lenis-prevent>
-      <div class="container">
-         <div class="header__catalog-wrapper">
-            <ul class="header__catalog-list">
-               <li class="header__catalog-item" data-category-tab="1">
-                  <a href="catalog.html" class="header__catalog-link">
-                     <svg>
-                        <use xlink:href="#chandelier"></use>
-                     </svg>
-                     Люстры
-                  </a>
-                  <button type="button" class="header__catalog-button" aria-label="Открыть подкатегории">
-                     <svg>
-                        <use xlink:href="#icon-chevron"></use>
-                     </svg>
-                  </button>
-               </li>
-               <li class="header__catalog-item">
-                  <a href="catalog.html" class="header__catalog-link">
-                     <svg>
-                        <use xlink:href="#wall-lamp"></use>
-                     </svg>
-                     Бра
-                  </a>
-               </li>
-               <li class="header__catalog-item">
-                  <a href="catalog.html" class="header__catalog-link">
-                     <svg>
-                        <use xlink:href="#lamp"></use>
-                     </svg>
-                     Торшеры
-                  </a>
-               </li>
-               <li class="header__catalog-item">
-                  <a href="catalog.html" class="header__catalog-link">
-                     <svg>
-                        <use xlink:href="#lamp-2"></use>
-                     </svg>
-                     Настольные лампы
-                  </a>
-               </li>
-               <li class="header__catalog-item" data-category-tab="2">
-                  <a href="catalog.html" class="header__catalog-link">
-                     <svg>
-                        <use xlink:href="#mirror"></use>
-                     </svg>
-                     Предметы интерьера
-                  </a>
-                  <button type="button" class="header__catalog-button" aria-label="Открыть подкатегории">
-                     <svg>
-                        <use xlink:href="#icon-chevron"></use>
-                     </svg>
-                  </button>
-               </li>
-               <li class="header__catalog-item" data-category-tab="3">
-                  <a href="catalog.html" class="header__catalog-link">
-                     <svg>
-                        <use xlink:href="#light-bulb"></use>
-                     </svg>
-                     Расходники
-                  </a>
-                  <button type="button" class="header__catalog-button" aria-label="Открыть подкатегории">
-                     <svg>
-                        <use xlink:href="#icon-chevron"></use>
-                     </svg>
-                  </button>
-               </li>
-               <li class="header__catalog-item">
-                  <a href="catalog.html" class="header__catalog-link">
-                     <svg>
-                        <use xlink:href="#chandelier-2"></use>
-                     </svg>
-                     Изделия на заказ
-                  </a>
-               </li>
+                  </ul>
 
-            </ul>
+                  <div class="header__catalog-categories">
 
-            <div class="header__catalog-categories">
+                     <div class="header__catalog-category" data-category-links="1">
+                        <div class="header__catalog-subname">
+                           <button type="button" class="header__catalog-back" aria-label="Назад">
+                              <svg class="header__catalog-icon">
+                                 <use xlink:href="#icon-chevron"></use>
+                              </svg>
+                           </button>
+                           Люстры
+                        </div>
+                        <ul class="header__catalog-sublist">
+                           <li><a href="catalog.html">Подвесные люстры</a></li>
+                           <li><a href="catalog.html">Дизайнерские люстры</a></li>
+                           <li><a href="catalog.html">Большие люстры</a></li>
+                           <li><a href="catalog.html">Люстры в современном стиле</a></li>
+                        </ul>
+                     </div>
 
-               <div class="header__catalog-category" data-category-links="1">
-                  <div class="header__catalog-subname">
-                     <button type="button" class="header__catalog-back" aria-label="Назад">
-                        <svg class="header__catalog-icon">
-                           <use xlink:href="#icon-chevron"></use>
-                        </svg>
-                     </button>
-                     Люстры
+                     <div class="header__catalog-category" data-category-links="2">
+                        <div class="header__catalog-subname">
+                           <button type="button" class="header__catalog-back" aria-label="Назад">
+                              <svg class="header__catalog-icon">
+                                 <use xlink:href="#icon-chevron"></use>
+                              </svg>
+                           </button>
+                           Предметы интерьера
+                        </div>
+                        <ul class="header__catalog-sublist">
+                           <li><a href="catalog.html">Подвесные люстры</a></li>
+                           <li><a href="catalog.html">Дизайнерские люстры</a></li>
+                           <li><a href="catalog.html">Большие люстры</a></li>
+                           <li><a href="catalog.html">Люстры в современном стиле</a></li>
+                           <li><a href="catalog.html">Большие люстры</a></li>
+                           <li><a href="catalog.html">Люстры в современном стиле</a></li>
+                        </ul>
+                     </div>
+
+                     <div class="header__catalog-category" data-category-links="3">
+                        <div class="header__catalog-subname">
+                           <button type="button" class="header__catalog-back" aria-label="Назад">
+                              <svg class="header__catalog-icon">
+                                 <use xlink:href="#icon-chevron"></use>
+                              </svg>
+                           </button>
+                           Расходники
+                        </div>
+                        <ul class="header__catalog-sublist">
+                           <li><a href="catalog.html">Подвесные люстры</a></li>
+                           <li><a href="catalog.html">Дизайнерские люстры</a></li>
+                           <li><a href="catalog.html">Большие люстры</a></li>
+                           <li><a href="catalog.html">Люстры в современном стиле</a></li>
+                           <li><a href="catalog.html">Большие люстры</a></li>
+                           <li><a href="catalog.html">Люстры в современном стиле</a></li>
+                        </ul>
+                     </div>
+
                   </div>
-                  <ul class="header__catalog-sublist">
-                     <li><a href="catalog.html">Подвесные люстры</a></li>
-                     <li><a href="catalog.html">Дизайнерские люстры</a></li>
-                     <li><a href="catalog.html">Большие люстры</a></li>
-                     <li><a href="catalog.html">Люстры в современном стиле</a></li>
+               </div>
+               <div class="header__menu">
+                  <ul>
+                     <li><a href="">Доставка</a></li>
+                     <li><a href="">Оплата</a></li>
+                     <li><a href="">Гарантия</a></li>
+                     <li><a href="">Возврат</a></li>
+                     <li><a href="">Установка</a></li>
+                     <li><a href="">Блог</a></li>
+                     <li><a href="">Акции</a></li>
+                     <li><a href="">Сотрудничество</a></li>
+                     <li><a href="">О нас</a></li>
+                     <li><a href="">Контакты</a></li>
                   </ul>
                </div>
-
-               <div class="header__catalog-category" data-category-links="2">
-                  <div class="header__catalog-subname">
-                     <button type="button" class="header__catalog-back" aria-label="Назад">
-                        <svg class="header__catalog-icon">
-                           <use xlink:href="#icon-chevron"></use>
-                        </svg>
-                     </button>
-                     Предметы интерьера
-                  </div>
-                  <ul class="header__catalog-sublist">
-                     <li><a href="catalog.html">Подвесные люстры</a></li>
-                     <li><a href="catalog.html">Дизайнерские люстры</a></li>
-                     <li><a href="catalog.html">Большие люстры</a></li>
-                     <li><a href="catalog.html">Люстры в современном стиле</a></li>
-                     <li><a href="catalog.html">Большие люстры</a></li>
-                     <li><a href="catalog.html">Люстры в современном стиле</a></li>
-                  </ul>
-               </div>
-
-               <div class="header__catalog-category" data-category-links="3">
-                  <div class="header__catalog-subname">
-                     <button type="button" class="header__catalog-back" aria-label="Назад">
-                        <svg class="header__catalog-icon">
-                           <use xlink:href="#icon-chevron"></use>
-                        </svg>
-                     </button>
-                     Расходники
-                  </div>
-                  <ul class="header__catalog-sublist">
-                     <li><a href="catalog.html">Подвесные люстры</a></li>
-                     <li><a href="catalog.html">Дизайнерские люстры</a></li>
-                     <li><a href="catalog.html">Большие люстры</a></li>
-                     <li><a href="catalog.html">Люстры в современном стиле</a></li>
-                     <li><a href="catalog.html">Большие люстры</a></li>
-                     <li><a href="catalog.html">Люстры в современном стиле</a></li>
-                  </ul>
-               </div>
-
             </div>
-         </div>
-         <div class="header__menu">
-            <ul>
-               <li><a href="">Доставка</a></li>
-               <li><a href="">Оплата</a></li>
-               <li><a href="">Гарантия</a></li>
-               <li><a href="">Возврат</a></li>
-               <li><a href="">Установка</a></li>
-               <li><a href="">Блог</a></li>
-               <li><a href="">Акции</a></li>
-               <li><a href="">Сотрудничество</a></li>
-               <li><a href="">О нас</a></li>
-               <li><a href="">Контакты</a></li>
-            </ul>
-         </div>
-      </div>
-   </nav>
-</header>
+         </nav>
+      </header>
       <main>
 
          <div class="preloader">
@@ -1395,299 +1396,301 @@
 
       </main>
       <footer class="footer">
-   <div class="footer__body container">
-      <div class="footer__top">
-         <a href="index.html" class="footer__logo" aria-label="На главную">
-            <img src="img/logo-brand.svg" width="336" height="96" alt="logo">
-         </a>
-         <div class="footer__about">
-            <p>Светильники <br>
-               с итальянским дизайном</p>
-            <img src="img/ya-rating.png" width="191" height="63" alt="Yandex rating">
-         </div>
-      </div>
-      <nav class="footer__nav">
-         <div class="footer__menu">
-            <div class="footer__menu-col">
-               <div class="footer__label">Каталог</div>
-               <ul>
-                  <li><a href="">Люстры</a></li>
-                  <li><a href="">Бра</a></li>
-                  <li><a href="">Торшеры</a></li>
-                  <li><a href="">Настольные лампы</a></li>
-                  <li><a href="">Изделия на заказ</a></li>
-                  <li><a href="">Расходники</a></li>
-               </ul>
+         <div class="footer__body container">
+            <div class="footer__top">
+               <a href="index.html" class="footer__logo" aria-label="На главную">
+                  <img src="img/logo-brand.svg" width="336" height="96" alt="logo">
+               </a>
+               <div class="footer__about">
+                  <p>Светильники <br>
+                     с итальянским дизайном</p>
+                  <img src="img/ya-rating.png" width="191" height="63" alt="Yandex rating">
+               </div>
             </div>
-            <div class="footer__menu-col">
-               <div class="footer__label">Покупателям</div>
-               <ul>
-                  <li><a href="">Доставка</a></li>
-                  <li><a href="">Оплата</a></li>
-                  <li><a href="">Гарантия</a></li>
-                  <li><a href="">Возврат</a></li>
-                  <li><a href="">Установка</a></li>
-                  <li><a href="">Вопрос-ответ</a></li>
-               </ul>
-            </div>
-            <div class="footer__menu-col">
-               <div class="footer__label">о компании</div>
-               <ul>
-                  <li><a href="">О нас</a></li>
-                  <li><a href="">Блог</a></li>
-                  <li><a href="">Акции</a></li>
-                  <li><a href="">Сотрудничество</a></li>
-                  <li><a href="">Шоурум</a></li>
-                  <li><a href="">Контакты</a></li>
-               </ul>
-            </div>
-         </div>
-         <div class="footer__info">
-            <div class="footer__address">
-               <div class="footer__address-row">
-                  <div class="footer__label">Шоурум</div>
-                  <div class="footer__text">Киевское шоссе, 22-й километр, 4, стр. 1, корп. А, район Солнцево, г. Москва
+            <nav class="footer__nav">
+               <div class="footer__menu">
+                  <div class="footer__menu-col">
+                     <div class="footer__label">Каталог</div>
+                     <ul>
+                        <li><a href="">Люстры</a></li>
+                        <li><a href="">Бра</a></li>
+                        <li><a href="">Торшеры</a></li>
+                        <li><a href="">Настольные лампы</a></li>
+                        <li><a href="">Изделия на заказ</a></li>
+                        <li><a href="">Расходники</a></li>
+                     </ul>
+                  </div>
+                  <div class="footer__menu-col">
+                     <div class="footer__label">Покупателям</div>
+                     <ul>
+                        <li><a href="">Доставка</a></li>
+                        <li><a href="">Оплата</a></li>
+                        <li><a href="">Гарантия</a></li>
+                        <li><a href="">Возврат</a></li>
+                        <li><a href="">Установка</a></li>
+                        <li><a href="">Вопрос-ответ</a></li>
+                     </ul>
+                  </div>
+                  <div class="footer__menu-col">
+                     <div class="footer__label">о компании</div>
+                     <ul>
+                        <li><a href="">О нас</a></li>
+                        <li><a href="">Блог</a></li>
+                        <li><a href="">Акции</a></li>
+                        <li><a href="">Сотрудничество</a></li>
+                        <li><a href="">Шоурум</a></li>
+                        <li><a href="">Контакты</a></li>
+                     </ul>
                   </div>
                </div>
-               <div class="footer__address-row">
-                  <div class="footer__label">График работы</div>
-                  <div class="footer__text">Ежедневно <br>
-                     с 10:00 до 21:00 <br>
-                     (без перерыва и выходных)</div>
-               </div>
-            </div>
-            <div class="footer__contacts">
-               <div class="footer__contacts-row">
-                  <div class="footer__label">Свяжитесь с нами</div>
-                  <div class="footer__contact">
-                     <a href="tel:+79164064467">+7 (916) 406-44-67</a>
-                     <a href="mailto:info@g-light.msk.ru">info@g-light.msk.ru</a>
+               <div class="footer__info">
+                  <div class="footer__address">
+                     <div class="footer__address-row">
+                        <div class="footer__label">Шоурум</div>
+                        <div class="footer__text">Киевское шоссе, 22-й километр, 4, стр. 1, корп. А, район Солнцево, г.
+                           Москва
+                        </div>
+                     </div>
+                     <div class="footer__address-row">
+                        <div class="footer__label">График работы</div>
+                        <div class="footer__text">Ежедневно <br>
+                           с 10:00 до 21:00 <br>
+                           (без перерыва и выходных)</div>
+                     </div>
+                  </div>
+                  <div class="footer__contacts">
+                     <div class="footer__contacts-row">
+                        <div class="footer__label">Свяжитесь с нами</div>
+                        <div class="footer__contact">
+                           <a href="tel:+79164064467">+7 (916) 406-44-67</a>
+                           <a href="mailto:info@g-light.msk.ru">info@g-light.msk.ru</a>
+                        </div>
+                     </div>
+                     <div class="footer__contacts-row">
+                        <div class="footer__label">социальные <br> сети и мессенджеры</div>
+                        <div class="footer__socials">
+                           <a href="" class="footer__social -vk" aria-label="VK">
+                              <svg>
+                                 <use xlink:href="#icon-vk"></use>
+                              </svg>
+                           </a>
+                           <a href="" class="footer__social -yt" aria-label="youtube">
+                              <svg>
+                                 <use xlink:href="#icon-youtube"></use>
+                              </svg>
+                           </a>
+                           <a href="" class="footer__social -wh" aria-label="whatsapp">
+                              <svg>
+                                 <use xlink:href="#icon-whatsapp"></use>
+                              </svg>
+                           </a>
+                           <a href="" class="footer__social -tg" aria-label="telegram">
+                              <svg>
+                                 <use xlink:href="#icon-telegram"></use>
+                              </svg>
+                           </a>
+                        </div>
+                     </div>
                   </div>
                </div>
-               <div class="footer__contacts-row">
-                  <div class="footer__label">социальные <br> сети и мессенджеры</div>
-                  <div class="footer__socials">
-                     <a href="" class="footer__social -vk" aria-label="VK">
-                        <svg>
-                           <use xlink:href="#icon-vk"></use>
-                        </svg>
-                     </a>
-                     <a href="" class="footer__social -yt" aria-label="youtube">
-                        <svg>
-                           <use xlink:href="#icon-youtube"></use>
-                        </svg>
-                     </a>
-                     <a href="" class="footer__social -wh" aria-label="whatsapp">
-                        <svg>
-                           <use xlink:href="#icon-whatsapp"></use>
-                        </svg>
-                     </a>
-                     <a href="" class="footer__social -tg" aria-label="telegram">
-                        <svg>
-                           <use xlink:href="#icon-telegram"></use>
-                        </svg>
-                     </a>
-                  </div>
-               </div>
-            </div>
-         </div>
 
-      </nav>
-      <div class="footer__policy">
-         <div class="footer__policy-text">© Люменэль, 20XX–20XX. Все права защищены.</div>
-         <div class="footer__policy-links">
-            <a href="">Политика обработки данных</a>
-            <a href="">Согласие на обработку данных</a>
+            </nav>
+            <div class="footer__policy">
+               <div class="footer__policy-text">© Люменэль, 20XX–20XX. Все права защищены.</div>
+               <div class="footer__policy-links">
+                  <a href="">Политика обработки данных</a>
+                  <a href="">Согласие на обработку данных</a>
+               </div>
+            </div>
          </div>
-      </div>
-   </div>
-</footer>
+      </footer>
    </div>
    <svg viewBox="0 0 36 39" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-   style="display: none;"><svg fill="none" viewBox="0 0 27 22" id="chandelier" xmlns="http://www.w3.org/2000/svg">
-      <path
-         d="M.583 8.457v1.932a1.7 1.7 0 0 0 1.007 1.554 1.704 1.704 0 0 1 1.003 1.554v.383a2.206 2.206 0 0 0 4.41-.01v-.382a1.704 1.704 0 0 1 1.008-1.554 1.704 1.704 0 0 0 1.002-1.554V8.457H.583ZM2.292 8.457a2.51 2.51 0 0 1 5.013 0M25.992 8.457v1.932a1.7 1.7 0 0 1-1.007 1.554 1.704 1.704 0 0 0-1.003 1.554v.383a2.206 2.206 0 0 1-4.41-.01v-.382a1.703 1.703 0 0 0-1.008-1.554 1.704 1.704 0 0 1-1.002-1.554V8.457h8.43ZM24.283 8.457a2.511 2.511 0 0 0-5.012 0"
-         stroke="currentColor" stroke-width="1.167" stroke-linecap="round" stroke-linejoin="round" />
-      <path
-         d="M21.777 16.076v.912a3.673 3.673 0 0 1-3.669 3.645h-1.152a3.673 3.673 0 0 1-3.646-3.645 3.672 3.672 0 0 1-3.645 3.645H8.466a3.673 3.673 0 0 1-3.668-3.645v-.912M15.703.583a2.415 2.415 0 1 1-4.83 0M13.288 16.965V2.998M7.109.583h12.358"
-         stroke="currentColor" stroke-width="1.167" stroke-linecap="round" stroke-linejoin="round" />
-   </svg><svg fill="none" viewBox="0 0 30 30" id="chandelier-2" xmlns="http://www.w3.org/2000/svg">
-      <path d="M18.975 23.13v1.02a1.094 1.094 0 0 1-1.09 1.094h-6.552a1.098 1.098 0 0 1-1.094-1.093v-1.003"
-         stroke="currentColor" stroke-width="1.167" stroke-linecap="round" stroke-linejoin="round" />
-      <path
-         d="M12.426 25.226h4.366v.346a1.749 1.749 0 0 1-1.755 1.768h-.86a1.75 1.75 0 0 1-1.75-1.75v-.364ZM10.24 13.137v-2.096h8.74v2.096M16.792 11.041h-4.366v-.346a1.75 1.75 0 0 1 1.755-1.75h.861a1.75 1.75 0 0 1 1.75 1.75v.346ZM14.583 23.125c6.04 0 10.936-2.235 10.936-4.994 0-2.758-4.896-4.994-10.936-4.994S3.646 15.373 3.646 18.131c0 2.759 4.897 4.994 10.937 4.994Z"
-         stroke="currentColor" stroke-width="1.167" stroke-linecap="round" stroke-linejoin="round" />
-      <path
-         d="M14.654 22.857a18.664 18.664 0 0 1-1.517-.296c-3.486-.839-6.412-2.507-6.412-4.43 0-1.923 2.926-3.59 6.412-4.424.487-.114.993-.219 1.517-.301"
-         stroke="currentColor" stroke-width="1.167" stroke-linecap="round" stroke-linejoin="round" />
-      <path
-         d="M16.136 22.565a14.86 14.86 0 0 1-1.518-.456c-2.652-.911-4.365-2.356-4.365-3.991 0-1.636 1.704-3.08 4.356-3.992"
-         stroke="currentColor" stroke-width="1.167" stroke-linecap="round" stroke-linejoin="round" />
-      <path
-         d="M14.65 13.406c.51.082 1.48.296 1.48.296 3.505.83 6.44 2.502 6.44 4.43 0 1.927-2.935 3.6-6.44 4.433-.455.114-.965.214-1.475.292"
-         stroke="currentColor" stroke-width="1.167" stroke-linecap="round" stroke-linejoin="round" />
-      <path
-         d="M11.315 13.36c.625.096 1.23.21 1.8.347.5.124.993.277 1.477.455 2.647.912 4.365 2.356 4.365 3.988 0 1.63-1.718 3.085-4.365 3.991-.484.177-.977.33-1.477.456M14.582 8.945V1.84M14.582 23.13v-9.993"
-         stroke="currentColor" stroke-width="1.167" stroke-linecap="round" stroke-linejoin="round" />
-   </svg><svg fill="none" viewBox="0 0 23 20" id="icon-arrow" xmlns="http://www.w3.org/2000/svg">
-      <path d="M22.719 9.686c-3.341 0-10.023 2.473-10.023 9.689" stroke="currentColor" stroke-width="1.529" />
-      <path d="M22.719 9.688c-3.341 0-10.023-2.472-10.023-9.688M20.713 9.69H0" stroke="currentColor"
-         stroke-width="1.529" />
-   </svg><svg fill="none" viewBox="0 0 36 34" id="icon-cart" xmlns="http://www.w3.org/2000/svg">
-      <path
-         d="M8.061 11.628 14.49 1.342m14.142 10.286L22.204 1.342M4.636 26.55c-.998-4.3-1.46-9.206-1.633-12.35a2.45 2.45 0 0 1 2.487-2.572h25.714c1.42 0 2.564 1.152 2.486 2.571-.174 3.143-.635 8.049-1.632 12.35-.463 1.994-1.929 3.51-3.955 3.806-2.083.301-5.254.558-9.756.558-4.503 0-7.67-.257-9.756-.558-2.027-.295-3.492-1.812-3.955-3.805Z"
-         stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
-   </svg><svg fill="none" viewBox="0 0 26 26" id="icon-cart-2" xmlns="http://www.w3.org/2000/svg">
-      <g clip-path="url(#ada)">
+      style="display: none;"><svg fill="none" viewBox="0 0 27 22" id="chandelier" xmlns="http://www.w3.org/2000/svg">
          <path
-            d="M8.571 23.572c-.59 0-1.094-.21-1.513-.63-.42-.42-.63-.924-.63-1.513 0-.59.21-1.094.63-1.514.42-.42.924-.63 1.513-.63.59 0 1.094.21 1.514.63.42.42.629.925.629 1.514 0 .59-.21 1.094-.63 1.513-.42.42-.924.63-1.513.63Zm10.714 0c-.589 0-1.093-.21-1.513-.63-.42-.42-.63-.924-.63-1.513 0-.59.21-1.094.63-1.514.42-.42.924-.63 1.513-.63.59 0 1.094.21 1.514.63.42.42.63.925.63 1.514 0 .59-.21 1.094-.63 1.513-.42.42-.924.63-1.514.63ZM7.66 6.429l2.572 5.357h7.5l2.946-5.357H7.66ZM6.643 4.286h15.803c.41 0 .723.183.938.549.214.366.223.737.026 1.112l-3.803 6.857c-.197.357-.46.634-.79.83-.33.197-.692.295-1.085.295H9.75L8.57 16.072h12.857v2.143H8.571c-.803 0-1.41-.353-1.821-1.058-.411-.706-.429-1.407-.054-2.103l1.447-2.625-3.858-8.143H2.143V2.143h3.482l1.018 2.143Z"
-            fill="currentColor" />
-      </g>
-      <defs>
-         <clipPath id="ada">
-            <path fill="currentColor" d="M0 0h25.714v25.714H0z" />
-         </clipPath>
-      </defs>
-   </svg><svg fill="none" viewBox="0 0 13 10" id="icon-check" xmlns="http://www.w3.org/2000/svg">
-      <path d="m0 4.889 1.25-1.222 3.125 3.055L11.25 0l1.25 1.222-8.125 7.945L0 4.889Z" fill="currentColor" />
-   </svg><svg fill="none" viewBox="0 0 6 11" id="icon-chevron" xmlns="http://www.w3.org/2000/svg">
-      <path
-         d="M.21.219a.697.697 0 0 1 1.015 0L5.79 4.972c.28.292.28.764 0 1.056l-4.565 4.753a.697.697 0 0 1-1.015 0 .769.769 0 0 1 0-1.056L4.268 5.5.21 1.275a.769.769 0 0 1 0-1.056Z"
-         fill="currentColor" />
-   </svg><svg fill="none" viewBox="0 0 13 7" id="icon-chevron-m" xmlns="http://www.w3.org/2000/svg">
-      <path d="M11.661.435 6.048 6.048.436.435" stroke="currentColor" stroke-width=".871" stroke-linecap="round" />
-   </svg><svg fill="none" viewBox="0 0 12 12" id="icon-chevrone-double" xmlns="http://www.w3.org/2000/svg">
-      <path d="m10.707 10.707-5-5.005 5-4.995M5.707 10.707l-5-5.005 5-4.995" stroke="currentColor"
-         stroke-miterlimit="10" stroke-linecap="square" />
-   </svg><svg fill="none" viewBox="0 0 7 12" id="icon-chevron-left" xmlns="http://www.w3.org/2000/svg">
-      <path d="M5.70715 10.707L0.707153 5.70152L5.70715 0.707031" stroke="currentColor" stroke-miterlimit="10"
-         stroke-linecap="square" />
-   </svg><svg fill="none" viewBox="0 0 7 12" id="icon-chevron-right" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0.707152 0.707032L5.70715 5.71254L0.707153 10.707" stroke="currentColor" stroke-miterlimit="10"
-         stroke-linecap="square" />
-   </svg><svg fill="none" viewBox="0 0 18 18" id="icon-close" xmlns="http://www.w3.org/2000/svg">
-      <path
-         d="M16.729.14a.818.818 0 0 1 1.133 1.134l-.105.127-7.598 7.596 7.598 7.598.105.127a.817.817 0 0 1-1.133 1.133l-.128-.105-7.598-7.597-7.597 7.597A.817.817 0 1 1 .25 16.595l7.597-7.598L.25 1.402l-.107-.128A.817.817 0 0 1 1.278.139l.128.107L9.003 7.84 16.6.246l.128-.107Z"
-         fill="currentColor" />
-   </svg><svg fill="none" viewBox="0 0 22 22" id="icon-comments" xmlns="http://www.w3.org/2000/svg">
-      <path
-         d="M4.143 4.143v-.151A3.242 3.242 0 0 1 7.384.75h10.373A3.241 3.241 0 0 1 21 3.992v6.32a3.242 3.242 0 0 1-3.242 3.242h-.151M3.992 17.887a1.08 1.08 0 0 0-.865-1.08A3.242 3.242 0 0 1 .75 13.683v-6.3a3.241 3.241 0 0 1 3.242-3.241h10.372a3.242 3.242 0 0 1 3.242 3.241v6.332a3.242 3.242 0 0 1-3.242 3.242h-5.63a1.08 1.08 0 0 0-.755.313l-3.07 3.08a.53.53 0 0 1-.917-.379v-2.085Z"
-         stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" />
-      <path d="M5.938 10.453v.01m3.241-.01v.01m3.242 0v.012" stroke="currentColor" stroke-width="2"
-         stroke-linecap="round" stroke-linejoin="round" />
-   </svg><svg fill="none" viewBox="0 0 14 26" id="icon-decore-chevron-left" xmlns="http://www.w3.org/2000/svg">
-      <mask id="ala" fill="currentColor">
+            d="M.583 8.457v1.932a1.7 1.7 0 0 0 1.007 1.554 1.704 1.704 0 0 1 1.003 1.554v.383a2.206 2.206 0 0 0 4.41-.01v-.382a1.704 1.704 0 0 1 1.008-1.554 1.704 1.704 0 0 0 1.002-1.554V8.457H.583ZM2.292 8.457a2.51 2.51 0 0 1 5.013 0M25.992 8.457v1.932a1.7 1.7 0 0 1-1.007 1.554 1.704 1.704 0 0 0-1.003 1.554v.383a2.206 2.206 0 0 1-4.41-.01v-.382a1.703 1.703 0 0 0-1.008-1.554 1.704 1.704 0 0 1-1.002-1.554V8.457h8.43ZM24.283 8.457a2.511 2.511 0 0 0-5.012 0"
+            stroke="currentColor" stroke-width="1.167" stroke-linecap="round" stroke-linejoin="round" />
          <path
-            d="M0 12.528v-.431h.013l.05-.001a11.207 11.207 0 0 0 .959-.076 15.154 15.154 0 0 0 2.576-.544c2.053-.623 4.562-1.861 6.455-4.325l.684.526C8.7 10.327 6.012 11.645 3.85 12.3a16.19 16.19 0 0 1-2.727.575c-.344.04-.69.068-1.038.08l-.06.003H.001L0 12.528ZM10.053 7.15c1.07-1.392 1.683-3.17 2.029-4.625.183-.771.316-1.553.396-2.342l.014-.174.001-.008V0l.431.028.43.027V.06l-.001.012-.004.041-.013.154a19.004 19.004 0 0 1-.415 2.459c-.358 1.506-1.008 3.422-2.184 4.952l-.684-.526ZM0 12.528v-.431h.024l.06.001c.053 0 .127.004.225.009.193.01.47.03.813.072.688.083 1.644.247 2.727.575 2.163.655 4.851 1.974 6.888 4.624l-.684.526C8.16 15.441 5.651 14.202 3.6 13.58a15.27 15.27 0 0 0-2.578-.543 12.057 12.057 0 0 0-.959-.077H.001L0 12.528Zm10.737 4.85c1.176 1.532 1.826 3.446 2.184 4.952.179.759.288 1.423.35 1.898.032.237.058.476.078.715l.004.041V25l-.43.029-.43.027v-.01l-.015-.174a18.462 18.462 0 0 0-.397-2.342c-.345-1.456-.959-3.233-2.028-4.625l.684-.526Z" />
-      </mask>
-      <path
-         d="M0 12.528v-.431h.013l.05-.001a11.207 11.207 0 0 0 .959-.076 15.154 15.154 0 0 0 2.576-.544c2.053-.623 4.562-1.861 6.455-4.325l.684.526C8.7 10.327 6.012 11.645 3.85 12.3a16.19 16.19 0 0 1-2.727.575c-.344.04-.69.068-1.038.08l-.06.003H.001L0 12.528ZM10.053 7.15c1.07-1.392 1.683-3.17 2.029-4.625.183-.771.316-1.553.396-2.342l.014-.174.001-.008V0l.431.028.43.027V.06l-.001.012-.004.041-.013.154a19.004 19.004 0 0 1-.415 2.459c-.358 1.506-1.008 3.422-2.184 4.952l-.684-.526ZM0 12.528v-.431h.024l.06.001c.053 0 .127.004.225.009.193.01.47.03.813.072.688.083 1.644.247 2.727.575 2.163.655 4.851 1.974 6.888 4.624l-.684.526C8.16 15.441 5.651 14.202 3.6 13.58a15.27 15.27 0 0 0-2.578-.543 12.057 12.057 0 0 0-.959-.077H.001L0 12.528Zm10.737 4.85c1.176 1.532 1.826 3.446 2.184 4.952.179.759.288 1.423.35 1.898.032.237.058.476.078.715l.004.041V25l-.43.029-.43.027v-.01l-.015-.174a18.462 18.462 0 0 0-.397-2.342c-.345-1.456-.959-3.233-2.028-4.625l.684-.526Z"
-         fill="currentColor" />
-      <path
-         d="m10.737 7.677-.305.396.61-.793-.305.397Zm0 9.701.305.397-.61-.793.305.396ZM0 12.528h-.5.5Zm10.395-5.114-.305.396.342.263.305-.396.305-.397-.343-.263-.304.397Zm0 10.227.304.397.343-.263-.305-.397-.305-.396-.342.263.305.396ZM0 12.528h.5v-.431h-1v.43H0ZM10.053 7.15l-.304.396.683.526.305-.396.305-.397-.684-.525-.305.396ZM.001 12.959l.5-.001-.001-.431H0l-.5.002v.43H0Zm10.736 4.42-.305-.397-.683.526.304.396.305.397.684-.526-.305-.397Zm0-9.702.793.61v-.001l-.793-.61Zm0 9.701.793-.609-.793.61ZM.013 12.097v1H.03l-.017-1Zm.05-.001.017 1h.008l-.026-1Zm.2-.009-.05-.999H.21l.052 1Zm.758-.067.119.993-.12-.993Zm2.577-.544-.29-.957.29.957Zm6.455-4.325.793.61-.793-.61ZM3.85 12.3l.29.957-.29-.957Zm-2.727.575.118.993h.002l-.12-.993Zm-1.038.08.029 1h.01l-.039-1Zm-.06.003v1H.053l-.029-1ZM12.082 2.526l-.973-.231.973.23Zm.396-2.342.995.102.001-.011.001-.012-.997-.079Zm.014-.174-.995-.1v.011l-.002.01.997.08Zm.001-.008.995.1.005-.05v-.05h-1Zm0-.002.064-.998-1.064-.068V0h1Zm.431.028.064-.998-.064.998Zm.43.027h1v-.938l-.936-.06-.065.998Zm0 .004.997.077.002-.038V.059h-1Zm-.001.012.996.083V.148L13.354.07Zm-.004.041.997.084-.997-.084Zm-.013.154.996.096V.349l-.996-.083Zm-.064.562L12.28.695l.992.133Zm-.351 1.896-.973-.232v.001l.973.231ZM.084 12.098l-.044 1h.033l.011-1Zm.225.009.053-.999-.053.999Zm.813.072-.12.993h.001l.12-.993Zm2.727.575-.29.957.29-.957Zm6.204 5.15.793-.609-.793.61ZM3.6 13.58l.29-.957-.29.957Zm-2.578-.543-.12.993.12-.993Zm-.959-.077.041-1h-.04v1Zm12.859 9.371.973-.23-.973.23Zm.35 1.898.992-.131-.991.13Zm.078.715.997-.083v-.002l-.997.085Zm.004.041.998-.058v-.012l-.002-.013-.996.084Zm0 .015.066.998.991-.066-.058-.99-.999.058Zm-.43.029.064.998h.002l-.066-.998Zm-.43.027h-1v1.066l1.064-.068-.064-.998Zm0-.01h1V25l-.004-.044-.996.089Zm-.015-.174.996-.09-.001-.006v-.008l-.995.104Zm-.397-2.342.973-.23-.973.23ZM0 12.097v1h.013v-2H0v1Zm.013 0 .017 1 .05-.002-.018-1-.017-1-.05.002.018 1Zm.05-.001.025 1 .226-.01-.052-.999-.052-.999a7.405 7.405 0 0 1-.174.008l.026 1Zm.2-.009.048.999c.201-.01.483-.032.829-.073l-.12-.993-.118-.993c-.303.036-.538.054-.689.061l.05 1Zm.758-.067.119.993a16.148 16.148 0 0 0 2.749-.58l-.29-.957-.291-.957a14.15 14.15 0 0 1-2.406.508l.119.993Zm2.577-.544.29.957c2.181-.662 4.9-1.993 6.958-4.673l-.793-.61-.793-.608c-1.726 2.247-4.028 3.393-5.952 3.977l.29.957Zm7.14-3.8-.794-.609c-1.87 2.434-4.35 3.66-6.385 4.277l.29.957.29.957c2.291-.695 5.188-2.106 7.39-4.972l-.792-.61Zm-6.889 4.625-.29-.957a15.174 15.174 0 0 1-2.556.539l.12.993.119.993a17.177 17.177 0 0 0 2.897-.611l-.29-.957Zm-2.727.575-.117-.993c-.319.038-.638.063-.958.075l.037.999.038 1a13.94 13.94 0 0 0 1.118-.088l-.118-.993Zm-1.038.08-.028-.999-.06.002.028 1 .029 1 .06-.002-.029-1Zm-.06.003v-1H.001v2h.023v-1Zm10.03-5.808.792.61c1.194-1.554 1.85-3.49 2.209-5.004l-.973-.231-.973-.231c-.332 1.396-.904 3.017-1.849 4.247l.793.609Zm2.028-4.625.973.231c.193-.813.333-1.639.418-2.47l-.995-.103-.994-.101a17.108 17.108 0 0 1-.375 2.212l.973.23Zm.396-2.342.997.08.014-.175-.997-.079-.997-.079-.013.175.996.078Zm.014-.174.995.1.001-.009-.995-.1-.995-.099v.009l.994.1Zm.001-.008h1V0h-2v.002h1Zm0-.002-.064.998.431.028.064-.998.064-.998-.431-.028-.064.998Zm.431.028-.064.998.43.027.063-.998.065-.998-.43-.027-.064.998Zm.43.027h-1V.06h2V.055h-1Zm0 .004-.998-.076v.01l.997.078.997.077V.136L13.354.06Zm-.001.012-.997-.083-.003.041.996.083.997.083.003-.041-.996-.083Zm-.004.041-.996-.084-.013.154.996.084.997.083.013-.153-.997-.084Zm-.013.154-.995-.097c-.017.176-.037.351-.06.526l.99.133.992.132c.026-.199.05-.399.069-.598l-.996-.096Zm-.064.562L12.28.696c-.08.604-.19 1.204-.332 1.796l.973.232.973.232c.156-.659.28-1.325.369-1.997l-.991-.131Zm-.351 1.896-.973-.23c-.344 1.447-.953 3.205-2.004 4.573l.793.61.793.609c1.3-1.692 1.992-3.765 2.364-5.33l-.973-.232ZM0 12.097v1h.024v-2H0v1Zm.024 0v1H.02h.022l.043-.999.045-.999a2.367 2.367 0 0 0-.105-.002v1Zm.06.001-.01 1c.03 0 .089.002.181.007l.054-.998.053-.999a6.626 6.626 0 0 0-.267-.01l-.01 1Zm.225.009-.054.998c.173.01.429.029.748.067l.12-.993.12-.992a13.377 13.377 0 0 0-.88-.079l-.054.999Zm.813.072-.119.993c.643.077 1.54.231 2.556.54l.29-.958.29-.957a17.087 17.087 0 0 0-2.897-.61l-.12.992Zm2.727.575-.29.957c2.034.617 4.514 1.843 6.385 4.277l.793-.61.793-.609c-2.203-2.866-5.1-4.278-7.391-4.972l-.29.957Zm6.204 5.15.793-.609c-2.059-2.68-4.777-4.011-6.957-4.673l-.29.957-.29.957c1.923.584 4.225 1.73 5.951 3.978l.793-.61ZM3.6 13.58l.29-.957a16.26 16.26 0 0 0-2.75-.579l-.118.993-.12.993c.602.072 1.449.217 2.409.508l.29-.958Zm-2.578-.543.12-.992c-.345-.042-.691-.07-1.038-.085l-.04 1-.042.999c.294.012.587.035.88.07l.12-.992Zm-.959-.077v-1h-.05v2h.05v-1Zm-.05 0v-1h-.01v2h.01v-1Zm-.01 0v-1H0v2-1Zm10.735 4.42-.793.609c1.051 1.369 1.66 3.126 2.004 4.573l.973-.23.973-.232c-.372-1.565-1.064-3.637-2.364-5.33l-.793.61Zm2.184 4.951-.973.23c.17.72.273 1.351.332 1.799l.992-.131.99-.132a20.48 20.48 0 0 0-.368-1.996l-.973.23Zm.35 1.898-.99.13c.028.223.053.446.072.67l.996-.085.996-.085a16.48 16.48 0 0 0-.082-.761l-.991.13Zm.078.715-.996.083.003.041.997-.082.996-.084-.003-.04-.997.082Zm.004.041-.999.06.001.014.998-.059.999-.059-.001-.014-.998.059Zm0 .015-.066-.998-.43.029.066.998.066.997.43-.028-.066-.998Zm-.43.029-.064-.998-.43.027.064.998.064.998.43-.027-.064-.998Zm-.43.027h1v-.01h-2v.01h1Zm0-.01.996-.089-.015-.174-.996.089-.996.088.015.175.996-.09Zm-.015-.174.994-.104a19.468 19.468 0 0 0-.418-2.468l-.973.23-.973.23c.172.73.297 1.47.375 2.215l.995-.103Zm-.397-2.342.973-.23c-.359-1.515-1.014-3.45-2.208-5.004l-.793.61-.793.608c.945 1.23 1.517 2.85 1.848 4.247l.973-.23Z"
-         fill="currentColor" mask="url(#ala)" />
-   </svg><svg fill="none" viewBox="0 0 14 26" id="icon-decore-chevron" xmlns="http://www.w3.org/2000/svg">
-      <path
-         d="M13.3535 12.5276L13.3535 12.9586L13.3406 12.9586L13.2914 12.9595C13.2466 12.9606 13.18 12.9635 13.0914 12.9681C12.9156 12.9767 12.657 12.9966 12.3328 13.0353C11.6854 13.1129 10.7794 13.2681 9.75524 13.5793C7.70265 14.2017 5.19317 15.4405 3.30007 17.9043L2.61644 17.3785C4.65351 14.7285 7.34145 13.4104 9.50438 12.7543C10.5871 12.4267 11.5432 12.2621 12.2311 12.1793C12.5758 12.1384 12.9221 12.1113 13.269 12.0983L13.3294 12.0966L13.3527 12.0966L13.3535 12.5276ZM3.30007 17.9043C2.2311 19.2957 1.61731 21.0741 1.27162 22.5293C1.08834 23.3003 0.955868 24.0824 0.87507 24.8707L0.861275 25.0448L0.860413 25.0535L0.860413 25.0552L0.429379 25.0276L6.67524e-05 25L6.6752e-05 24.9957L0.000931734 24.9845L0.00437831 24.9431L0.0173092 24.7897C0.0354433 24.6019 0.0569992 24.4145 0.0819644 24.2276C0.166676 23.5899 0.283783 22.9569 0.432828 22.331C0.790586 20.8241 1.44058 18.9086 2.61644 17.3785L3.30007 17.9043ZM13.3535 12.5276L13.3535 12.9586L13.3294 12.9586C13.315 12.9586 13.2949 12.9581 13.269 12.9569C13.2167 12.9563 13.142 12.9535 13.0449 12.9483C12.8518 12.9379 12.5742 12.9172 12.2311 12.8759C11.5432 12.7931 10.5871 12.6293 9.50438 12.3009C7.34145 11.6457 4.65351 10.3267 2.61644 7.67673L3.30007 7.15087C5.19317 9.61466 7.70265 10.8535 9.75438 11.4759C10.7802 11.7862 11.6854 11.9414 12.3328 12.019C12.6512 12.0576 12.971 12.0834 13.2914 12.0966L13.3406 12.0966L13.3518 12.0966L13.3527 12.0966L13.3535 12.5276ZM2.61644 7.67673C1.44058 6.1457 0.790585 4.23104 0.432826 2.72501C0.253516 1.96639 0.144893 1.30259 0.0819624 0.827594C0.0505722 0.589721 0.0247028 0.35115 0.00437614 0.112075L0.000929556 0.0706951L6.45717e-05 0.0560429L0.430237 0.0275928L0.86041 4.90688e-06L0.86041 0.0103523L0.87593 0.184489C0.957763 0.972646 1.09022 1.75472 1.27248 2.52587C1.61731 3.9819 2.2311 5.75949 3.30007 7.15087L2.61644 7.67673Z"
-         fill="currentColor" />
-   </svg><svg fill="none" viewBox="0 0 22 22" id="icon-filter" xmlns="http://www.w3.org/2000/svg">
-      <path
-         d="M19.48 11H8.154m-3.997 0H2.52m1.636 0a1.998 1.998 0 1 1 3.996 0 1.998 1.998 0 0 1-3.996 0Zm15.323 6.056h-5.27m0 0a2 2 0 0 1-3.997 0m3.998 0a1.998 1.998 0 0 0-3.998 0m0 0H2.521M19.48 4.944h-2.846m-3.998 0H2.521m10.115 0a1.998 1.998 0 1 1 3.996 0 1.998 1.998 0 0 1-3.996 0Z"
-         stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" />
-   </svg><svg fill="none" viewBox="0 0 36 33" id="icon-heart" xmlns="http://www.w3.org/2000/svg">
-      <path
-         d="M3.177 11.923c0-1.661.506-3.283 1.452-4.652a8.244 8.244 0 0 1 3.845-3.015 8.287 8.287 0 0 1 4.885-.315 8.258 8.258 0 0 1 4.204 2.494.838.838 0 0 0 .948.196.84.84 0 0 0 .28-.196 8.242 8.242 0 0 1 4.203-2.514 8.272 8.272 0 0 1 4.895.31 8.229 8.229 0 0 1 3.85 3.025 8.169 8.169 0 0 1 1.438 4.667c0 3.419-2.25 5.972-4.5 8.21l-8.238 7.932a3 3 0 0 1-2.244 1.025 3.011 3.011 0 0 1-2.256-.996l-8.262-7.96c-2.25-2.24-4.5-4.777-4.5-8.21Z"
-         stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
-   </svg><svg fill="none" viewBox="0 0 40 40" id="icon-heart-fill" xmlns="http://www.w3.org/2000/svg">
-      <path
-         d="M12.9167 5.8335C8.545 5.8335 5 9.60016 5 14.2452C5 23.5418 20 34.1668 20 34.1668C20 34.1668 35 23.5418 35 14.2452C35 8.49016 31.455 5.8335 27.0833 5.8335C23.9833 5.8335 21.3 7.72683 20 10.4835C18.7 7.72683 16.0167 5.8335 12.9167 5.8335Z"
-         fill="currentColor" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
-   </svg>
-   <svg fill="none" viewBox="0 0 40 40" id="icon-heart-outline" xmlns="http://www.w3.org/2000/svg">
-      <path
-         d="M12.9167 5.8335C8.545 5.8335 5 9.60016 5 14.2452C5 23.5418 20 34.1668 20 34.1668C20 34.1668 35 23.5418 35 14.2452C35 8.49016 31.455 5.8335 27.0833 5.8335C23.9833 5.8335 21.3 7.72683 20 10.4835C18.7 7.72683 16.0167 5.8335 12.9167 5.8335Z"
-         stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
-   </svg><svg fill="none" viewBox="0 0 24 24" id="icon-location" xmlns="http://www.w3.org/2000/svg">
-      <path d="M20 10c0 6.5-8 12-8 12s-8-5.5-8-12a8 8 0 1 1 16 0Z" stroke="currentColor" stroke-width="2" />
-      <path d="M15 10a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" stroke="currentColor" stroke-width="2" />
-   </svg><svg fill="none" viewBox="0 0 28 39" id="icon-mouse" xmlns="http://www.w3.org/2000/svg">
-      <rect x=".436" y=".435" width="26.194" height="37.419" rx="13.097" stroke="currentColor" stroke-width=".871" />
-      <path d="M13.53 8.855v7.484" stroke="currentColor" stroke-width=".871" stroke-linecap="round" />
-   </svg><svg fill="none" viewBox="0 0 13 13" id="icon-plus" xmlns="http://www.w3.org/2000/svg">
-      <path stroke="currentColor" d="M6.168 0v12.143M0 5.976h12.143" />
-   </svg><svg fill="none" viewBox="0 0 22 22" id="icon-search" xmlns="http://www.w3.org/2000/svg">
-      <path d="M9.5 2.75a6.75 6.75 0 1 0 0 13.5 6.75 6.75 0 0 0 0-13.5Z" stroke="currentColor" stroke-width="2"
-         stroke-miterlimit="10" />
-      <path d="m14.535 14.536 4.714 4.714" stroke="currentColor" stroke-width="2" stroke-miterlimit="10"
-         stroke-linecap="round" />
-   </svg><svg fill="none" viewBox="0 0 22 22" id="icon-sort" xmlns="http://www.w3.org/2000/svg">
-      <path d="M15.063 5v12m0 0-3.25-3.25m3.25 3.25 3.25-3.25M6.938 17V5m0 0-3.25 3.25M6.938 5l3.25 3.25"
-         stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-   </svg><svg fill="none" viewBox="0 0 30 30" id="icon-tel" xmlns="http://www.w3.org/2000/svg">
-      <path fill-rule="evenodd" clip-rule="evenodd"
-         d="M7.3 12.32A21.525 21.525 0 0 0 18.452 23.15l.015.006.955.425a2.813 2.813 0 0 0 3.425-.921l1.593-2.204a.313.313 0 0 0-.058-.426l-2.78-2.244a.313.313 0 0 0-.447.058l-1.083 1.46a.938.938 0 0 1-1.14.296 16.75 16.75 0 0 1-8.337-8.338.937.937 0 0 1 .296-1.14l1.459-1.083a.313.313 0 0 0 .057-.448l-2.242-2.78a.313.313 0 0 0-.427-.057l-2.216 1.6a2.812 2.812 0 0 0-.915 3.445L7.3 12.32Zm10.412 12.551a23.4 23.4 0 0 1-12.116-11.77l-.003-.002-.692-1.525a4.687 4.687 0 0 1 1.524-5.741l2.216-1.6a2.188 2.188 0 0 1 2.982.4l2.244 2.78a2.188 2.188 0 0 1-.4 3.132l-.837.62a14.875 14.875 0 0 0 6.397 6.398l.621-.838a2.189 2.189 0 0 1 3.13-.4l2.782 2.244a2.188 2.188 0 0 1 .4 2.984l-1.593 2.205a4.687 4.687 0 0 1-5.707 1.536l-.948-.423Z"
-         fill="currentColor" />
-   </svg><svg fill="none" viewBox="0 0 26 26" id="icon-telegram" xmlns="http://www.w3.org/2000/svg">
-      <g clip-path="url(#ava)">
-         <path fill-rule="evenodd" clip-rule="evenodd"
-            d="M22.77 4.327a1.787 1.787 0 0 1 2.458 1.937l-2.703 16.394c-.262 1.582-1.997 2.488-3.447 1.7-1.213-.658-3.015-1.674-4.636-2.733-.81-.53-3.292-2.228-2.987-3.437.262-1.033 4.433-4.915 6.816-7.224.936-.907.509-1.43-.596-.595-2.743 2.07-7.147 5.22-8.603 6.107-1.285.782-1.955.915-2.756.782-1.46-.243-2.816-.62-3.921-1.079-1.495-.62-1.422-2.674-.002-3.272l20.378-8.58Z"
+            d="M21.777 16.076v.912a3.673 3.673 0 0 1-3.669 3.645h-1.152a3.673 3.673 0 0 1-3.646-3.645 3.672 3.672 0 0 1-3.645 3.645H8.466a3.673 3.673 0 0 1-3.668-3.645v-.912M15.703.583a2.415 2.415 0 1 1-4.83 0M13.288 16.965V2.998M7.109.583h12.358"
+            stroke="currentColor" stroke-width="1.167" stroke-linecap="round" stroke-linejoin="round" />
+      </svg><svg fill="none" viewBox="0 0 30 30" id="chandelier-2" xmlns="http://www.w3.org/2000/svg">
+         <path d="M18.975 23.13v1.02a1.094 1.094 0 0 1-1.09 1.094h-6.552a1.098 1.098 0 0 1-1.094-1.093v-1.003"
+            stroke="currentColor" stroke-width="1.167" stroke-linecap="round" stroke-linejoin="round" />
+         <path
+            d="M12.426 25.226h4.366v.346a1.749 1.749 0 0 1-1.755 1.768h-.86a1.75 1.75 0 0 1-1.75-1.75v-.364ZM10.24 13.137v-2.096h8.74v2.096M16.792 11.041h-4.366v-.346a1.75 1.75 0 0 1 1.755-1.75h.861a1.75 1.75 0 0 1 1.75 1.75v.346ZM14.583 23.125c6.04 0 10.936-2.235 10.936-4.994 0-2.758-4.896-4.994-10.936-4.994S3.646 15.373 3.646 18.131c0 2.759 4.897 4.994 10.937 4.994Z"
+            stroke="currentColor" stroke-width="1.167" stroke-linecap="round" stroke-linejoin="round" />
+         <path
+            d="M14.654 22.857a18.664 18.664 0 0 1-1.517-.296c-3.486-.839-6.412-2.507-6.412-4.43 0-1.923 2.926-3.59 6.412-4.424.487-.114.993-.219 1.517-.301"
+            stroke="currentColor" stroke-width="1.167" stroke-linecap="round" stroke-linejoin="round" />
+         <path
+            d="M16.136 22.565a14.86 14.86 0 0 1-1.518-.456c-2.652-.911-4.365-2.356-4.365-3.991 0-1.636 1.704-3.08 4.356-3.992"
+            stroke="currentColor" stroke-width="1.167" stroke-linecap="round" stroke-linejoin="round" />
+         <path
+            d="M14.65 13.406c.51.082 1.48.296 1.48.296 3.505.83 6.44 2.502 6.44 4.43 0 1.927-2.935 3.6-6.44 4.433-.455.114-.965.214-1.475.292"
+            stroke="currentColor" stroke-width="1.167" stroke-linecap="round" stroke-linejoin="round" />
+         <path
+            d="M11.315 13.36c.625.096 1.23.21 1.8.347.5.124.993.277 1.477.455 2.647.912 4.365 2.356 4.365 3.988 0 1.63-1.718 3.085-4.365 3.991-.484.177-.977.33-1.477.456M14.582 8.945V1.84M14.582 23.13v-9.993"
+            stroke="currentColor" stroke-width="1.167" stroke-linecap="round" stroke-linejoin="round" />
+      </svg><svg fill="none" viewBox="0 0 23 20" id="icon-arrow" xmlns="http://www.w3.org/2000/svg">
+         <path d="M22.719 9.686c-3.341 0-10.023 2.473-10.023 9.689" stroke="currentColor" stroke-width="1.529" />
+         <path d="M22.719 9.688c-3.341 0-10.023-2.472-10.023-9.688M20.713 9.69H0" stroke="currentColor"
+            stroke-width="1.529" />
+      </svg><svg fill="none" viewBox="0 0 36 34" id="icon-cart" xmlns="http://www.w3.org/2000/svg">
+         <path
+            d="M8.061 11.628 14.49 1.342m14.142 10.286L22.204 1.342M4.636 26.55c-.998-4.3-1.46-9.206-1.633-12.35a2.45 2.45 0 0 1 2.487-2.572h25.714c1.42 0 2.564 1.152 2.486 2.571-.174 3.143-.635 8.049-1.632 12.35-.463 1.994-1.929 3.51-3.955 3.806-2.083.301-5.254.558-9.756.558-4.503 0-7.67-.257-9.756-.558-2.027-.295-3.492-1.812-3.955-3.805Z"
+            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+      </svg><svg fill="none" viewBox="0 0 26 26" id="icon-cart-2" xmlns="http://www.w3.org/2000/svg">
+         <g clip-path="url(#ada)">
+            <path
+               d="M8.571 23.572c-.59 0-1.094-.21-1.513-.63-.42-.42-.63-.924-.63-1.513 0-.59.21-1.094.63-1.514.42-.42.924-.63 1.513-.63.59 0 1.094.21 1.514.63.42.42.629.925.629 1.514 0 .59-.21 1.094-.63 1.513-.42.42-.924.63-1.513.63Zm10.714 0c-.589 0-1.093-.21-1.513-.63-.42-.42-.63-.924-.63-1.513 0-.59.21-1.094.63-1.514.42-.42.924-.63 1.513-.63.59 0 1.094.21 1.514.63.42.42.63.925.63 1.514 0 .59-.21 1.094-.63 1.513-.42.42-.924.63-1.514.63ZM7.66 6.429l2.572 5.357h7.5l2.946-5.357H7.66ZM6.643 4.286h15.803c.41 0 .723.183.938.549.214.366.223.737.026 1.112l-3.803 6.857c-.197.357-.46.634-.79.83-.33.197-.692.295-1.085.295H9.75L8.57 16.072h12.857v2.143H8.571c-.803 0-1.41-.353-1.821-1.058-.411-.706-.429-1.407-.054-2.103l1.447-2.625-3.858-8.143H2.143V2.143h3.482l1.018 2.143Z"
+               fill="currentColor" />
+         </g>
+         <defs>
+            <clipPath id="ada">
+               <path fill="currentColor" d="M0 0h25.714v25.714H0z" />
+            </clipPath>
+         </defs>
+      </svg><svg fill="none" viewBox="0 0 13 10" id="icon-check" xmlns="http://www.w3.org/2000/svg">
+         <path d="m0 4.889 1.25-1.222 3.125 3.055L11.25 0l1.25 1.222-8.125 7.945L0 4.889Z" fill="currentColor" />
+      </svg><svg fill="none" viewBox="0 0 6 11" id="icon-chevron" xmlns="http://www.w3.org/2000/svg">
+         <path
+            d="M.21.219a.697.697 0 0 1 1.015 0L5.79 4.972c.28.292.28.764 0 1.056l-4.565 4.753a.697.697 0 0 1-1.015 0 .769.769 0 0 1 0-1.056L4.268 5.5.21 1.275a.769.769 0 0 1 0-1.056Z"
             fill="currentColor" />
-      </g>
-      <defs>
-         <clipPath id="ava">
-            <path fill="currentColor" d="M0 0h26v26H0z" />
-         </clipPath>
-      </defs>
-   </svg><svg fill="none" viewBox="0 0 20 20" id="icon-vk" xmlns="http://www.w3.org/2000/svg">
-      <g clip-path="url(#awa)">
-         <path fill-rule="evenodd" clip-rule="evenodd"
-            d="M19.542 4.962c.138-.455 0-.79-.663-.79h-2.187c-.557 0-.814.289-.953.608 0 0-1.112 2.664-2.688 4.394-.51.501-.742.66-1.02.66-.14 0-.349-.159-.349-.615V4.962c0-.547-.153-.79-.616-.79h-3.44c-.348 0-.557.253-.557.494 0 .518.788.638.87 2.094v3.165c0 .694-.128.82-.407.82-.741 0-2.545-2.676-3.616-5.737-.208-.596-.418-.836-.977-.836H.75c-.625 0-.75.289-.75.608 0 .569.742 3.392 3.454 7.126 1.808 2.55 4.354 3.932 6.673 3.932 1.391 0 1.563-.306 1.563-.835v-1.928c0-.614.132-.736.572-.736.325 0 .881.16 2.18 1.389 1.483 1.457 1.727 2.11 2.562 2.11h2.188c.625 0 .938-.306.758-.913-.198-.603-.907-1.479-1.846-2.518-.51-.592-1.275-1.23-1.507-1.549-.325-.409-.232-.591 0-.955 0 0 2.666-3.689 2.944-4.941Z"
+      </svg><svg fill="none" viewBox="0 0 13 7" id="icon-chevron-m" xmlns="http://www.w3.org/2000/svg">
+         <path d="M11.661.435 6.048 6.048.436.435" stroke="currentColor" stroke-width=".871" stroke-linecap="round" />
+      </svg><svg fill="none" viewBox="0 0 12 12" id="icon-chevrone-double" xmlns="http://www.w3.org/2000/svg">
+         <path d="m10.707 10.707-5-5.005 5-4.995M5.707 10.707l-5-5.005 5-4.995" stroke="currentColor"
+            stroke-miterlimit="10" stroke-linecap="square" />
+      </svg><svg fill="none" viewBox="0 0 7 12" id="icon-chevron-left" xmlns="http://www.w3.org/2000/svg">
+         <path d="M5.70715 10.707L0.707153 5.70152L5.70715 0.707031" stroke="currentColor" stroke-miterlimit="10"
+            stroke-linecap="square" />
+      </svg><svg fill="none" viewBox="0 0 7 12" id="icon-chevron-right" xmlns="http://www.w3.org/2000/svg">
+         <path d="M0.707152 0.707032L5.70715 5.71254L0.707153 10.707" stroke="currentColor" stroke-miterlimit="10"
+            stroke-linecap="square" />
+      </svg><svg fill="none" viewBox="0 0 18 18" id="icon-close" xmlns="http://www.w3.org/2000/svg">
+         <path
+            d="M16.729.14a.818.818 0 0 1 1.133 1.134l-.105.127-7.598 7.596 7.598 7.598.105.127a.817.817 0 0 1-1.133 1.133l-.128-.105-7.598-7.597-7.597 7.597A.817.817 0 1 1 .25 16.595l7.597-7.598L.25 1.402l-.107-.128A.817.817 0 0 1 1.278.139l.128.107L9.003 7.84 16.6.246l.128-.107Z"
             fill="currentColor" />
-      </g>
-      <defs>
-         <clipPath id="awa">
-            <path fill="currentColor" d="M0 0h20v20H0z" />
-         </clipPath>
-      </defs>
-   </svg><svg fill="none" viewBox="0 0 28 28" id="icon-whatsapp" xmlns="http://www.w3.org/2000/svg">
-      <path
-         d="M22.634 5.262a11.452 11.452 0 0 0-8.178-3.395c-6.37 0-11.562 5.191-11.562 11.561 0 2.042.537 4.025 1.54 5.775L2.801 25.2l6.125-1.61a11.564 11.564 0 0 0 5.53 1.412c6.37 0 11.561-5.192 11.561-11.562 0-3.092-1.201-5.997-3.383-8.178Zm-8.178 17.78a9.639 9.639 0 0 1-4.9-1.342l-.35-.21-3.64.957.968-3.547-.233-.362a9.642 9.642 0 0 1-1.47-5.11c0-5.296 4.316-9.613 9.613-9.613a9.512 9.512 0 0 1 6.79 2.823 9.546 9.546 0 0 1 2.812 6.802c.023 5.297-4.294 9.602-9.59 9.602Zm5.273-7.187c-.292-.14-1.715-.84-1.972-.945-.268-.093-.455-.14-.653.14-.198.292-.747.945-.91 1.132-.163.198-.338.221-.63.07-.292-.14-1.225-.455-2.322-1.435-.863-.77-1.435-1.715-1.61-2.007-.163-.292-.023-.443.129-.595.128-.128.291-.338.431-.502.14-.163.199-.291.292-.478.093-.198.047-.362-.023-.502s-.654-1.563-.887-2.146c-.233-.56-.478-.49-.653-.502h-.56c-.199 0-.502.07-.77.362-.257.291-1.004.991-1.004 2.415 0 1.423 1.039 2.8 1.179 2.986.14.199 2.041 3.115 4.935 4.364.688.303 1.225.478 1.645.606.688.222 1.318.187 1.82.117.56-.082 1.715-.7 1.948-1.377.245-.676.245-1.248.163-1.376-.081-.129-.256-.187-.548-.327Z"
-         fill="currentColor" />
-   </svg><svg fill="none" viewBox="0 0 20 20" id="icon-youtube" xmlns="http://www.w3.org/2000/svg">
-      <path
-         d="m8.33 12.505 4.326-2.5-4.325-2.5v5Zm9.634-6.525c.108.392.183.917.233 1.584.059.666.084 1.241.084 1.741l.05.7c0 1.825-.134 3.167-.367 4.025-.208.75-.692 1.234-1.442 1.442-.391.108-1.108.183-2.208.233a55.576 55.576 0 0 1-2.992.084l-1.325.05c-3.491 0-5.666-.134-6.525-.367-.75-.208-1.233-.692-1.441-1.442-.109-.391-.184-.916-.234-1.583a20.05 20.05 0 0 1-.083-1.742l-.05-.7c0-1.825.133-3.166.367-4.025.208-.75.691-1.233 1.441-1.441.392-.109 1.109-.184 2.209-.234a55.535 55.535 0 0 1 2.991-.083l1.325-.05c3.492 0 5.667.133 6.525.367.75.208 1.234.691 1.442 1.441Z"
-         fill="currentColor" />
-   </svg><svg fill="none" viewBox="0 0 13 34" id="lamp" xmlns="http://www.w3.org/2000/svg">
-      <path
-         d="M10.92 6.958H1.108L3.629.583h4.77l2.52 6.375ZM6.013 30.691V6.958M3.097 30.691H8.93a2.508 2.508 0 0 1 2.508 2.508v.047H.583v-.052a2.508 2.508 0 0 1 2.508-2.509l.006.006Z"
-         stroke="currentColor" stroke-width="1.167" stroke-linecap="round" stroke-linejoin="round" />
-   </svg><svg fill="none" viewBox="0 0 17 29" id="lamp-2" xmlns="http://www.w3.org/2000/svg">
-      <path
-         d="M16.331 11.238H.583L4.633.583h7.648l4.05 10.655ZM6.435 25.879v-.256a2.067 2.067 0 0 1 2.023-2.107 2.067 2.067 0 0 1 2.022 2.107v.256M7.448 23.797v-12.56M9.466 23.797v-12.56M5.952 25.879h5.01a2.116 2.116 0 0 1 2.116 2.116v.147H3.841v-.147a2.116 2.116 0 0 1 2.111-2.116ZM3.841 11.238v6.604M3.84 20.593c.732 0 1.325-.617 1.325-1.378 0-.76-.593-1.378-1.324-1.378-.731 0-1.324.617-1.324 1.378 0 .761.593 1.378 1.324 1.378Z"
-         stroke="currentColor" stroke-width="1.167" stroke-linecap="round" stroke-linejoin="round" />
-   </svg><svg fill="none" viewBox="0 0 25 25" id="light-bulb" xmlns="http://www.w3.org/2000/svg">
-      <path
-         d="M8.118 6.64a7.948 7.948 0 1 1 9.614 9.61L8.118 6.64ZM17.719 16.242l-5.864 1.948a.988.988 0 0 0-.415.257l-1.806 1.807c-.201.198-.472.31-.754.31H7.815a1.06 1.06 0 0 1-.75-.31l-2.972-2.972a1.06 1.06 0 0 1-.31-.75v-1.044c0-.282.112-.553.31-.754L5.9 12.927a.986.986 0 0 0 .257-.414l1.948-5.864"
-         stroke="currentColor" stroke-width="1.167" stroke-linecap="round" stroke-linejoin="round" />
-      <path
-         d="m8.992 10.818-1.446 2.938-3.49 3.49L.842 20.46v1.803a1.243 1.243 0 0 0 1.243 1.243H3.9l3.216-3.216 3.49-3.49 3.024-1.358M6.349 22.355l-4.356-4.352M4.934 23.764l-4.35-4.352M5.595 18.782l5.362-5.366"
-         stroke="currentColor" stroke-width="1.167" stroke-linecap="round" stroke-linejoin="round" />
-   </svg><svg fill="none" viewBox="0 0 23 29" id="mirror" xmlns="http://www.w3.org/2000/svg">
-      <path
-         d="M3.845 6.05v22.093M18.974 6.05v22.093M22.237 28.143H.583M11.41.583a5.34 5.34 0 0 1 5.286 5.414V20.17a5.34 5.34 0 0 1-5.286 5.394 5.341 5.341 0 0 1-5.285-5.414V5.997A5.34 5.34 0 0 1 11.41.583ZM3.845 8.974h2.278M18.975 8.974h-2.279"
-         stroke="currentColor" stroke-width="1.167" stroke-linecap="round" stroke-linejoin="round" />
-   </svg><svg fill="none" viewBox="0 0 27 27" id="wall-lamp" xmlns="http://www.w3.org/2000/svg">
-      <path
-         d="M.583 9.888h3.09a1.604 1.604 0 0 1 1.64 1.568v9.665a1.604 1.604 0 0 1-1.64 1.567H.583v-12.8ZM5.314 16.29h1.002a2.68 2.68 0 0 1 2.734 2.611V21.8a4.41 4.41 0 0 0 4.511 4.302 4.41 4.41 0 0 0 4.507-4.302v-2.077"
-         stroke="currentColor" stroke-width="1.167" stroke-linecap="round" stroke-linejoin="round" />
-      <path
-         d="M22.628 15.365v-.629h-9.113v.63a4.465 4.465 0 0 0 4.557 4.36 4.461 4.461 0 0 0 4.556-4.36ZM15.695 14.736V11.16M20.437 14.736V11.16M26.102 11.16H9.06L13.439.582h8.28l4.383 10.576Z"
-         stroke="currentColor" stroke-width="1.167" stroke-linecap="round" stroke-linejoin="round" />
+      </svg><svg fill="none" viewBox="0 0 22 22" id="icon-comments" xmlns="http://www.w3.org/2000/svg">
+         <path
+            d="M4.143 4.143v-.151A3.242 3.242 0 0 1 7.384.75h10.373A3.241 3.241 0 0 1 21 3.992v6.32a3.242 3.242 0 0 1-3.242 3.242h-.151M3.992 17.887a1.08 1.08 0 0 0-.865-1.08A3.242 3.242 0 0 1 .75 13.683v-6.3a3.241 3.241 0 0 1 3.242-3.241h10.372a3.242 3.242 0 0 1 3.242 3.241v6.332a3.242 3.242 0 0 1-3.242 3.242h-5.63a1.08 1.08 0 0 0-.755.313l-3.07 3.08a.53.53 0 0 1-.917-.379v-2.085Z"
+            stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" />
+         <path d="M5.938 10.453v.01m3.241-.01v.01m3.242 0v.012" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" />
+      </svg><svg fill="none" viewBox="0 0 14 26" id="icon-decore-chevron-left" xmlns="http://www.w3.org/2000/svg">
+         <mask id="ala" fill="currentColor">
+            <path
+               d="M0 12.528v-.431h.013l.05-.001a11.207 11.207 0 0 0 .959-.076 15.154 15.154 0 0 0 2.576-.544c2.053-.623 4.562-1.861 6.455-4.325l.684.526C8.7 10.327 6.012 11.645 3.85 12.3a16.19 16.19 0 0 1-2.727.575c-.344.04-.69.068-1.038.08l-.06.003H.001L0 12.528ZM10.053 7.15c1.07-1.392 1.683-3.17 2.029-4.625.183-.771.316-1.553.396-2.342l.014-.174.001-.008V0l.431.028.43.027V.06l-.001.012-.004.041-.013.154a19.004 19.004 0 0 1-.415 2.459c-.358 1.506-1.008 3.422-2.184 4.952l-.684-.526ZM0 12.528v-.431h.024l.06.001c.053 0 .127.004.225.009.193.01.47.03.813.072.688.083 1.644.247 2.727.575 2.163.655 4.851 1.974 6.888 4.624l-.684.526C8.16 15.441 5.651 14.202 3.6 13.58a15.27 15.27 0 0 0-2.578-.543 12.057 12.057 0 0 0-.959-.077H.001L0 12.528Zm10.737 4.85c1.176 1.532 1.826 3.446 2.184 4.952.179.759.288 1.423.35 1.898.032.237.058.476.078.715l.004.041V25l-.43.029-.43.027v-.01l-.015-.174a18.462 18.462 0 0 0-.397-2.342c-.345-1.456-.959-3.233-2.028-4.625l.684-.526Z" />
+         </mask>
+         <path
+            d="M0 12.528v-.431h.013l.05-.001a11.207 11.207 0 0 0 .959-.076 15.154 15.154 0 0 0 2.576-.544c2.053-.623 4.562-1.861 6.455-4.325l.684.526C8.7 10.327 6.012 11.645 3.85 12.3a16.19 16.19 0 0 1-2.727.575c-.344.04-.69.068-1.038.08l-.06.003H.001L0 12.528ZM10.053 7.15c1.07-1.392 1.683-3.17 2.029-4.625.183-.771.316-1.553.396-2.342l.014-.174.001-.008V0l.431.028.43.027V.06l-.001.012-.004.041-.013.154a19.004 19.004 0 0 1-.415 2.459c-.358 1.506-1.008 3.422-2.184 4.952l-.684-.526ZM0 12.528v-.431h.024l.06.001c.053 0 .127.004.225.009.193.01.47.03.813.072.688.083 1.644.247 2.727.575 2.163.655 4.851 1.974 6.888 4.624l-.684.526C8.16 15.441 5.651 14.202 3.6 13.58a15.27 15.27 0 0 0-2.578-.543 12.057 12.057 0 0 0-.959-.077H.001L0 12.528Zm10.737 4.85c1.176 1.532 1.826 3.446 2.184 4.952.179.759.288 1.423.35 1.898.032.237.058.476.078.715l.004.041V25l-.43.029-.43.027v-.01l-.015-.174a18.462 18.462 0 0 0-.397-2.342c-.345-1.456-.959-3.233-2.028-4.625l.684-.526Z"
+            fill="currentColor" />
+         <path
+            d="m10.737 7.677-.305.396.61-.793-.305.397Zm0 9.701.305.397-.61-.793.305.396ZM0 12.528h-.5.5Zm10.395-5.114-.305.396.342.263.305-.396.305-.397-.343-.263-.304.397Zm0 10.227.304.397.343-.263-.305-.397-.305-.396-.342.263.305.396ZM0 12.528h.5v-.431h-1v.43H0ZM10.053 7.15l-.304.396.683.526.305-.396.305-.397-.684-.525-.305.396ZM.001 12.959l.5-.001-.001-.431H0l-.5.002v.43H0Zm10.736 4.42-.305-.397-.683.526.304.396.305.397.684-.526-.305-.397Zm0-9.702.793.61v-.001l-.793-.61Zm0 9.701.793-.609-.793.61ZM.013 12.097v1H.03l-.017-1Zm.05-.001.017 1h.008l-.026-1Zm.2-.009-.05-.999H.21l.052 1Zm.758-.067.119.993-.12-.993Zm2.577-.544-.29-.957.29.957Zm6.455-4.325.793.61-.793-.61ZM3.85 12.3l.29.957-.29-.957Zm-2.727.575.118.993h.002l-.12-.993Zm-1.038.08.029 1h.01l-.039-1Zm-.06.003v1H.053l-.029-1ZM12.082 2.526l-.973-.231.973.23Zm.396-2.342.995.102.001-.011.001-.012-.997-.079Zm.014-.174-.995-.1v.011l-.002.01.997.08Zm.001-.008.995.1.005-.05v-.05h-1Zm0-.002.064-.998-1.064-.068V0h1Zm.431.028.064-.998-.064.998Zm.43.027h1v-.938l-.936-.06-.065.998Zm0 .004.997.077.002-.038V.059h-1Zm-.001.012.996.083V.148L13.354.07Zm-.004.041.997.084-.997-.084Zm-.013.154.996.096V.349l-.996-.083Zm-.064.562L12.28.695l.992.133Zm-.351 1.896-.973-.232v.001l.973.231ZM.084 12.098l-.044 1h.033l.011-1Zm.225.009.053-.999-.053.999Zm.813.072-.12.993h.001l.12-.993Zm2.727.575-.29.957.29-.957Zm6.204 5.15.793-.609-.793.61ZM3.6 13.58l.29-.957-.29.957Zm-2.578-.543-.12.993.12-.993Zm-.959-.077.041-1h-.04v1Zm12.859 9.371.973-.23-.973.23Zm.35 1.898.992-.131-.991.13Zm.078.715.997-.083v-.002l-.997.085Zm.004.041.998-.058v-.012l-.002-.013-.996.084Zm0 .015.066.998.991-.066-.058-.99-.999.058Zm-.43.029.064.998h.002l-.066-.998Zm-.43.027h-1v1.066l1.064-.068-.064-.998Zm0-.01h1V25l-.004-.044-.996.089Zm-.015-.174.996-.09-.001-.006v-.008l-.995.104Zm-.397-2.342.973-.23-.973.23ZM0 12.097v1h.013v-2H0v1Zm.013 0 .017 1 .05-.002-.018-1-.017-1-.05.002.018 1Zm.05-.001.025 1 .226-.01-.052-.999-.052-.999a7.405 7.405 0 0 1-.174.008l.026 1Zm.2-.009.048.999c.201-.01.483-.032.829-.073l-.12-.993-.118-.993c-.303.036-.538.054-.689.061l.05 1Zm.758-.067.119.993a16.148 16.148 0 0 0 2.749-.58l-.29-.957-.291-.957a14.15 14.15 0 0 1-2.406.508l.119.993Zm2.577-.544.29.957c2.181-.662 4.9-1.993 6.958-4.673l-.793-.61-.793-.608c-1.726 2.247-4.028 3.393-5.952 3.977l.29.957Zm7.14-3.8-.794-.609c-1.87 2.434-4.35 3.66-6.385 4.277l.29.957.29.957c2.291-.695 5.188-2.106 7.39-4.972l-.792-.61Zm-6.889 4.625-.29-.957a15.174 15.174 0 0 1-2.556.539l.12.993.119.993a17.177 17.177 0 0 0 2.897-.611l-.29-.957Zm-2.727.575-.117-.993c-.319.038-.638.063-.958.075l.037.999.038 1a13.94 13.94 0 0 0 1.118-.088l-.118-.993Zm-1.038.08-.028-.999-.06.002.028 1 .029 1 .06-.002-.029-1Zm-.06.003v-1H.001v2h.023v-1Zm10.03-5.808.792.61c1.194-1.554 1.85-3.49 2.209-5.004l-.973-.231-.973-.231c-.332 1.396-.904 3.017-1.849 4.247l.793.609Zm2.028-4.625.973.231c.193-.813.333-1.639.418-2.47l-.995-.103-.994-.101a17.108 17.108 0 0 1-.375 2.212l.973.23Zm.396-2.342.997.08.014-.175-.997-.079-.997-.079-.013.175.996.078Zm.014-.174.995.1.001-.009-.995-.1-.995-.099v.009l.994.1Zm.001-.008h1V0h-2v.002h1Zm0-.002-.064.998.431.028.064-.998.064-.998-.431-.028-.064.998Zm.431.028-.064.998.43.027.063-.998.065-.998-.43-.027-.064.998Zm.43.027h-1V.06h2V.055h-1Zm0 .004-.998-.076v.01l.997.078.997.077V.136L13.354.06Zm-.001.012-.997-.083-.003.041.996.083.997.083.003-.041-.996-.083Zm-.004.041-.996-.084-.013.154.996.084.997.083.013-.153-.997-.084Zm-.013.154-.995-.097c-.017.176-.037.351-.06.526l.99.133.992.132c.026-.199.05-.399.069-.598l-.996-.096Zm-.064.562L12.28.696c-.08.604-.19 1.204-.332 1.796l.973.232.973.232c.156-.659.28-1.325.369-1.997l-.991-.131Zm-.351 1.896-.973-.23c-.344 1.447-.953 3.205-2.004 4.573l.793.61.793.609c1.3-1.692 1.992-3.765 2.364-5.33l-.973-.232ZM0 12.097v1h.024v-2H0v1Zm.024 0v1H.02h.022l.043-.999.045-.999a2.367 2.367 0 0 0-.105-.002v1Zm.06.001-.01 1c.03 0 .089.002.181.007l.054-.998.053-.999a6.626 6.626 0 0 0-.267-.01l-.01 1Zm.225.009-.054.998c.173.01.429.029.748.067l.12-.993.12-.992a13.377 13.377 0 0 0-.88-.079l-.054.999Zm.813.072-.119.993c.643.077 1.54.231 2.556.54l.29-.958.29-.957a17.087 17.087 0 0 0-2.897-.61l-.12.992Zm2.727.575-.29.957c2.034.617 4.514 1.843 6.385 4.277l.793-.61.793-.609c-2.203-2.866-5.1-4.278-7.391-4.972l-.29.957Zm6.204 5.15.793-.609c-2.059-2.68-4.777-4.011-6.957-4.673l-.29.957-.29.957c1.923.584 4.225 1.73 5.951 3.978l.793-.61ZM3.6 13.58l.29-.957a16.26 16.26 0 0 0-2.75-.579l-.118.993-.12.993c.602.072 1.449.217 2.409.508l.29-.958Zm-2.578-.543.12-.992c-.345-.042-.691-.07-1.038-.085l-.04 1-.042.999c.294.012.587.035.88.07l.12-.992Zm-.959-.077v-1h-.05v2h.05v-1Zm-.05 0v-1h-.01v2h.01v-1Zm-.01 0v-1H0v2-1Zm10.735 4.42-.793.609c1.051 1.369 1.66 3.126 2.004 4.573l.973-.23.973-.232c-.372-1.565-1.064-3.637-2.364-5.33l-.793.61Zm2.184 4.951-.973.23c.17.72.273 1.351.332 1.799l.992-.131.99-.132a20.48 20.48 0 0 0-.368-1.996l-.973.23Zm.35 1.898-.99.13c.028.223.053.446.072.67l.996-.085.996-.085a16.48 16.48 0 0 0-.082-.761l-.991.13Zm.078.715-.996.083.003.041.997-.082.996-.084-.003-.04-.997.082Zm.004.041-.999.06.001.014.998-.059.999-.059-.001-.014-.998.059Zm0 .015-.066-.998-.43.029.066.998.066.997.43-.028-.066-.998Zm-.43.029-.064-.998-.43.027.064.998.064.998.43-.027-.064-.998Zm-.43.027h1v-.01h-2v.01h1Zm0-.01.996-.089-.015-.174-.996.089-.996.088.015.175.996-.09Zm-.015-.174.994-.104a19.468 19.468 0 0 0-.418-2.468l-.973.23-.973.23c.172.73.297 1.47.375 2.215l.995-.103Zm-.397-2.342.973-.23c-.359-1.515-1.014-3.45-2.208-5.004l-.793.61-.793.608c.945 1.23 1.517 2.85 1.848 4.247l.973-.23Z"
+            fill="currentColor" mask="url(#ala)" />
+      </svg><svg fill="none" viewBox="0 0 14 26" id="icon-decore-chevron" xmlns="http://www.w3.org/2000/svg">
+         <path
+            d="M13.3535 12.5276L13.3535 12.9586L13.3406 12.9586L13.2914 12.9595C13.2466 12.9606 13.18 12.9635 13.0914 12.9681C12.9156 12.9767 12.657 12.9966 12.3328 13.0353C11.6854 13.1129 10.7794 13.2681 9.75524 13.5793C7.70265 14.2017 5.19317 15.4405 3.30007 17.9043L2.61644 17.3785C4.65351 14.7285 7.34145 13.4104 9.50438 12.7543C10.5871 12.4267 11.5432 12.2621 12.2311 12.1793C12.5758 12.1384 12.9221 12.1113 13.269 12.0983L13.3294 12.0966L13.3527 12.0966L13.3535 12.5276ZM3.30007 17.9043C2.2311 19.2957 1.61731 21.0741 1.27162 22.5293C1.08834 23.3003 0.955868 24.0824 0.87507 24.8707L0.861275 25.0448L0.860413 25.0535L0.860413 25.0552L0.429379 25.0276L6.67524e-05 25L6.6752e-05 24.9957L0.000931734 24.9845L0.00437831 24.9431L0.0173092 24.7897C0.0354433 24.6019 0.0569992 24.4145 0.0819644 24.2276C0.166676 23.5899 0.283783 22.9569 0.432828 22.331C0.790586 20.8241 1.44058 18.9086 2.61644 17.3785L3.30007 17.9043ZM13.3535 12.5276L13.3535 12.9586L13.3294 12.9586C13.315 12.9586 13.2949 12.9581 13.269 12.9569C13.2167 12.9563 13.142 12.9535 13.0449 12.9483C12.8518 12.9379 12.5742 12.9172 12.2311 12.8759C11.5432 12.7931 10.5871 12.6293 9.50438 12.3009C7.34145 11.6457 4.65351 10.3267 2.61644 7.67673L3.30007 7.15087C5.19317 9.61466 7.70265 10.8535 9.75438 11.4759C10.7802 11.7862 11.6854 11.9414 12.3328 12.019C12.6512 12.0576 12.971 12.0834 13.2914 12.0966L13.3406 12.0966L13.3518 12.0966L13.3527 12.0966L13.3535 12.5276ZM2.61644 7.67673C1.44058 6.1457 0.790585 4.23104 0.432826 2.72501C0.253516 1.96639 0.144893 1.30259 0.0819624 0.827594C0.0505722 0.589721 0.0247028 0.35115 0.00437614 0.112075L0.000929556 0.0706951L6.45717e-05 0.0560429L0.430237 0.0275928L0.86041 4.90688e-06L0.86041 0.0103523L0.87593 0.184489C0.957763 0.972646 1.09022 1.75472 1.27248 2.52587C1.61731 3.9819 2.2311 5.75949 3.30007 7.15087L2.61644 7.67673Z"
+            fill="currentColor" />
+      </svg><svg fill="none" viewBox="0 0 22 22" id="icon-filter" xmlns="http://www.w3.org/2000/svg">
+         <path
+            d="M19.48 11H8.154m-3.997 0H2.52m1.636 0a1.998 1.998 0 1 1 3.996 0 1.998 1.998 0 0 1-3.996 0Zm15.323 6.056h-5.27m0 0a2 2 0 0 1-3.997 0m3.998 0a1.998 1.998 0 0 0-3.998 0m0 0H2.521M19.48 4.944h-2.846m-3.998 0H2.521m10.115 0a1.998 1.998 0 1 1 3.996 0 1.998 1.998 0 0 1-3.996 0Z"
+            stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" />
+      </svg><svg fill="none" viewBox="0 0 36 33" id="icon-heart" xmlns="http://www.w3.org/2000/svg">
+         <path
+            d="M3.177 11.923c0-1.661.506-3.283 1.452-4.652a8.244 8.244 0 0 1 3.845-3.015 8.287 8.287 0 0 1 4.885-.315 8.258 8.258 0 0 1 4.204 2.494.838.838 0 0 0 .948.196.84.84 0 0 0 .28-.196 8.242 8.242 0 0 1 4.203-2.514 8.272 8.272 0 0 1 4.895.31 8.229 8.229 0 0 1 3.85 3.025 8.169 8.169 0 0 1 1.438 4.667c0 3.419-2.25 5.972-4.5 8.21l-8.238 7.932a3 3 0 0 1-2.244 1.025 3.011 3.011 0 0 1-2.256-.996l-8.262-7.96c-2.25-2.24-4.5-4.777-4.5-8.21Z"
+            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+      </svg><svg fill="none" viewBox="0 0 40 40" id="icon-heart-fill" xmlns="http://www.w3.org/2000/svg">
+         <path
+            d="M12.9167 5.8335C8.545 5.8335 5 9.60016 5 14.2452C5 23.5418 20 34.1668 20 34.1668C20 34.1668 35 23.5418 35 14.2452C35 8.49016 31.455 5.8335 27.0833 5.8335C23.9833 5.8335 21.3 7.72683 20 10.4835C18.7 7.72683 16.0167 5.8335 12.9167 5.8335Z"
+            fill="currentColor" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+            stroke-linejoin="round" />
+      </svg>
+      <svg fill="none" viewBox="0 0 40 40" id="icon-heart-outline" xmlns="http://www.w3.org/2000/svg">
+         <path
+            d="M12.9167 5.8335C8.545 5.8335 5 9.60016 5 14.2452C5 23.5418 20 34.1668 20 34.1668C20 34.1668 35 23.5418 35 14.2452C35 8.49016 31.455 5.8335 27.0833 5.8335C23.9833 5.8335 21.3 7.72683 20 10.4835C18.7 7.72683 16.0167 5.8335 12.9167 5.8335Z"
+            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+      </svg><svg fill="none" viewBox="0 0 24 24" id="icon-location" xmlns="http://www.w3.org/2000/svg">
+         <path d="M20 10c0 6.5-8 12-8 12s-8-5.5-8-12a8 8 0 1 1 16 0Z" stroke="currentColor" stroke-width="2" />
+         <path d="M15 10a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" stroke="currentColor" stroke-width="2" />
+      </svg><svg fill="none" viewBox="0 0 28 39" id="icon-mouse" xmlns="http://www.w3.org/2000/svg">
+         <rect x=".436" y=".435" width="26.194" height="37.419" rx="13.097" stroke="currentColor" stroke-width=".871" />
+         <path d="M13.53 8.855v7.484" stroke="currentColor" stroke-width=".871" stroke-linecap="round" />
+      </svg><svg fill="none" viewBox="0 0 13 13" id="icon-plus" xmlns="http://www.w3.org/2000/svg">
+         <path stroke="currentColor" d="M6.168 0v12.143M0 5.976h12.143" />
+      </svg><svg fill="none" viewBox="0 0 22 22" id="icon-search" xmlns="http://www.w3.org/2000/svg">
+         <path d="M9.5 2.75a6.75 6.75 0 1 0 0 13.5 6.75 6.75 0 0 0 0-13.5Z" stroke="currentColor" stroke-width="2"
+            stroke-miterlimit="10" />
+         <path d="m14.535 14.536 4.714 4.714" stroke="currentColor" stroke-width="2" stroke-miterlimit="10"
+            stroke-linecap="round" />
+      </svg><svg fill="none" viewBox="0 0 22 22" id="icon-sort" xmlns="http://www.w3.org/2000/svg">
+         <path d="M15.063 5v12m0 0-3.25-3.25m3.25 3.25 3.25-3.25M6.938 17V5m0 0-3.25 3.25M6.938 5l3.25 3.25"
+            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+      </svg><svg fill="none" viewBox="0 0 30 30" id="icon-tel" xmlns="http://www.w3.org/2000/svg">
+         <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M7.3 12.32A21.525 21.525 0 0 0 18.452 23.15l.015.006.955.425a2.813 2.813 0 0 0 3.425-.921l1.593-2.204a.313.313 0 0 0-.058-.426l-2.78-2.244a.313.313 0 0 0-.447.058l-1.083 1.46a.938.938 0 0 1-1.14.296 16.75 16.75 0 0 1-8.337-8.338.937.937 0 0 1 .296-1.14l1.459-1.083a.313.313 0 0 0 .057-.448l-2.242-2.78a.313.313 0 0 0-.427-.057l-2.216 1.6a2.812 2.812 0 0 0-.915 3.445L7.3 12.32Zm10.412 12.551a23.4 23.4 0 0 1-12.116-11.77l-.003-.002-.692-1.525a4.687 4.687 0 0 1 1.524-5.741l2.216-1.6a2.188 2.188 0 0 1 2.982.4l2.244 2.78a2.188 2.188 0 0 1-.4 3.132l-.837.62a14.875 14.875 0 0 0 6.397 6.398l.621-.838a2.189 2.189 0 0 1 3.13-.4l2.782 2.244a2.188 2.188 0 0 1 .4 2.984l-1.593 2.205a4.687 4.687 0 0 1-5.707 1.536l-.948-.423Z"
+            fill="currentColor" />
+      </svg><svg fill="none" viewBox="0 0 26 26" id="icon-telegram" xmlns="http://www.w3.org/2000/svg">
+         <g clip-path="url(#ava)">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+               d="M22.77 4.327a1.787 1.787 0 0 1 2.458 1.937l-2.703 16.394c-.262 1.582-1.997 2.488-3.447 1.7-1.213-.658-3.015-1.674-4.636-2.733-.81-.53-3.292-2.228-2.987-3.437.262-1.033 4.433-4.915 6.816-7.224.936-.907.509-1.43-.596-.595-2.743 2.07-7.147 5.22-8.603 6.107-1.285.782-1.955.915-2.756.782-1.46-.243-2.816-.62-3.921-1.079-1.495-.62-1.422-2.674-.002-3.272l20.378-8.58Z"
+               fill="currentColor" />
+         </g>
+         <defs>
+            <clipPath id="ava">
+               <path fill="currentColor" d="M0 0h26v26H0z" />
+            </clipPath>
+         </defs>
+      </svg><svg fill="none" viewBox="0 0 20 20" id="icon-vk" xmlns="http://www.w3.org/2000/svg">
+         <g clip-path="url(#awa)">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+               d="M19.542 4.962c.138-.455 0-.79-.663-.79h-2.187c-.557 0-.814.289-.953.608 0 0-1.112 2.664-2.688 4.394-.51.501-.742.66-1.02.66-.14 0-.349-.159-.349-.615V4.962c0-.547-.153-.79-.616-.79h-3.44c-.348 0-.557.253-.557.494 0 .518.788.638.87 2.094v3.165c0 .694-.128.82-.407.82-.741 0-2.545-2.676-3.616-5.737-.208-.596-.418-.836-.977-.836H.75c-.625 0-.75.289-.75.608 0 .569.742 3.392 3.454 7.126 1.808 2.55 4.354 3.932 6.673 3.932 1.391 0 1.563-.306 1.563-.835v-1.928c0-.614.132-.736.572-.736.325 0 .881.16 2.18 1.389 1.483 1.457 1.727 2.11 2.562 2.11h2.188c.625 0 .938-.306.758-.913-.198-.603-.907-1.479-1.846-2.518-.51-.592-1.275-1.23-1.507-1.549-.325-.409-.232-.591 0-.955 0 0 2.666-3.689 2.944-4.941Z"
+               fill="currentColor" />
+         </g>
+         <defs>
+            <clipPath id="awa">
+               <path fill="currentColor" d="M0 0h20v20H0z" />
+            </clipPath>
+         </defs>
+      </svg><svg fill="none" viewBox="0 0 28 28" id="icon-whatsapp" xmlns="http://www.w3.org/2000/svg">
+         <path
+            d="M22.634 5.262a11.452 11.452 0 0 0-8.178-3.395c-6.37 0-11.562 5.191-11.562 11.561 0 2.042.537 4.025 1.54 5.775L2.801 25.2l6.125-1.61a11.564 11.564 0 0 0 5.53 1.412c6.37 0 11.561-5.192 11.561-11.562 0-3.092-1.201-5.997-3.383-8.178Zm-8.178 17.78a9.639 9.639 0 0 1-4.9-1.342l-.35-.21-3.64.957.968-3.547-.233-.362a9.642 9.642 0 0 1-1.47-5.11c0-5.296 4.316-9.613 9.613-9.613a9.512 9.512 0 0 1 6.79 2.823 9.546 9.546 0 0 1 2.812 6.802c.023 5.297-4.294 9.602-9.59 9.602Zm5.273-7.187c-.292-.14-1.715-.84-1.972-.945-.268-.093-.455-.14-.653.14-.198.292-.747.945-.91 1.132-.163.198-.338.221-.63.07-.292-.14-1.225-.455-2.322-1.435-.863-.77-1.435-1.715-1.61-2.007-.163-.292-.023-.443.129-.595.128-.128.291-.338.431-.502.14-.163.199-.291.292-.478.093-.198.047-.362-.023-.502s-.654-1.563-.887-2.146c-.233-.56-.478-.49-.653-.502h-.56c-.199 0-.502.07-.77.362-.257.291-1.004.991-1.004 2.415 0 1.423 1.039 2.8 1.179 2.986.14.199 2.041 3.115 4.935 4.364.688.303 1.225.478 1.645.606.688.222 1.318.187 1.82.117.56-.082 1.715-.7 1.948-1.377.245-.676.245-1.248.163-1.376-.081-.129-.256-.187-.548-.327Z"
+            fill="currentColor" />
+      </svg><svg fill="none" viewBox="0 0 20 20" id="icon-youtube" xmlns="http://www.w3.org/2000/svg">
+         <path
+            d="m8.33 12.505 4.326-2.5-4.325-2.5v5Zm9.634-6.525c.108.392.183.917.233 1.584.059.666.084 1.241.084 1.741l.05.7c0 1.825-.134 3.167-.367 4.025-.208.75-.692 1.234-1.442 1.442-.391.108-1.108.183-2.208.233a55.576 55.576 0 0 1-2.992.084l-1.325.05c-3.491 0-5.666-.134-6.525-.367-.75-.208-1.233-.692-1.441-1.442-.109-.391-.184-.916-.234-1.583a20.05 20.05 0 0 1-.083-1.742l-.05-.7c0-1.825.133-3.166.367-4.025.208-.75.691-1.233 1.441-1.441.392-.109 1.109-.184 2.209-.234a55.535 55.535 0 0 1 2.991-.083l1.325-.05c3.492 0 5.667.133 6.525.367.75.208 1.234.691 1.442 1.441Z"
+            fill="currentColor" />
+      </svg><svg fill="none" viewBox="0 0 13 34" id="lamp" xmlns="http://www.w3.org/2000/svg">
+         <path
+            d="M10.92 6.958H1.108L3.629.583h4.77l2.52 6.375ZM6.013 30.691V6.958M3.097 30.691H8.93a2.508 2.508 0 0 1 2.508 2.508v.047H.583v-.052a2.508 2.508 0 0 1 2.508-2.509l.006.006Z"
+            stroke="currentColor" stroke-width="1.167" stroke-linecap="round" stroke-linejoin="round" />
+      </svg><svg fill="none" viewBox="0 0 17 29" id="lamp-2" xmlns="http://www.w3.org/2000/svg">
+         <path
+            d="M16.331 11.238H.583L4.633.583h7.648l4.05 10.655ZM6.435 25.879v-.256a2.067 2.067 0 0 1 2.023-2.107 2.067 2.067 0 0 1 2.022 2.107v.256M7.448 23.797v-12.56M9.466 23.797v-12.56M5.952 25.879h5.01a2.116 2.116 0 0 1 2.116 2.116v.147H3.841v-.147a2.116 2.116 0 0 1 2.111-2.116ZM3.841 11.238v6.604M3.84 20.593c.732 0 1.325-.617 1.325-1.378 0-.76-.593-1.378-1.324-1.378-.731 0-1.324.617-1.324 1.378 0 .761.593 1.378 1.324 1.378Z"
+            stroke="currentColor" stroke-width="1.167" stroke-linecap="round" stroke-linejoin="round" />
+      </svg><svg fill="none" viewBox="0 0 25 25" id="light-bulb" xmlns="http://www.w3.org/2000/svg">
+         <path
+            d="M8.118 6.64a7.948 7.948 0 1 1 9.614 9.61L8.118 6.64ZM17.719 16.242l-5.864 1.948a.988.988 0 0 0-.415.257l-1.806 1.807c-.201.198-.472.31-.754.31H7.815a1.06 1.06 0 0 1-.75-.31l-2.972-2.972a1.06 1.06 0 0 1-.31-.75v-1.044c0-.282.112-.553.31-.754L5.9 12.927a.986.986 0 0 0 .257-.414l1.948-5.864"
+            stroke="currentColor" stroke-width="1.167" stroke-linecap="round" stroke-linejoin="round" />
+         <path
+            d="m8.992 10.818-1.446 2.938-3.49 3.49L.842 20.46v1.803a1.243 1.243 0 0 0 1.243 1.243H3.9l3.216-3.216 3.49-3.49 3.024-1.358M6.349 22.355l-4.356-4.352M4.934 23.764l-4.35-4.352M5.595 18.782l5.362-5.366"
+            stroke="currentColor" stroke-width="1.167" stroke-linecap="round" stroke-linejoin="round" />
+      </svg><svg fill="none" viewBox="0 0 23 29" id="mirror" xmlns="http://www.w3.org/2000/svg">
+         <path
+            d="M3.845 6.05v22.093M18.974 6.05v22.093M22.237 28.143H.583M11.41.583a5.34 5.34 0 0 1 5.286 5.414V20.17a5.34 5.34 0 0 1-5.286 5.394 5.341 5.341 0 0 1-5.285-5.414V5.997A5.34 5.34 0 0 1 11.41.583ZM3.845 8.974h2.278M18.975 8.974h-2.279"
+            stroke="currentColor" stroke-width="1.167" stroke-linecap="round" stroke-linejoin="round" />
+      </svg><svg fill="none" viewBox="0 0 27 27" id="wall-lamp" xmlns="http://www.w3.org/2000/svg">
+         <path
+            d="M.583 9.888h3.09a1.604 1.604 0 0 1 1.64 1.568v9.665a1.604 1.604 0 0 1-1.64 1.567H.583v-12.8ZM5.314 16.29h1.002a2.68 2.68 0 0 1 2.734 2.611V21.8a4.41 4.41 0 0 0 4.511 4.302 4.41 4.41 0 0 0 4.507-4.302v-2.077"
+            stroke="currentColor" stroke-width="1.167" stroke-linecap="round" stroke-linejoin="round" />
+         <path
+            d="M22.628 15.365v-.629h-9.113v.63a4.465 4.465 0 0 0 4.557 4.36 4.461 4.461 0 0 0 4.556-4.36ZM15.695 14.736V11.16M20.437 14.736V11.16M26.102 11.16H9.06L13.439.582h8.28l4.383 10.576Z"
+            stroke="currentColor" stroke-width="1.167" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
    </svg>
-</svg>
    <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.17/dist/lenis.min.js"></script>
    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
-   <script src="js/app.js"></script>
+   <script src="js/app.js?v2"></script>
 </body>
 
 </html>
