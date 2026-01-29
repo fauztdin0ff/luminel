@@ -615,40 +615,6 @@ function onEntry(entries) {
    });
 }
 
-/*==========================================================================
-Home catalog slider
-============================================================================*/
-let catSwiper = null;
-const MOBILE_BREAKPOINT = 767;
-
-function initCatSlider() {
-   const catSlider = document.querySelector('.categories__slider');
-   if (!catSlider) return;
-
-   if (window.innerWidth <= MOBILE_BREAKPOINT && !catSwiper) {
-      catSwiper = new Swiper(catSlider, {
-         slidesPerView: 'auto',
-         loop: true,
-         speed: 1000,
-         spaceBetween: 8,
-         pagination: {
-            el: '.categories__pagination',
-            clickable: true,
-         },
-         navigation: {
-            prevEl: '.categories__slider-prev',
-            nextEl: '.categories__slider-next',
-         }
-      });
-   }
-
-   if (window.innerWidth > MOBILE_BREAKPOINT && catSwiper) {
-      catSwiper.destroy(true, true);
-      catSwiper = null;
-   }
-}
-
-window.addEventListener('resize', initCatSlider);
 
 /*==========================================================================
 Video
@@ -1310,9 +1276,15 @@ function initProductGallerySlider() {
       breakpoints: {
          320: {
             direction: 'horizontal',
+            slidesPerView: 5,
+         },
+         768: {
+            direction: 'horizontal',
+            slidesPerView: 6,
          },
          1001: {
             direction: 'vertical',
+            slidesPerView: 6,
          }
       }
    });
@@ -1322,10 +1294,6 @@ function initProductGallerySlider() {
       spaceBetween: 0,
       slidesPerView: 1,
       speed: 800,
-      pagination: {
-         el: '.product__gallery-pagination',
-         clickable: true,
-      },
       thumbs: {
          swiper: productSwiperThumbs,
       }
@@ -1685,7 +1653,6 @@ document.addEventListener('DOMContentLoaded', () => {
    initHeaderSearch();
    initHeaderContacts();
    initHeaderLogoVisible();
-   initCatSlider();
    initProductsCarousel();
    initProductPreviewSliders();
    initReviewsLogic();
